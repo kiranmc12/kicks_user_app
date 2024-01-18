@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kicks_sneakerapp/application/bussiness_logic/bloc/auth_bloc.dart';
 import 'package:kicks_sneakerapp/application/presentation/routes/routes.dart';
-import 'package:kicks_sneakerapp/application/presentation/screens/auth/sign_in.dart';
 import 'package:kicks_sneakerapp/application/presentation/screens/auth/widgets/custom_textform_field.dart';
 import 'package:kicks_sneakerapp/application/presentation/utils/colors.dart';
 import 'package:kicks_sneakerapp/application/presentation/utils/constants.dart';
@@ -15,7 +14,6 @@ class ScreenSignUp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final height = MediaQuery.of(context).size.height;
 
     return Scaffold(
       backgroundColor: kBlack,
@@ -29,6 +27,7 @@ class ScreenSignUp extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Form(
+                  key: context.read<AuthBloc>().signUpKey,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -69,16 +68,14 @@ class ScreenSignUp extends StatelessWidget {
                         keyboardType: TextInputType.visiblePassword,
                         hintText: 'Enter valid password',
                         isPassword: true,
-                        icon: const Icon(Icons.remove_red_eye),
                         controller:
-                            context.read<AuthBloc>().passwordSignInController,
+                            context.read<AuthBloc>().passwordController,
                       ),
                       kHeight20,
                       CustomTextFormFieldWidget(
                         label: 'Confirm password',
                         keyboardType: TextInputType.visiblePassword,
                         hintText: 'Re-enter password',
-                        icon: const Icon(Icons.remove_red_eye),
                         isPassword: true,
                         controller:
                             context.read<AuthBloc>().confirmPasswordController,
@@ -92,19 +89,38 @@ class ScreenSignUp extends StatelessWidget {
                                 message: state.message!,
                                 color: kRed);
                           } else if (state.signUpResponseModel != null) {
-                            Navigator.pushNamed(context, Routes.signInPage);
+                            Navigator.pushNamed(context, Routes.bottomNav);
                           }
                         },
                         builder: (context, state) {
                           if (state.signUpIsLoading) {
-                            return LoadingIndicator(
-                                indicatorType: Indicator.ballBeat);
+                            return SizedBox(
+                              width: sWidth * 0.30,
+                              child: const LoadingIndicator(
+                                  indicatorType: Indicator.ballBeat),
+                            );
                           }
-                          return Align(
+                          else{
+                            return Align(
                             alignment: Alignment.centerRight,
                             child: ElevatedButton(
                               onPressed: () {
                                 if (context
+                                        .read<AuthBloc>()
+                                        .passwordController
+                                        .text
+                                        .trim() !=
+                                    context
+                                        .read<AuthBloc>()
+                                        .confirmPasswordController
+                                        .text
+                                        .trim()) {
+                                  showSnack(
+                                      context: context,
+                                      message: "Passwords do not match");
+                                }
+
+                               else if(context
                                     .read<AuthBloc>()
                                     .signUpKey
                                     .currentState!
@@ -150,6 +166,7 @@ class ScreenSignUp extends StatelessWidget {
                               child: const Text("Sign Up"),
                             ),
                           );
+                          }
                         },
                       )
                     ],

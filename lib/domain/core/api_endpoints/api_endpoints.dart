@@ -1,6 +1,6 @@
 class Apiendpoints {
   // static String baseUrl = 'https://jerseyhubmadebyarunk.store';
-  static String baseUrl = 'http://10.0.2.2:3000';
+  static String baseUrl = 'http://192.168.1.4:3000';
 
   static String login = '/users/login';
   static String loginOtp = '/users/otplogin';

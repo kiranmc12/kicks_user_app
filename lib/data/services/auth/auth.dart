@@ -23,6 +23,7 @@ class AuthApi implements AuthRepository {
   Future<Either<Failure, PhoneNumberOtpResponseModel>> otpLogin(
       {required PhoneNumberModel phoneNumberModel}) async {
     try {
+      print(phoneNumberModel.toJson());
       final response = await dio.post(Apiendpoints.loginOtp,
           data: phoneNumberModel.toJson());
       if (response.statusCode == 200 || response.statusCode == 201) {
@@ -66,17 +67,20 @@ class AuthApi implements AuthRepository {
   Future<Either<Failure, SignInResponseModel>> signIn(
       {required SignInModel signInModel}) async {
     try {
+      print(signInModel.toJson());
       final response =
           await dio.post(Apiendpoints.login, data: signInModel.toJson());
+      print(response.statusCode);
       if (response.statusCode == 200 || response.statusCode == 201) {
+        print(SignInResponseModel.fromJson(response.data));
         return Right(SignInResponseModel.fromJson(response.data));
       } else {
         return Left(Failure(
             message: SignInResponseModel.fromJson(response.data).message!));
       }
     } on DioException catch (dioError) {
-      final map = dioError.response!.data;
-      return Left(Failure(message: map['message'] as String));
+      log('dio error => ${dioError.toString()}');
+      return Left(Failure(message: errorMsg));
     } catch (e) {
       log('dio error => ${e.toString()}');
       return Left(Failure(message: errorMsg));
@@ -87,18 +91,19 @@ class AuthApi implements AuthRepository {
   Future<Either<Failure, SignUpResponseModel>> signUp(
       {required SignUpModel signUpModel}) async {
     try {
+      print(signUpModel.toJson());
       final response =
           await dio.post(Apiendpoints.signUp, data: signUpModel.toJson());
       if (response.statusCode == 200 || response.statusCode == 201) {
+        print(SignUpResponseModel.fromJson(response.data));
         return Right(SignUpResponseModel.fromJson(response.data));
       } else {
         return Left(Failure(
             message: SignInResponseModel.fromJson(response.data).message!));
       }
     } on DioException catch (dioError) {
-      final map = dioError.response!.data;
       log('dio error => ${dioError.toString()}');
-      return Left(Failure(message: map['message'] as String));
+      return Left(Failure(message: dioError.response!.data['message']));
     } catch (e) {
       log('dio error => ${e.toString()}');
       return Left(Failure(message: errorMsg));

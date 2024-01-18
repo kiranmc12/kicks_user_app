@@ -13,7 +13,6 @@ import 'package:kicks_sneakerapp/domain/models/auth/verify_otp_response_model/ve
 import 'package:kicks_sneakerapp/domain/models/token/token_model.dart';
 import 'package:kicks_sneakerapp/domain/repositories/auth_repository.dart';
 
-
 part 'auth_event.dart';
 part 'auth_state.dart';
 part 'auth_bloc.freezed.dart';
@@ -22,7 +21,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   final TextEditingController usernameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController phonecontroller = TextEditingController();
-    final TextEditingController passwordController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
 
   final TextEditingController passwordSignInController =
       TextEditingController();
@@ -89,9 +88,8 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       final result = await authRepository.otpLogin(
           phoneNumberModel: event.phoneNumberModel);
       result.fold((failure) {
-        emit(state.copyWith(
-            otpHasError: true, message: failure.message, otpIsLoading: false));
-      }, (PhoneNumberOtpResponse) {
+        emit(state.copyWith(message: failure.message, otpIsLoading: false));
+      }, (PhoneNumberOtpResponse) async {
         emit(state.copyWith(
             otpIsLoading: false,
             phoneNumberOtpResponseModel: PhoneNumberOtpResponse));

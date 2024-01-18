@@ -34,6 +34,7 @@ class _ScreenSignInState extends State<ScreenSignIn> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Form(
+                  key: context.read<AuthBloc>().signInKey,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -68,8 +69,15 @@ class _ScreenSignInState extends State<ScreenSignIn> {
                               content: Text(state.message!),
                               backgroundColor: kBlack,
                             ));
+                          } else if (state.isLoggedIn) {
+                            showSnack(
+                                context: context,
+                                message: 'user authenticated successfully',
+                                color: kGreen);
+                            Navigator.pushNamedAndRemoveUntil(
+                                context, Routes.bottomNav, (route) => false);
                           }
-                          if (state.signInResponseModel != null) {
+                          else if (state.signInResponseModel != null) {
                             Navigator.pushNamedAndRemoveUntil(
                                 context, Routes.bottomNav, (route) => false);
 
@@ -87,17 +95,18 @@ class _ScreenSignInState extends State<ScreenSignIn> {
                                   indicatorType: Indicator.ballPulse),
                             );
                           }
-                          return Align(
+                          else{
+                            return Align(
                             alignment: Alignment.centerRight,
                             child: ElevatedButton(
-                              onPressed: ()  {
+                              onPressed: () async {
                                 if (context
                                     .read<AuthBloc>()
                                     .signInKey
                                     .currentState!
                                     .validate()) {
                                   FocusScope.of(context).unfocus();
-                                  context.read<AuthBloc>().add(AuthEvent.signIn(
+                                 context.read<AuthBloc>().add(AuthEvent.signIn(
                                       signInModel: SignInModel(
                                           email: context
                                               .read<AuthBloc>()
@@ -122,6 +131,8 @@ class _ScreenSignInState extends State<ScreenSignIn> {
                               child: const Text("Sign In"),
                             ),
                           );
+                          }
+                          
                         },
                       )
                     ],
@@ -156,56 +167,43 @@ class _ScreenSignInState extends State<ScreenSignIn> {
                     child: CustomTextFormFieldWidget(
                       controller: context.read<AuthBloc>().phonecontroller,
                       label: "Phone number",
-                      keyboardType: TextInputType.phone,
+                      keyboardType: TextInputType.number,
                       hintText: 'Enter valid phone number',
                     ),
                   ),
                 ),
                 Visibility(
                   visible: loginWithOtp,
-                  child: Align(
-                    alignment: Alignment.centerRight,
-                    child: BlocConsumer<AuthBloc, AuthState>(
-                      listener: (context, state) {
-                        if (state.otpHasError) {
-                          showSnack(
-                              context: context, message: 'cannot send otp');
-                        } else if (state.signInHasError) {
-                          showSnack(context: context, message: state.message!);
-                        } else if (state.isLoggedIn) {
-                          showSnack(
-                              context: context,
-                              message: 'user authenticated successfully',
-                              color: kGreen);
-                          Navigator.pushNamedAndRemoveUntil(
-                              context, Routes.bottomNav, (route) => false);
-                        } else if (state.phoneNumberOtpResponseModel != null) {
-                          Navigator.pushNamed(context, Routes.OtpScreen);
-                        }
-                      },
-                      builder: (context, state) {
-                        return TextButton(
-                          onPressed: () {
-                            context
-                                .read<AuthBloc>()
-                                .phoneKey
-                                .currentState!
-                                .validate();
-                            {
-                              FocusScope.of(context).unfocus();
-                              context.read<AuthBloc>().add(AuthEvent.otpLogin(
-                                  PhoneNumberModel(
-                                      phone: context
-                                          .read<AuthBloc>()
-                                          .phonecontroller
-                                          .text
-                                          .trim())));
-                            }
-                          },
-                          child: const Text("Verify"),
-                        );
-                      },
-                    ),
+                  child: BlocConsumer<AuthBloc, AuthState>(
+                    listener: (context, state) {
+                      if (state.otpHasError) {
+                        showSnack(context: context, message: 'cannot send otp');
+                      } else if (state.phoneNumberOtpResponseModel != null) {
+                        Navigator.pushNamed(context, Routes.OtpScreen);
+                      }
+                    },
+                    builder: (context, state) {
+                      return TextButton(
+                        onPressed: () {
+                          context
+                              .read<AuthBloc>()
+                              .phoneKey
+                              .currentState!
+                              .validate();
+                          {
+                            FocusScope.of(context).unfocus();
+                            context.read<AuthBloc>().add(AuthEvent.otpLogin(
+                                PhoneNumberModel(
+                                    phone: context
+                                        .read<AuthBloc>()
+                                        .phonecontroller
+                                        .text
+                                        .trim())));
+                          }
+                        },
+                        child: const Text("Verify"),
+                      );
+                    },
                   ),
                 ),
                 const Divider(),

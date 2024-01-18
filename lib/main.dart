@@ -4,6 +4,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:kicks_sneakerapp/application/bussiness_logic/bloc/auth_bloc.dart';
 import 'package:kicks_sneakerapp/application/presentation/routes/route_generator.dart';
 import 'package:kicks_sneakerapp/application/presentation/routes/routes.dart';
+import 'package:kicks_sneakerapp/application/presentation/screens/auth/otp_verification.dart';
+import 'package:kicks_sneakerapp/application/presentation/utils/constants.dart';
 import 'package:kicks_sneakerapp/data/services/auth/auth.dart';
 
 void main() {
