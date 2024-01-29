@@ -38,7 +38,6 @@ class ScreenSignUp extends StatelessWidget {
                       ),
                       kHeight100,
                       CustomTextFormFieldWidget(
-                        isPassword: false,
                         label: 'Username',
                         keyboardType: TextInputType.name,
                         hintText: 'Enter username',
@@ -46,7 +45,6 @@ class ScreenSignUp extends StatelessWidget {
                       ),
                       kHeight20,
                       CustomTextFormFieldWidget(
-                        isPassword: false,
                         label: 'Email',
                         keyboardType: TextInputType.emailAddress,
                         hintText: 'Enter valid email',
@@ -55,9 +53,8 @@ class ScreenSignUp extends StatelessWidget {
                       ),
                       kHeight20,
                       CustomTextFormFieldWidget(
-                        isPassword: false,
                         label: 'Phone number',
-                        keyboardType: TextInputType.phone,
+                        keyboardType: TextInputType.number,
                         hintText: 'Enter valid phone number',
                         icon: const Icon(Icons.phone),
                         controller: context.read<AuthBloc>().phonecontroller,

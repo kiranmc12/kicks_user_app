@@ -28,7 +28,7 @@ class CustomTextFormFieldWidget extends StatefulWidget {
 }
 
 class _CustomTextFormFieldWidgetState extends State<CustomTextFormFieldWidget> {
-  bool obscure = false;
+  bool obscure = true;
   @override
   Widget build(BuildContext context) {
     return Column(

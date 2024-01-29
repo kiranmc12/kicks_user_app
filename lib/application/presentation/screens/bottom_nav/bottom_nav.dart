@@ -1,13 +1,18 @@
+import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_floating_bottom_bar/flutter_floating_bottom_bar.dart';
+import 'package:kicks_sneakerapp/application/bussiness_logic/bloc/auth_bloc.dart';
+import 'package:kicks_sneakerapp/application/presentation/routes/routes.dart';
 import 'package:kicks_sneakerapp/application/presentation/screens/favorite/favorites.dart';
 import 'package:kicks_sneakerapp/application/presentation/screens/home/home.dart';
 import 'package:kicks_sneakerapp/application/presentation/screens/profile/profile.dart';
 import 'package:kicks_sneakerapp/application/presentation/screens/search/search.dart';
 import 'package:kicks_sneakerapp/application/presentation/utils/colors.dart';
 import 'package:kicks_sneakerapp/application/presentation/utils/constants.dart';
+import 'package:kicks_sneakerapp/application/presentation/utils/snackbar/showSnack.dart';
 
 class ScreenBottombar extends StatefulWidget {
   const ScreenBottombar({Key? key}) : super(key: key);
@@ -84,6 +89,68 @@ class _ScreenBottombarState extends State<ScreenBottombar>
               kWidth10
             ],
           ),
+          drawer: Drawer(
+            child: Column(
+              children: [
+                Container(
+                  height: 200,
+                  color: kGrey,
+                  child: const CircleAvatar(
+                    radius: 50,
+                    backgroundColor: kBlack,
+                    child: Icon(
+                      Icons.settings,
+                      size: 55,
+                      color: kWhite,
+                    ),
+                  ),
+                ),
+                Expanded(
+                  child: ListView(
+                    children: [
+                      ListTile(
+                        title: const Text("Logout"),
+                        trailing: const Icon(Icons.logout),
+                        tileColor: kGrey,
+                        onTap: () {
+                          showDialog(
+                              context: context,
+                              builder: (context) => AlertDialog(
+                                    title: const Text("Logout"),
+                                    content: const Text(
+                                        "Are you sure you want to logout?"),
+                                    actions: [
+                                      TextButton(
+                                          onPressed: () {
+                                            Navigator.of(context).pop();
+                                          },
+                                          child: const Text("Cancel")),
+                                      TextButton(
+                                          onPressed: () {
+                                            context
+                                                .read<AuthBloc>()
+                                                .add(AuthEvent.signOut());
+                                            Navigator.pushNamedAndRemoveUntil(
+                                                context,
+                                                Routes.signInPage,
+                                                (route) => false);
+                                            showSnack(
+                                                context: context,
+                                                message:
+                                                    "Logged out successfully",
+                                                color: kGreen);
+                                          },
+                                          child: const Text("Ok"))
+                                    ],
+                                  ));
+                        },
+                      )
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
           body: BottomBar(
             borderRadius: BorderRadius.circular(500),
             body: (context, controller) => Padding(
@@ -120,7 +187,7 @@ class _ScreenBottombarState extends State<ScreenBottombar>
                             backgroundColor: kWhite,
                             child: Icon(Icons.search),
                           )
-                        : const Icon(Icons.search),
+                        : const Icon(EvaIcons.search),
                   ),
                   Tab(
                     icon: currentPage == 2
@@ -135,10 +202,10 @@ class _ScreenBottombarState extends State<ScreenBottombar>
                         ? const CircleAvatar(
                             backgroundColor: kWhite,
                             child: Icon(
-                              Icons.verified_user,
+                              EvaIcons.people,
                             ),
                           )
-                        : const Icon(Icons.verified_user),
+                        : const Icon(EvaIcons.people),
                   )
                 ],
               ),
