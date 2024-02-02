@@ -9,7 +9,7 @@ class GetInventoryResponseModel {
   @JsonKey(name: 'status_code')
   int? statusCode;
   String? message;
-  List<Datum>? data;
+  List<Inventory>? data;
   dynamic error;
 
   GetInventoryResponseModel({

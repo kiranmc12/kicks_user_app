@@ -14,14 +14,18 @@ class CircleAvatarWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        CircleAvatar(
-          radius: 35,
-          backgroundColor: kGrey,
-          child: Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: Image.network(
-              imageUrl,
-              fit: BoxFit.contain,
+        InkWell(
+          onTap: (){
+          },
+          child: CircleAvatar(
+            radius: 35,
+            backgroundColor: kGrey,
+            child: Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Image.network(
+                imageUrl,
+                fit: BoxFit.contain,
+              ),
             ),
           ),
         ),

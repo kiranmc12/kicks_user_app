@@ -3,7 +3,7 @@ import 'package:json_annotation/json_annotation.dart';
 part 'datum.g.dart';
 
 @JsonSerializable()
-class Datum {
+class Inventory {
   int? id;
   @JsonKey(name: 'category_id')
   int? categoryId;
@@ -20,7 +20,7 @@ class Datum {
   @JsonKey(name: 'discounted_price')
   int? discountedPrice;
 
-  Datum({
+  Inventory({
     this.id,
     this.categoryId,
     this.image,
@@ -33,7 +33,8 @@ class Datum {
     this.discountedPrice,
   });
 
-  factory Datum.fromJson(Map<String, dynamic> json) => _$DatumFromJson(json);
+  factory Inventory.fromJson(Map<String, dynamic> json) =>
+      _$InventoryFromJson(json);
 
-  Map<String, dynamic> toJson() => _$DatumToJson(this);
+  Map<String, dynamic> toJson() => _$InventoryToJson(this);
 }
