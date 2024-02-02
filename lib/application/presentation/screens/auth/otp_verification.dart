@@ -69,12 +69,18 @@ class ScreenOtpVerification extends StatelessWidget {
                       alignment: Alignment.centerRight,
                       child: TextButton(
                           onPressed: () {
-                            context
-                                .read<AuthBloc>()
-                                .add(AuthEvent.verifyOtp(VerifyOtpModel(
-                                  code: context.read<AuthBloc>().otpcontroller.text.trim(),
-                                  phone: context.read<AuthBloc>().phonecontroller.text.trim()
-                                )));
+                            context.read<AuthBloc>().add(AuthEvent.verifyOtp(
+                                VerifyOtpModel(
+                                    code: context
+                                        .read<AuthBloc>()
+                                        .otpcontroller
+                                        .text
+                                        .trim(),
+                                    phone: context
+                                        .read<AuthBloc>()
+                                        .phonecontroller
+                                        .text
+                                        .trim())));
                           },
                           child: Text(
                             "Submit",

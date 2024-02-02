@@ -14,7 +14,6 @@ class ScreenSignUp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       backgroundColor: kBlack,
       body: SingleChildScrollView(
@@ -65,8 +64,7 @@ class ScreenSignUp extends StatelessWidget {
                         keyboardType: TextInputType.visiblePassword,
                         hintText: 'Enter valid password',
                         isPassword: true,
-                        controller:
-                            context.read<AuthBloc>().passwordController,
+                        controller: context.read<AuthBloc>().passwordController,
                       ),
                       kHeight20,
                       CustomTextFormFieldWidget(
@@ -96,73 +94,71 @@ class ScreenSignUp extends StatelessWidget {
                               child: const LoadingIndicator(
                                   indicatorType: Indicator.ballBeat),
                             );
-                          }
-                          else{
+                          } else {
                             return Align(
-                            alignment: Alignment.centerRight,
-                            child: ElevatedButton(
-                              onPressed: () {
-                                if (context
-                                        .read<AuthBloc>()
-                                        .passwordController
-                                        .text
-                                        .trim() !=
-                                    context
-                                        .read<AuthBloc>()
-                                        .confirmPasswordController
-                                        .text
-                                        .trim()) {
-                                  showSnack(
-                                      context: context,
-                                      message: "Passwords do not match");
-                                }
-
-                               else if(context
-                                    .read<AuthBloc>()
-                                    .signUpKey
-                                    .currentState!
-                                    .validate()) {
-                                  FocusScope.of(context).unfocus();
-                                  context.read<AuthBloc>().add(AuthEvent.signUp(
-                                      signUpModel: SignUpModel(
-                                          name: context
-                                              .read<AuthBloc>()
-                                              .usernameController
-                                              .text
-                                              .trim(),
-                                          email: context
-                                              .read<AuthBloc>()
-                                              .emailController
-                                              .text
-                                              .trim(),
-                                          phone: context
-                                              .read<AuthBloc>()
-                                              .phonecontroller
-                                              .text
-                                              .trim(),
-                                          password: context
-                                              .read<AuthBloc>()
-                                              .passwordController
-                                              .text
-                                              .trim(),
-                                          confirmpassword: context
-                                              .read<AuthBloc>()
-                                              .confirmPasswordController
-                                              .text
-                                              .trim())));
-                                }
-                              },
-                              style: ElevatedButton.styleFrom(
-                                side: const BorderSide(color: kWhite),
-                                fixedSize: Size(sWidth * 0.30, sWidth * 0.10),
-                                backgroundColor: kBlack,
-                                foregroundColor: kWhite,
-                                shape: const RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.all(kRadius5)),
+                              alignment: Alignment.centerRight,
+                              child: ElevatedButton(
+                                onPressed: () {
+                                  if (context
+                                          .read<AuthBloc>()
+                                          .passwordController
+                                          .text
+                                          .trim() !=
+                                      context
+                                          .read<AuthBloc>()
+                                          .confirmPasswordController
+                                          .text
+                                          .trim()) {
+                                    showSnack(
+                                        context: context,
+                                        message: "Passwords do not match");
+                                  } else if (context
+                                      .read<AuthBloc>()
+                                      .signUpKey
+                                      .currentState!
+                                      .validate()) {
+                                    FocusScope.of(context).unfocus();
+                                    context.read<AuthBloc>().add(
+                                        AuthEvent.signUp(
+                                            signUpModel: SignUpModel(
+                                                name: context
+                                                    .read<AuthBloc>()
+                                                    .usernameController
+                                                    .text
+                                                    .trim(),
+                                                email: context
+                                                    .read<AuthBloc>()
+                                                    .emailController
+                                                    .text
+                                                    .trim(),
+                                                phone: context
+                                                    .read<AuthBloc>()
+                                                    .phonecontroller
+                                                    .text
+                                                    .trim(),
+                                                password: context
+                                                    .read<AuthBloc>()
+                                                    .passwordController
+                                                    .text
+                                                    .trim(),
+                                                confirmpassword: context
+                                                    .read<AuthBloc>()
+                                                    .confirmPasswordController
+                                                    .text
+                                                    .trim())));
+                                  }
+                                },
+                                style: ElevatedButton.styleFrom(
+                                  side: const BorderSide(color: kWhite),
+                                  fixedSize: Size(sWidth * 0.30, sWidth * 0.10),
+                                  backgroundColor: kBlack,
+                                  foregroundColor: kWhite,
+                                  shape: const RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.all(kRadius5)),
+                                ),
+                                child: const Text("Sign Up"),
                               ),
-                              child: const Text("Sign Up"),
-                            ),
-                          );
+                            );
                           }
                         },
                       )

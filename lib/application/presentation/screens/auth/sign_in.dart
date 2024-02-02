@@ -76,8 +76,7 @@ class _ScreenSignInState extends State<ScreenSignIn> {
                                 color: kGreen);
                             Navigator.pushNamedAndRemoveUntil(
                                 context, Routes.bottomNav, (route) => false);
-                          }
-                          else if (state.signInResponseModel != null) {
+                          } else if (state.signInResponseModel != null) {
                             Navigator.pushNamedAndRemoveUntil(
                                 context, Routes.bottomNav, (route) => false);
 
@@ -94,45 +93,44 @@ class _ScreenSignInState extends State<ScreenSignIn> {
                               child: const LoadingIndicator(
                                   indicatorType: Indicator.ballPulse),
                             );
-                          }
-                          else{
+                          } else {
                             return Align(
-                            alignment: Alignment.centerRight,
-                            child: ElevatedButton(
-                              onPressed: () async {
-                                if (context
-                                    .read<AuthBloc>()
-                                    .signInKey
-                                    .currentState!
-                                    .validate()) {
-                                  FocusScope.of(context).unfocus();
-                                 context.read<AuthBloc>().add(AuthEvent.signIn(
-                                      signInModel: SignInModel(
-                                          email: context
-                                              .read<AuthBloc>()
-                                              .emailController
-                                              .text
-                                              .trim(),
-                                          password: context
-                                              .read<AuthBloc>()
-                                              .passwordSignInController
-                                              .text
-                                              .trim())));
-                                }
-                              },
-                              style: ElevatedButton.styleFrom(
-                                side: const BorderSide(color: kWhite),
-                                fixedSize: Size(sWidth * 0.30, sWidth * 0.10),
-                                backgroundColor: kBlack,
-                                foregroundColor: kWhite,
-                                shape: const RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.all(kRadius5)),
+                              alignment: Alignment.centerRight,
+                              child: ElevatedButton(
+                                onPressed: () async {
+                                  if (context
+                                      .read<AuthBloc>()
+                                      .signInKey
+                                      .currentState!
+                                      .validate()) {
+                                    FocusScope.of(context).unfocus();
+                                    context.read<AuthBloc>().add(
+                                        AuthEvent.signIn(
+                                            signInModel: SignInModel(
+                                                email: context
+                                                    .read<AuthBloc>()
+                                                    .emailController
+                                                    .text
+                                                    .trim(),
+                                                password: context
+                                                    .read<AuthBloc>()
+                                                    .passwordSignInController
+                                                    .text
+                                                    .trim())));
+                                  }
+                                },
+                                style: ElevatedButton.styleFrom(
+                                  side: const BorderSide(color: kWhite),
+                                  fixedSize: Size(sWidth * 0.30, sWidth * 0.10),
+                                  backgroundColor: kBlack,
+                                  foregroundColor: kWhite,
+                                  shape: const RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.all(kRadius5)),
+                                ),
+                                child: const Text("Sign In"),
                               ),
-                              child: const Text("Sign In"),
-                            ),
-                          );
+                            );
                           }
-                          
                         },
                       )
                     ],

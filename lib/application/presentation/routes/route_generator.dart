@@ -16,10 +16,10 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (ctx) => const ScreenSignIn());
       case Routes.signUp:
         return MaterialPageRoute(builder: (ctx) => const ScreenSignUp());
-         case Routes.bottomNav:
-        return MaterialPageRoute(builder: (ctx) =>  ScreenBottombar());
-          case Routes.OtpScreen:
-        return MaterialPageRoute(builder: (ctx) =>  ScreenOtpVerification());
+      case Routes.bottomNav:
+        return MaterialPageRoute(builder: (ctx) => ScreenBottombar());
+      case Routes.OtpScreen:
+        return MaterialPageRoute(builder: (ctx) => ScreenOtpVerification());
       default:
         return _errorScreen();
     }

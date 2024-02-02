@@ -76,7 +76,6 @@ class ScreenHome extends StatelessWidget {
                                 ),
                                 kHeight10,
                                 ElevatedButton(
-                                  
                                     onPressed: () {},
                                     style: ButtonStyle(
                                       backgroundColor:

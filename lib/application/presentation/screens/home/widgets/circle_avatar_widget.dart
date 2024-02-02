@@ -6,7 +6,8 @@ class CircleAvatarWidget extends StatelessWidget {
   final String brandName;
   const CircleAvatarWidget({
     super.key,
-    required this.imageUrl, required this.brandName,
+    required this.imageUrl,
+    required this.brandName,
   });
 
   @override
