@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:kicks_sneakerapp/application/bussiness_logic/bloc/auth_bloc.dart';
+import 'package:kicks_sneakerapp/application/bussiness_logic/auth/auth_bloc.dart';
 import 'package:kicks_sneakerapp/application/presentation/routes/navigator_key.dart';
 import 'package:kicks_sneakerapp/application/presentation/routes/routes.dart';
 import 'package:kicks_sneakerapp/application/presentation/utils/colors.dart';

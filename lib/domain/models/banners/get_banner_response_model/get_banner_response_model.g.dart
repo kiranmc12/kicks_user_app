@@ -12,7 +12,7 @@ GetBannerResponseModel _$GetBannerResponseModelFromJson(
       statusCode: json['status_code'] as int?,
       message: json['message'] as String?,
       data: (json['data'] as List<dynamic>?)
-          ?.map((e) => Banner.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Banners.fromJson(e as Map<String, dynamic>))
           .toList(),
       error: json['error'],
     );

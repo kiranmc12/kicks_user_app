@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:kicks_sneakerapp/application/bussiness_logic/bloc/auth_bloc.dart';
+import 'package:kicks_sneakerapp/application/bussiness_logic/auth/auth_bloc.dart';
 import 'package:kicks_sneakerapp/application/presentation/routes/navigator_key.dart';
 import 'package:kicks_sneakerapp/application/presentation/routes/route_generator.dart';
 import 'package:kicks_sneakerapp/application/presentation/routes/routes.dart';
@@ -17,7 +17,6 @@ class KicksUserApp extends StatelessWidget {
   KicksUserApp({super.key});
 
   final RouteGenerator routeGenerator = RouteGenerator();
-
 
   @override
   Widget build(BuildContext context) {

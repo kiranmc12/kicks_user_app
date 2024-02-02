@@ -1,19 +1,20 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'banner.dart';
+part of 'datum.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-Banner _$BannerFromJson(Map<String, dynamic> json) => Banner(
+Banners _$BannersFromJson(Map<String, dynamic> json) => Banners(
       categoryId: json['CategoryID'] as int?,
       categoryName: json['CategoryName'] as String?,
       discountPercentage: json['DiscountPercentage'] as int?,
-      images: json['Images'],
+      images:
+          (json['Images'] as List<dynamic>?)?.map((e) => e as String).toList(),
     );
 
-Map<String, dynamic> _$BannerToJson(Banner instance) => <String, dynamic>{
+Map<String, dynamic> _$BannersToJson(Banners instance) => <String, dynamic>{
       'CategoryID': instance.categoryId,
       'CategoryName': instance.categoryName,
       'DiscountPercentage': instance.discountPercentage,

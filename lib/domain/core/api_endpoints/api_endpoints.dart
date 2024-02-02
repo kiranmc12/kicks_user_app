@@ -37,4 +37,3 @@ class Apiendpoints {
   static String category = '/users/category';
   static String categoryProducts = '/users/category/products';
 }
-

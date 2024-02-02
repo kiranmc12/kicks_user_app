@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_floating_bottom_bar/flutter_floating_bottom_bar.dart';
-import 'package:kicks_sneakerapp/application/bussiness_logic/bloc/auth_bloc.dart';
+import 'package:kicks_sneakerapp/application/bussiness_logic/auth/auth_bloc.dart';
 import 'package:kicks_sneakerapp/application/presentation/routes/routes.dart';
 import 'package:kicks_sneakerapp/application/presentation/screens/favorite/favorites.dart';
 import 'package:kicks_sneakerapp/application/presentation/screens/home/home.dart';

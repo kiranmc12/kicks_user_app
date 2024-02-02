@@ -1,6 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 
-import 'banner.dart';
+import 'datum.dart';
 
 part 'get_banner_response_model.g.dart';
 
@@ -9,7 +9,7 @@ class GetBannerResponseModel {
   @JsonKey(name: 'status_code')
   int? statusCode;
   String? message;
-  List<Banner>? data;
+  List<Banners>? data;
   dynamic error;
 
   GetBannerResponseModel({

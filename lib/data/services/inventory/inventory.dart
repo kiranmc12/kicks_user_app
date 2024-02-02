@@ -43,8 +43,8 @@ class InventoryApi implements InventoryRepository {
 
   @override
   Future<Either<Failure, GetInventoryResponseModel>> getInventorys(
-      {required GetInventoryPageQuery getInventoryPageQuery})async {
-         try {
+      {required GetInventoryPageQuery getInventoryPageQuery}) async {
+    try {
       final response = await apiServices.get(Apiendpoints.getProducts,
           queryParameters: getInventoryPageQuery.toJson());
       if (response.statusCode == 200) {
@@ -64,15 +64,12 @@ class InventoryApi implements InventoryRepository {
       log('error => ${e.toString()}');
       return Left(Failure(message: e.toString()));
     }
-      }
-  
-
-
+  }
 
   @override
   Future<Either<Failure, GetInventoryResponseModel>> search(
-      {required SearchModel searchModel}) async{
-   try {
+      {required SearchModel searchModel}) async {
+    try {
       final response = await apiServices.get(Apiendpoints.search,
           queryParameters: searchModel.toJson());
       if (response.statusCode == 200) {
@@ -93,10 +90,11 @@ class InventoryApi implements InventoryRepository {
       return Left(Failure(message: e.toString()));
     }
   }
-  
+
   @override
-  Future<Either<Failure, GetInventoryResponseModel>> getCategoryInventories({required IdQuery idQurrey}) async{
-  try {
+  Future<Either<Failure, GetInventoryResponseModel>> getCategoryInventories(
+      {required IdQuery idQurrey}) async {
+    try {
       final response = await apiServices.get(Apiendpoints.categoryProducts,
           queryParameters: idQurrey.toJson());
       if (response.statusCode == 200) {
@@ -117,7 +115,4 @@ class InventoryApi implements InventoryRepository {
       return Left(Failure(message: e.toString()));
     }
   }
-  
-
-
 }

@@ -18,5 +18,5 @@ abstract class InventoryRepository {
       {required SearchModel searchModel});
 
   Future<Either<Failure, GetInventoryResponseModel>> getCategoryInventories(
-      { required IdQuery idQurrey });
+      {required IdQuery idQurrey});
 }

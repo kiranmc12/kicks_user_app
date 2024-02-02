@@ -1,6 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 
-import 'datum.dart';
+import 'category.dart';
 
 part 'get_category_response_model.g.dart';
 
@@ -9,7 +9,7 @@ class GetCategoryResponseModel {
   @JsonKey(name: 'status_code')
   int? statusCode;
   String? message;
-  List<Datum>? data;
+  List<Category>? data;
   dynamic error;
 
   GetCategoryResponseModel({

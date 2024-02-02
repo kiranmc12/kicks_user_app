@@ -1,9 +1,9 @@
 import 'package:json_annotation/json_annotation.dart';
 
-part 'banner.g.dart';
+part 'datum.g.dart';
 
 @JsonSerializable()
-class Banner {
+class Banners {
   @JsonKey(name: 'CategoryID')
   int? categoryId;
   @JsonKey(name: 'CategoryName')
@@ -11,16 +11,16 @@ class Banner {
   @JsonKey(name: 'DiscountPercentage')
   int? discountPercentage;
   @JsonKey(name: 'Images')
-  dynamic images;
+  List<String>? images;
 
-  Banner({
+  Banners({
     this.categoryId,
     this.categoryName,
     this.discountPercentage,
     this.images,
   });
 
-  factory Banner.fromJson(Map<String, dynamic> json) => _$BannerFromJson(json);
+  factory Banners.fromJson(Map<String, dynamic> json) => _$BannersFromJson(json);
 
-  Map<String, dynamic> toJson() => _$BannerToJson(this);
+  Map<String, dynamic> toJson() => _$BannersToJson(this);
 }
