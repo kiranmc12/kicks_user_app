@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:kicks_sneakerapp/application/presentation/utils/colors.dart';
 
-late final double sHeight;
-late final double sWidth;
+double sHeight = 850;
+double sWidth = 350;
 
-const String errorMsg = 'Something went wrong, please try again';
+const String errorMsg = 'Something went wrong, please try againn';
 
 const kHeight5 = SizedBox(height: 5);
 const kHeight10 = SizedBox(height: 10);
@@ -25,7 +25,7 @@ const kRadius10 = Radius.circular(10);
 const kRadius20 = Radius.circular(20);
 const kRadius50 = Radius.circular(50);
 
-TextStyle textstyle(
+TextStyle tektur(
     {double fontSize = 0.035,
     FontWeight fontWeight = FontWeight.normal,
     Color color = kBlack}) {
@@ -39,7 +39,14 @@ TextStyle roboto(
     Color color = kBlack}) {
   return GoogleFonts.roboto(
       fontSize: fontSize * sWidth, fontWeight: fontWeight, color: color);
-}
+}TextStyle priceStyleCross = TextStyle(
+    fontWeight: FontWeight.w400,
+    fontSize: sWidth * 0.040,
+    color: kBlack.withOpacity(0.7),
+    decoration: TextDecoration.lineThrough);
+
+TextStyle priceStyle =
+    TextStyle(fontWeight: FontWeight.w700, fontSize: sWidth * 0.050);
 
 void sizeFinder(BuildContext context) {
   final size = MediaQuery.of(context).size;

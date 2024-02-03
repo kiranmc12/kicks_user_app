@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kicks_sneakerapp/application/presentation/routes/routes.dart';
 import 'package:kicks_sneakerapp/application/presentation/utils/colors.dart';
 
 class CircleAvatarWidget extends StatelessWidget {
@@ -15,7 +16,8 @@ class CircleAvatarWidget extends StatelessWidget {
     return Column(
       children: [
         InkWell(
-          onTap: (){
+          onTap: () {
+            Navigator.pushNamed(context, Routes.categoryListScreen,arguments: brandName);
           },
           child: CircleAvatar(
             radius: 35,

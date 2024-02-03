@@ -84,7 +84,7 @@ class ScreenOtpVerification extends StatelessWidget {
                           },
                           child: Text(
                             "Submit",
-                            style: textstyle(
+                            style: tektur(
                                 color: kBlack, fontWeight: FontWeight.w500),
                           )),
                     );

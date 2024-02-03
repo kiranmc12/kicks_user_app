@@ -71,7 +71,7 @@ class InventoryApi implements InventoryRepository {
       {required SearchModel searchModel}) async {
     try {
       final response = await apiServices.get(Apiendpoints.search,
-          queryParameters: searchModel.toJson());
+          data: searchModel.toJson());
       if (response.statusCode == 200) {
         return Right(GetInventoryResponseModel.fromJson(response.data));
       } else {

@@ -7,8 +7,8 @@ import 'package:kicks_sneakerapp/application/bussiness_logic/home/home_bloc.dart
 import 'package:kicks_sneakerapp/application/presentation/routes/navigator_key.dart';
 import 'package:kicks_sneakerapp/application/presentation/routes/route_generator.dart';
 import 'package:kicks_sneakerapp/application/presentation/routes/routes.dart';
-import 'package:kicks_sneakerapp/application/presentation/screens/auth/otp_verification.dart';
-import 'package:kicks_sneakerapp/application/presentation/utils/constants.dart';
+import 'package:kicks_sneakerapp/application/presentation/screens/categoey/category_screen.dart';
+
 import 'package:kicks_sneakerapp/data/services/auth/auth.dart';
 import 'package:kicks_sneakerapp/data/services/home/home.dart';
 import 'package:kicks_sneakerapp/data/services/inventory/inventory.dart';
@@ -24,6 +24,7 @@ class KicksUserApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (context) => AuthBloc(AuthApi())),

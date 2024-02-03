@@ -1,7 +1,6 @@
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_floating_bottom_bar/flutter_floating_bottom_bar.dart';
 import 'package:kicks_sneakerapp/application/bussiness_logic/auth/auth_bloc.dart';
@@ -13,6 +12,7 @@ import 'package:kicks_sneakerapp/application/presentation/screens/search/search.
 import 'package:kicks_sneakerapp/application/presentation/utils/colors.dart';
 import 'package:kicks_sneakerapp/application/presentation/utils/constants.dart';
 import 'package:kicks_sneakerapp/application/presentation/utils/snackbar/showSnack.dart';
+import 'package:kicks_sneakerapp/application/presentation/widgets/appbar_widget.dart';
 
 class ScreenBottombar extends StatefulWidget {
   const ScreenBottombar({Key? key}) : super(key: key);
@@ -57,38 +57,7 @@ class _ScreenBottombarState extends State<ScreenBottombar>
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-          appBar: AppBar(
-            systemOverlayStyle: const SystemUiOverlayStyle(
-                statusBarColor: kWhite, systemNavigationBarColor: kWhite),
-            title: const Text(
-              "Kicks",
-              style: TextStyle(fontWeight: FontWeight.bold),
-            ),
-            centerTitle: true,
-            actions: [
-              Stack(
-                children: [
-                  CircleAvatar(
-                    backgroundColor: kGrey,
-                    child: IconButton(
-                      onPressed: () {},
-                      icon: Icon(Icons.shopping_cart),
-                    ),
-                  ),
-                  const Positioned(
-                    top: 0,
-                    right: 0,
-                    child: Icon(
-                      Icons.circle,
-                      size: 15,
-                      color: kBlack,
-                    ),
-                  ),
-                ],
-              ),
-              kWidth10
-            ],
-          ),
+          appBar: appbarWidget(title: 'Kicks'),
           drawer: Drawer(
             child: Column(
               children: [

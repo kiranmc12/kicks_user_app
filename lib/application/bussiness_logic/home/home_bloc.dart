@@ -39,9 +39,10 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
         if (getCategoryResponseModel.data != null) {
           for (var item in getCategoryResponseModel.data!) {
             categoryMap[item.category!] = item.id!;
+            print(categoryMap);
           }
         }
-        emit(state.copyWith(     
+        emit(state.copyWith(
             isLoading: false, category: getCategoryResponseModel.data));
       });
     });

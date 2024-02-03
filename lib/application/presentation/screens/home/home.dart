@@ -6,7 +6,6 @@ import 'package:kicks_sneakerapp/application/presentation/screens/home/widgets/p
 import 'package:kicks_sneakerapp/application/presentation/screens/home/widgets/popular_grid_view.dart';
 
 import 'package:kicks_sneakerapp/application/presentation/utils/constants.dart';
-import 'package:kicks_sneakerapp/application/presentation/widgets/custom_search_field_widget.dart';
 
 class ScreenHome extends StatelessWidget {
   const ScreenHome({super.key});
@@ -22,7 +21,6 @@ class ScreenHome extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const CustomSearchFieldWidget(),
               kHeight20,
               const PopularCategories(),
               const MonthlyOfferBoard(),

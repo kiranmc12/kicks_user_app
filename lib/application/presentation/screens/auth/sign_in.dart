@@ -153,7 +153,7 @@ class _ScreenSignInState extends State<ScreenSignIn> {
                     },
                     child: Text(
                       'login using otp',
-                      style: textstyle(color: kWhite),
+                      style: tektur(color: kWhite),
                     ),
                   ),
                 ),
