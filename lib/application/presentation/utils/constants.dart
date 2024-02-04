@@ -39,7 +39,9 @@ TextStyle roboto(
     Color color = kBlack}) {
   return GoogleFonts.roboto(
       fontSize: fontSize * sWidth, fontWeight: fontWeight, color: color);
-}TextStyle priceStyleCross = TextStyle(
+}
+
+TextStyle priceStyleCross = TextStyle(
     fontWeight: FontWeight.w400,
     fontSize: sWidth * 0.040,
     color: kBlack.withOpacity(0.7),

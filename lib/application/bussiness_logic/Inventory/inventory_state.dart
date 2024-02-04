@@ -11,6 +11,6 @@ class InventoryState with _$InventoryState {
       GetIndividualProductDetails? getIndividualProductResponse,
       List<Inventory>? inventories}) = _Initial;
 
-  factory InventoryState.initial() =>
-      const InventoryState(isLoading: true, hasError: false, loadMore: false,expired: false);
+  factory InventoryState.initial() => const InventoryState(
+      isLoading: true, hasError: false, loadMore: false, expired: false);
 }

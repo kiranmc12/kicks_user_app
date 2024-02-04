@@ -31,16 +31,16 @@ class CategoryDetailContainer extends StatelessWidget {
                         fit: BoxFit.fill,
                       )),
                 )),
-                kHeight5,
+            kHeight5,
             Text(
               inventory.productName!,
-              style: tektur(fontSize: 0.04,fontWeight: FontWeight.bold),
+              style: tektur(fontSize: 0.04, fontWeight: FontWeight.bold),
             ),
             Row(
               children: [
                 Text(
                   '₹ ${inventory.discountedPrice!.roundToDouble().toString()}',
-                  style: tektur(fontSize: 0.040,fontWeight: FontWeight.bold),
+                  style: tektur(fontSize: 0.040, fontWeight: FontWeight.bold),
                 ),
                 kWidth10,
                 Text(
@@ -59,23 +59,21 @@ class CategoryDetailContainer extends StatelessWidget {
                       color: kGreen, borderRadius: BorderRadius.all(kRadius5)),
                   child: Text(
                     " ${(100 - (inventory.discountedPrice! / inventory.price!) * 100).round()}% off",
-                    style: roboto(fontWeight: FontWeight.bold,color: kWhite),
+                    style: roboto(fontWeight: FontWeight.bold, color: kWhite),
                   ),
                 ),
-              
               ],
-
             ),
-              ElevatedButton(
-                  onPressed: () {},
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.orange,
-                  ),
-                  child: Text(
-                    "Add to Cart",
-                    style: roboto(color: kWhite, fontWeight: FontWeight.bold),
-                  ),
-                )
+            ElevatedButton(
+              onPressed: () {},
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.orange,
+              ),
+              child: Text(
+                "Add to Cart",
+                style: roboto(color: kWhite, fontWeight: FontWeight.bold),
+              ),
+            )
           ],
         ),
       ),

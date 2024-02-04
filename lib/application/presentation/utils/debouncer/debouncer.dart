@@ -8,6 +8,6 @@ class Debouncer {
 
   void call(Function() action) {
     _timer?.cancel();
-    _timer = Timer(delay,action);
- }
+    _timer = Timer(delay, action);
+  }
 }

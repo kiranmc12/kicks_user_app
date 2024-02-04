@@ -35,7 +35,7 @@ class ProductDetails extends StatelessWidget {
           kHeight20,
           Row(
             children: [
-               Text(
+              Text(
                 'Offer Availabe',
                 style: roboto(),
               ),
@@ -49,7 +49,7 @@ class ProductDetails extends StatelessWidget {
           kHeight20,
           Row(
             children: [
-               Text(
+              Text(
                 'Size',
                 style: roboto(),
               ),

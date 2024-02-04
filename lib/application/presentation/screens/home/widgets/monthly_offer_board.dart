@@ -5,7 +5,6 @@ import 'package:kicks_sneakerapp/application/presentation/utils/colors.dart';
 import 'package:kicks_sneakerapp/application/presentation/utils/constants.dart';
 import 'package:kicks_sneakerapp/application/presentation/utils/loadin_animation/loading_animation.dart';
 
-
 class MonthlyOfferBoard extends StatelessWidget {
   const MonthlyOfferBoard({
     super.key,
@@ -25,9 +24,7 @@ class MonthlyOfferBoard extends StatelessWidget {
             blurRadius: 3, blurStyle: BlurStyle.outer, offset: Offset(0, 0.5))
       ], color: kBlack, borderRadius: BorderRadius.all(kRadius20)),
       child: BlocConsumer<HomeBloc, HomeState>(
-        listener: (context,state){
-          
-        },
+        listener: (context, state) {},
         builder: (context, state) {
           if (state.isLoading) {
             return const LoadingAnimation(width: 0.20);
@@ -52,7 +49,8 @@ class MonthlyOfferBoard extends StatelessWidget {
                             child: SizedBox(
                               height: sWidth * 0.30,
                               width: sWidth * 0.25,
-                              child: Image.network(state.banners![0].images![1]),
+                              child:
+                                  Image.network(state.banners![0].images![1]),
                             ),
                           )
                         ],

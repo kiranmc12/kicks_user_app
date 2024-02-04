@@ -29,22 +29,21 @@ class PopularGridView extends StatelessWidget {
             if (state.isLoading) {
               return const LoadingAnimation(width: 0.30);
             }
-          if (state.inventories != null) {
-                  return GridView.builder(
-                      shrinkWrap: true,
-                      itemCount: 4,
-                      physics: const NeverScrollableScrollPhysics(),
-                      gridDelegate:
-                          const SliverGridDelegateWithFixedCrossAxisCount(
-                              crossAxisCount: 2,
-                              childAspectRatio: 1 / 1.5,
-                              mainAxisSpacing: 10,
-                              crossAxisSpacing: 20),
-                      itemBuilder: (context, index) =>
-                          ProductTile(inventories: state.inventories![index]));
-                } else {
-                  return  Center(child: Text('Nothing to show'));
-                }
+            if (state.inventories != null) {
+              return GridView.builder(
+                  shrinkWrap: true,
+                  itemCount: 4,
+                  physics: const NeverScrollableScrollPhysics(),
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      childAspectRatio: 1 / 1.5,
+                      mainAxisSpacing: 10,
+                      crossAxisSpacing: 20),
+                  itemBuilder: (context, index) =>
+                      ProductTile(inventories: state.inventories![index]));
+            } else {
+              return const Center(child: Text('Nothing to show'));
+            }
           },
         ),
       ],
@@ -64,15 +63,15 @@ class ProductTile extends StatelessWidget {
     return Column(
       children: [
         InkWell(
-          onTap: (){
-               Navigator.pushNamed(context, Routes.inventoryDetailScreen,
-                    arguments: inventories);
+          onTap: () {
+            Navigator.pushNamed(context, Routes.inventoryDetailScreen,
+                arguments: inventories);
           },
           child: Stack(
             children: [
               Padding(
-                padding:
-                    const EdgeInsets.only(left: 7, right: 10, top: 10, bottom: 5),
+                padding: const EdgeInsets.only(
+                    left: 7, right: 10, top: 10, bottom: 5),
                 child: Container(
                     height: sWidth * 0.5,
                     color: kGrey, // Replace with your desired color
@@ -116,14 +115,14 @@ class ProductTile extends StatelessWidget {
             ),
             kWidth10,
             Text(
-                  '₹ ${inventories.price!.roundToDouble().toString()}',
-                  style: TextStyle(
-                      fontWeight: FontWeight.w400,
-                      fontSize: sWidth * 0.03,
-                      color: kBlack.withOpacity(0.7),
-                      decoration: TextDecoration.lineThrough),
-                ),
-                 Spacer(),
+              '₹ ${inventories.price!.roundToDouble().toString()}',
+              style: TextStyle(
+                  fontWeight: FontWeight.w400,
+                  fontSize: sWidth * 0.03,
+                  color: kBlack.withOpacity(0.7),
+                  decoration: TextDecoration.lineThrough),
+            ),
+            Spacer(),
             Container(
               decoration: const BoxDecoration(
                   borderRadius: BorderRadius.all(kRadius5), color: kGreen),

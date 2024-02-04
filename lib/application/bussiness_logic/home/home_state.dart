@@ -1,7 +1,5 @@
 part of 'home_bloc.dart';
 
-
-
 @freezed
 class HomeState with _$HomeState {
   const factory HomeState(
@@ -11,5 +9,6 @@ class HomeState with _$HomeState {
       bool? expired,
       List<Banners>? banners,
       List<Category>? category}) = _Initial;
-  factory HomeState.initial() => HomeState(isLoading: false, hasError: false,expired: false);
+  factory HomeState.initial() =>
+      HomeState(isLoading: false, hasError: false, expired: false);
 }

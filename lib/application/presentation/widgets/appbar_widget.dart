@@ -7,12 +7,12 @@ AppBar appbarWidget({required String title}) {
   return AppBar(
       systemOverlayStyle: const SystemUiOverlayStyle(
           statusBarColor: kWhite, systemNavigationBarColor: kWhite),
-      title:  Text(
-        title !="Kicks"?title:"Kicks",
+      title: Text(
+        title != "Kicks" ? title : "Kicks",
         style: TextStyle(fontWeight: FontWeight.bold),
       ),
       centerTitle: true,
-      actions:  [const CartButtonWidget()] );
+      actions: [const CartButtonWidget()]);
 }
 
 class CartButtonWidget extends StatelessWidget {

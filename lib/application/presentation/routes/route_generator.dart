@@ -25,9 +25,10 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (ctx) => ScreenOtpVerification());
       case Routes.categoryListScreen:
         return arguments is String
-            ? MaterialPageRoute(builder: (ctx) => ScreenCategory(title: arguments))
+            ? MaterialPageRoute(
+                builder: (ctx) => ScreenCategory(title: arguments))
             : _errorScreen();
-                 case Routes.inventoryDetailScreen:
+      case Routes.inventoryDetailScreen:
         return arguments is Inventory
             ? MaterialPageRoute(
                 builder: (ctx) => ScreenInventoryDetails(inventory: arguments))

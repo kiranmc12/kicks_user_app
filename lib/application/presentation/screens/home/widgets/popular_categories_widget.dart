@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kicks_sneakerapp/application/bussiness_logic/home/home_bloc.dart';
@@ -13,7 +12,7 @@ class PopularCategories extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-      WidgetsBinding.instance.addPostFrameCallback((_) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
       context.read<HomeBloc>().add(const HomeEvent.getCategory());
     });
     return Container(

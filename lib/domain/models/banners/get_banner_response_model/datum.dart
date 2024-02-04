@@ -20,7 +20,8 @@ class Banners {
     this.images,
   });
 
-  factory Banners.fromJson(Map<String, dynamic> json) => _$BannersFromJson(json);
+  factory Banners.fromJson(Map<String, dynamic> json) =>
+      _$BannersFromJson(json);
 
   Map<String, dynamic> toJson() => _$BannersToJson(this);
 }

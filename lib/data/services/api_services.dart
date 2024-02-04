@@ -76,7 +76,7 @@ class ApiServices {
         NavigationService()
             .navigatorKey
             .currentState!
-            .pushNamedAndRemoveUntil(Routes.signInPage,(route) => false);
+            .pushNamedAndRemoveUntil(Routes.signInPage, (route) => false);
         final SnackBar snackBar =
             SnackBar(content: Text("Token Expired Login Again"));
         NavigationService()

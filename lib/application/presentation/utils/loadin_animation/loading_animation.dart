@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:kicks_sneakerapp/application/presentation/utils/constants.dart';
 import 'package:loading_indicator/loading_indicator.dart';
 
-
 class LoadingAnimation extends StatelessWidget {
   const LoadingAnimation({
     super.key,

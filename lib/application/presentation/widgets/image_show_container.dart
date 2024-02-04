@@ -18,14 +18,12 @@ class ImageShowContainer extends StatelessWidget {
       padding: const EdgeInsets.fromLTRB(20, 30, 30, 5),
       height: sWidth * width,
       decoration: const BoxDecoration(
-          color: kGrey, borderRadius: BorderRadius.all(kRadius10)),
+          color: kWhite, borderRadius: BorderRadius.all(kRadius10)),
       child: SizedBox(
           width: double.infinity,
           child: Image.network(
             image,
             fit: BoxFit.fill,
-         
-            
           )),
     );
   }

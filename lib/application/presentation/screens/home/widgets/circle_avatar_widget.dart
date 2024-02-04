@@ -17,7 +17,8 @@ class CircleAvatarWidget extends StatelessWidget {
       children: [
         InkWell(
           onTap: () {
-            Navigator.pushNamed(context, Routes.categoryListScreen,arguments: brandName);
+            Navigator.pushNamed(context, Routes.categoryListScreen,
+                arguments: brandName);
           },
           child: CircleAvatar(
             radius: 35,

@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kicks_sneakerapp/application/bussiness_logic/Inventory/inventory_bloc.dart';
 import 'package:kicks_sneakerapp/application/presentation/screens/categoey/widgets/category_detail_container.dart';
 import 'package:kicks_sneakerapp/application/presentation/utils/loadin_animation/loading_animation.dart';
+
 class CatogoryListViews extends StatelessWidget {
   const CatogoryListViews({
     super.key,

@@ -7,7 +7,6 @@ import 'package:kicks_sneakerapp/application/presentation/utils/loadin_animation
 import 'package:kicks_sneakerapp/application/presentation/widgets/custom_search_field_widget.dart';
 import 'package:lottie/lottie.dart';
 
-
 class ScreenSearch extends StatefulWidget {
   const ScreenSearch({super.key});
 
@@ -40,24 +39,24 @@ class _ScreenSearchState extends State<ScreenSearch> {
       controller: scrollController,
       child: Column(
         children: [
-          SizedBox(
-            child: Row(
-              children: [
-                const Flexible(flex: 6, child: CustomSearchFieldWidget()),
-                IconButton(
-                  onPressed: () {},
-                  icon: const Icon(Icons.menu),
-                ),
-              ],
-            ),
+          const SizedBox(
+            child: CustomSearchFieldWidget(),
           ),
           // AnimatedBox(isSort: isSort),
           BlocBuilder<InventoryBloc, InventoryState>(
             builder: (context, state) {
-              if (state.inventories == null ||
-                  state.inventories!.isEmpty) {
-                return Center(
-                  child:  Lottie.asset('assets/animation/empty.json'),
+              if (state.inventories == null || state.inventories!.isEmpty) {
+                return Column(
+                  children: [
+                    Center(
+                      child: Lottie.network(
+                          'https://lottie.host/0be2ee81-6259-4d63-9408-8b2dbdf04b4a/4VfozZiSJO.json'),
+                    ),
+                    Text(
+                      "No result",
+                      style: roboto(fontSize: 0.04),
+                    )
+                  ],
                 );
               }
               return GridView.builder(
