@@ -1,12 +1,12 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'datum.dart';
+part of 'product.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-Datum _$DatumFromJson(Map<String, dynamic> json) => Datum(
+Product _$ProductFromJson(Map<String, dynamic> json) => Product(
       productId: json['product_id'] as int?,
       productName: json['product_name'] as String?,
       image: json['image'] as String?,
@@ -14,10 +14,10 @@ Datum _$DatumFromJson(Map<String, dynamic> json) => Datum(
       quantity: json['quantity'] as int?,
       stock: json['stock'] as int?,
       totalPrice: json['total_price'] as int?,
-      discountedPrice: json['discounted_price'] as int?,
+      discountedPrice: (json['discounted_price'] as num?)?.toDouble(),
     );
 
-Map<String, dynamic> _$DatumToJson(Datum instance) => <String, dynamic>{
+Map<String, dynamic> _$ProductToJson(Product instance) => <String, dynamic>{
       'product_id': instance.productId,
       'product_name': instance.productName,
       'image': instance.image,

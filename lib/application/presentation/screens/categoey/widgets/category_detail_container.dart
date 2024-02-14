@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:kicks_sneakerapp/application/bussiness_logic/cart/cart_bloc.dart';
+import 'package:kicks_sneakerapp/application/presentation/routes/routes.dart';
 import 'package:kicks_sneakerapp/application/presentation/utils/colors.dart';
 import 'package:kicks_sneakerapp/application/presentation/utils/constants.dart';
+import 'package:kicks_sneakerapp/domain/models/cart/add_to_cart_model/add_to_cart_model.dart';
 import 'package:kicks_sneakerapp/domain/models/inventory/get_inventory_response_model/datum.dart';
 
 class CategoryDetailContainer extends StatelessWidget {
@@ -64,15 +68,30 @@ class CategoryDetailContainer extends StatelessWidget {
                 ),
               ],
             ),
-            ElevatedButton(
-              onPressed: () {},
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.orange,
-              ),
-              child: Text(
-                "Add to Cart",
-                style: roboto(color: kWhite, fontWeight: FontWeight.bold),
-              ),
+            BlocBuilder<CartBloc, CartState>(
+              builder: (context, state) {
+                return ElevatedButton(
+                  onPressed: () {
+                    if (state.cartItems.containsKey(inventory.id)) {
+                      Navigator.pushNamed(context, Routes.cartScreen);
+                    } else {
+                      context.read<CartBloc>().add(CartEvent.addToCart(
+                              addToCartModel: AddToCartModel(
+                            inventoryId: inventory.id!,
+                          )));
+                    }
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.orange,
+                  ),
+                  child: Text(
+                    state.cartItems.containsKey(inventory.id)
+                        ? "Go to Cart"
+                        : "Add to Cart",
+                    style: roboto(color: kWhite, fontWeight: FontWeight.bold),
+                  ),
+                );
+              },
             )
           ],
         ),

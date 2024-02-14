@@ -100,6 +100,7 @@ class ApiServices {
     dynamic data,
   }) async {
     try {
+      print(queryParameters);
       final accessToken =
           await SharedPref.getToken().then((token) => token.accessToken);
       dio.options.headers.addAll(

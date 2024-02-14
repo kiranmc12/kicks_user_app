@@ -12,7 +12,6 @@ class ScreenSplash extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    sizeFinder(context);
     Timer(const Duration(seconds: 1), () {
       context.read<AuthBloc>().add(AuthEvent.loggedIn());
     });

@@ -4,6 +4,7 @@ import 'package:kicks_sneakerapp/application/presentation/screens/auth/otp_verif
 import 'package:kicks_sneakerapp/application/presentation/screens/bottom_nav/bottom_nav.dart';
 import 'package:kicks_sneakerapp/application/presentation/screens/auth/sign_in.dart';
 import 'package:kicks_sneakerapp/application/presentation/screens/auth/sign_up.dart';
+import 'package:kicks_sneakerapp/application/presentation/screens/cart/cart_screen.dart';
 import 'package:kicks_sneakerapp/application/presentation/screens/categoey/category_screen.dart';
 import 'package:kicks_sneakerapp/application/presentation/screens/inventory/product_details.dart';
 import 'package:kicks_sneakerapp/application/presentation/screens/splash_screen/splash_screen.dart';
@@ -33,6 +34,8 @@ class RouteGenerator {
             ? MaterialPageRoute(
                 builder: (ctx) => ScreenInventoryDetails(inventory: arguments))
             : _errorScreen();
+      case Routes.cartScreen:
+        return MaterialPageRoute(builder: (ctx) => ScreenCart());
       default:
         return _errorScreen();
     }

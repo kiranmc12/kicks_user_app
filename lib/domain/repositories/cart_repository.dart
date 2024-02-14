@@ -24,6 +24,5 @@ abstract class CartRepository {
   Future<Either<Failure, CartResponseModel>> removeFromCart(
       {required RemoveFromCartQuery removeFromCartQuery});
 
-  Future<Either<Failure, GetCouponResponse>> getCoupons(
-      );
+  Future<Either<Failure, GetCouponResponse>> getCoupons();
 }

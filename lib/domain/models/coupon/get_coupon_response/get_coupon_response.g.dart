@@ -11,7 +11,7 @@ GetCouponResponse _$GetCouponResponseFromJson(Map<String, dynamic> json) =>
       statusCode: json['status_code'] as int?,
       message: json['message'] as String?,
       data: (json['data'] as List<dynamic>?)
-          ?.map((e) => Datum.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Coupons.fromJson(e as Map<String, dynamic>))
           .toList(),
       error: json['error'],
     );

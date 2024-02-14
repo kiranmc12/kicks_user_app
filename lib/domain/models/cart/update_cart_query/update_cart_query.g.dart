@@ -8,12 +8,12 @@ part of 'update_cart_query.dart';
 
 UpdateCartQuery _$UpdateCartQueryFromJson(Map<String, dynamic> json) =>
     UpdateCartQuery(
-      cartId: json['cart_id'] as int,
-      inventoryId: json['inventory_id'] as int,
+      cartId: json['id'] as int,
+      inventoryId: json['inventory'] as int,
     );
 
 Map<String, dynamic> _$UpdateCartQueryToJson(UpdateCartQuery instance) =>
     <String, dynamic>{
-      'cart_id': instance.cartId,
-      'inventory_id': instance.inventoryId,
+      'id': instance.cartId,
+      'inventory': instance.inventoryId,
     };

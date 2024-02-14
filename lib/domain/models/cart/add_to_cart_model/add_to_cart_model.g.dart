@@ -9,7 +9,7 @@ part of 'add_to_cart_model.dart';
 AddToCartModel _$AddToCartModelFromJson(Map<String, dynamic> json) =>
     AddToCartModel(
       userId: json['user_id'] as int?,
-      inventoryId: json['inventory_id'] as int?,
+      inventoryId: json['inventory_id'] as int,
     );
 
 Map<String, dynamic> _$AddToCartModelToJson(AddToCartModel instance) =>

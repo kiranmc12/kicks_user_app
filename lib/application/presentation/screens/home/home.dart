@@ -26,7 +26,7 @@ class ScreenHome extends StatelessWidget {
               const MonthlyOfferBoard(),
               kHeight20,
               const PopularGridView(),
-              SizedBox(height: sWidth * 0.150)
+              SizedBox(height: sWidth * 0.3)
             ],
           ),
         ),

@@ -28,7 +28,6 @@ class CustomSearchFieldWidget extends StatelessWidget {
         ),
       ),
       onChanged: (value) {
-        _debonucer.call;
         context.read<InventoryBloc>().add(InventoryEvent.searchInventories(
             searchModel: SearchModel(searchkey: value)));
       },

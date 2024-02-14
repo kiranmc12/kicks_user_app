@@ -47,6 +47,18 @@ TextStyle priceStyleCross = TextStyle(
     color: kBlack.withOpacity(0.7),
     decoration: TextDecoration.lineThrough);
 
+TextStyle buttonStyleQuantity = TextStyle(
+    fontWeight: FontWeight.w700, fontSize: sWidth * 0.050, color: kWhite);
+
+const boxborder = BoxDecoration(
+    border: Border(
+        top: BorderSide(),
+        right: BorderSide(),
+        left: BorderSide(),
+        bottom: BorderSide()),
+    borderRadius: BorderRadius.all(kRadius5),
+    color: kBlack);
+
 TextStyle priceStyle =
     TextStyle(fontWeight: FontWeight.w700, fontSize: sWidth * 0.050);
 

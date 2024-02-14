@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kicks_sneakerapp/application/bussiness_logic/home/home_bloc.dart';
+import 'package:kicks_sneakerapp/application/presentation/routes/routes.dart';
 import 'package:kicks_sneakerapp/application/presentation/utils/colors.dart';
 import 'package:kicks_sneakerapp/application/presentation/utils/constants.dart';
 import 'package:kicks_sneakerapp/application/presentation/utils/loadin_animation/loading_animation.dart';
@@ -63,23 +64,23 @@ class MonthlyOfferBoard extends StatelessWidget {
                       children: [
                         Text(
                           '${state.banners![0].categoryName!} Sneakers',
-                          style: TextStyle(
-                              fontSize: sWidth * 0.06,
+                          style: roboto(
+                              fontSize: 0.04,
                               color: kWhite,
                               fontWeight: FontWeight.w700),
                         ),
                         Text(
                           'Up To ${state.banners![0].discountPercentage}%',
-                          style: TextStyle(
+                          style: tektur(
                               color: kWhite,
-                              fontSize: sWidth * 0.05,
+                              fontSize: 0.05,
                               fontWeight: FontWeight.w300),
                         ),
                         ElevatedButton(
                           onPressed: () {
-                            // Navigator.pushNamed(
-                            //     context, Routes.categoryListScreen,
-                            //     arguments: state.banners![0].categoryName);
+                            Navigator.pushNamed(
+                                context, Routes.categoryListScreen,
+                                arguments: state.banners![0].categoryName);
                           },
                           style: ElevatedButton.styleFrom(
                               backgroundColor: kGreen, foregroundColor: kWhite),

@@ -1,6 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 
-import 'datum.dart';
+import 'inventory_cart.dart';
 
 part 'data.g.dart';
 
@@ -9,7 +9,7 @@ class Data {
   @JsonKey(name: 'ID')
   int? id;
   @JsonKey(name: 'Data')
-  List<Datum>? data;
+  List<InventoryCart>? data;
 
   Data({this.id, this.data});
 

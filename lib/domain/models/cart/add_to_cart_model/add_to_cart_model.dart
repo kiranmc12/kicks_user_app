@@ -7,9 +7,9 @@ class AddToCartModel {
   @JsonKey(name: 'user_id')
   int? userId;
   @JsonKey(name: 'inventory_id')
-  int? inventoryId;
+  int inventoryId;
 
-  AddToCartModel({this.userId, this.inventoryId});
+  AddToCartModel({this.userId, required this.inventoryId});
 
   factory AddToCartModel.fromJson(Map<String, dynamic> json) {
     return _$AddToCartModelFromJson(json);

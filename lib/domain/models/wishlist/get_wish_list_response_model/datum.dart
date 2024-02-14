@@ -4,28 +4,32 @@ part 'datum.g.dart';
 
 @JsonSerializable()
 class Datum {
-  @JsonKey(name: 'product_id')
-  int? productId;
-  @JsonKey(name: 'product_name')
-  String? productName;
-  String? image;
+  int? id;
   @JsonKey(name: 'category_id')
   int? categoryId;
-  int? quantity;
+  String? image;
+  @JsonKey(name: 'product_name')
+  String? productName;
+  String? size;
   int? stock;
-  @JsonKey(name: 'total_price')
-  int? totalPrice;
+  int? price;
+  @JsonKey(name: 'if_present_at_wishlist')
+  bool? ifPresentAtWishlist;
+  @JsonKey(name: 'if_present_at_cart')
+  bool? ifPresentAtCart;
   @JsonKey(name: 'discounted_price')
-  int? discountedPrice;
+  double? discountedPrice;
 
   Datum({
-    this.productId,
-    this.productName,
-    this.image,
+    this.id,
     this.categoryId,
-    this.quantity,
+    this.image,
+    this.productName,
+    this.size,
     this.stock,
-    this.totalPrice,
+    this.price,
+    this.ifPresentAtWishlist,
+    this.ifPresentAtCart,
     this.discountedPrice,
   });
 

@@ -4,9 +4,9 @@ part 'update_cart_query.g.dart';
 
 @JsonSerializable()
 class UpdateCartQuery {
-  @JsonKey(name: 'cart_id')
+  @JsonKey(name: 'id')
   int cartId;
-  @JsonKey(name: 'inventory_id')
+  @JsonKey(name: 'inventory')
   int inventoryId;
 
   UpdateCartQuery({required this.cartId, required this.inventoryId});

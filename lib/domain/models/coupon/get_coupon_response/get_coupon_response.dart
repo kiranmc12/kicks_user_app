@@ -9,7 +9,7 @@ class GetCouponResponse {
   @JsonKey(name: 'status_code')
   int? statusCode;
   String? message;
-  List<Datum>? data;
+  List<Coupons>? data;
   dynamic error;
 
   GetCouponResponse({this.statusCode, this.message, this.data, this.error});

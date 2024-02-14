@@ -9,7 +9,7 @@ part of 'data.dart';
 Data _$DataFromJson(Map<String, dynamic> json) => Data(
       id: json['ID'] as int?,
       data: (json['Data'] as List<dynamic>?)
-          ?.map((e) => Datum.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => InventoryCart.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 
