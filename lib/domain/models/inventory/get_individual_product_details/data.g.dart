@@ -16,7 +16,7 @@ Data _$DataFromJson(Map<String, dynamic> json) => Data(
       price: json['price'] as int?,
       ifPresentAtWishlist: json['if_present_at_wishlist'] as bool?,
       ifPresentAtCart: json['if_present_at_cart'] as bool?,
-      discountedPrice: json['discounted_price'] as int?,
+      discountedPrice: (json['discounted_price'] as num?)?.toDouble(),
     );
 
 Map<String, dynamic> _$DataToJson(Data instance) => <String, dynamic>{

@@ -18,7 +18,7 @@ class Data {
   @JsonKey(name: 'if_present_at_cart')
   bool? ifPresentAtCart;
   @JsonKey(name: 'discounted_price')
-  int? discountedPrice;
+  double? discountedPrice;
 
   Data({
     this.id,

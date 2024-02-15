@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kicks_sneakerapp/application/bussiness_logic/Inventory/inventory_bloc.dart';
 import 'package:kicks_sneakerapp/application/presentation/routes/routes.dart';
+import 'package:kicks_sneakerapp/application/presentation/screens/inventory/fav_button.dart';
 import 'package:kicks_sneakerapp/application/presentation/utils/colors.dart';
 import 'package:kicks_sneakerapp/application/presentation/utils/constants.dart';
 import 'package:kicks_sneakerapp/application/presentation/utils/loadin_animation/loading_animation.dart';
@@ -81,19 +82,11 @@ class ProductTile extends StatelessWidget {
                     )),
               ),
               Positioned(
-                right: 10,
-                top: 10,
-                child: CircleAvatar(
-                  radius: 20,
-                  backgroundColor: kWhite,
-                  child: IconButton(
-                      onPressed: () {},
-                      icon: const Icon(
-                        Icons.favorite,
-                        color: kRed,
-                      )),
-                ),
-              ),
+                  right: 10,
+                  top: 10,
+                  child: FavButton(
+                      isFav: inventories.ifPresentAtWishlist!,
+                      id: inventories.id!)),
             ],
           ),
         ),
@@ -122,7 +115,7 @@ class ProductTile extends StatelessWidget {
                   color: kBlack.withOpacity(0.7),
                   decoration: TextDecoration.lineThrough),
             ),
-            Spacer(),
+            const Spacer(),
             Container(
               decoration: const BoxDecoration(
                   borderRadius: BorderRadius.all(kRadius5), color: kGreen),

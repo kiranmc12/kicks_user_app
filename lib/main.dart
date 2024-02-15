@@ -6,6 +6,7 @@ import 'package:kicks_sneakerapp/application/bussiness_logic/Inventory/inventory
 import 'package:kicks_sneakerapp/application/bussiness_logic/auth/auth_bloc.dart';
 import 'package:kicks_sneakerapp/application/bussiness_logic/cart/cart_bloc.dart';
 import 'package:kicks_sneakerapp/application/bussiness_logic/home/home_bloc.dart';
+import 'package:kicks_sneakerapp/application/bussiness_logic/wishlsit/wishlist_bloc.dart';
 import 'package:kicks_sneakerapp/application/presentation/routes/navigator_key.dart';
 import 'package:kicks_sneakerapp/application/presentation/routes/route_generator.dart';
 import 'package:kicks_sneakerapp/application/presentation/routes/routes.dart';
@@ -15,6 +16,7 @@ import 'package:kicks_sneakerapp/data/services/auth/auth.dart';
 import 'package:kicks_sneakerapp/data/services/cart/cart.dart';
 import 'package:kicks_sneakerapp/data/services/home/home.dart';
 import 'package:kicks_sneakerapp/data/services/inventory/inventory.dart';
+import 'package:kicks_sneakerapp/data/services/wishlist/wishlist.dart';
 
 void main() {
   runApp(KicksUserApp());
@@ -27,16 +29,17 @@ class KicksUserApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    sizeFinder(context);
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (context) => AuthBloc(AuthApi())),
         BlocProvider(create: (context) => HomeBloc(HomeApi())),
         BlocProvider(create: (context) => InventoryBloc(InventoryApi())),
-        BlocProvider(create: (context) => CartBloc(CartApi()))
+        BlocProvider(create: (context) => CartBloc(CartApi())),
+                BlocProvider(create: (context) => WishlistBloc(WishListApi())),
+
       ],
       child: ScreenUtilInit(
-        designSize: Size(sWidth, sHeight),
+        designSize: Size(300, 800),
         child: MaterialApp(
           title: 'Flutter Demo',
           debugShowCheckedModeBanner: false,

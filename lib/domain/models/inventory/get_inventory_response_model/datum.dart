@@ -12,7 +12,7 @@ class Inventory {
   String? productName;
   String? size;
   int? stock;
-  double? price;
+  int? price;
   @JsonKey(name: 'if_present_at_wishlist')
   bool? ifPresentAtWishlist;
   @JsonKey(name: 'if_present_at_cart')

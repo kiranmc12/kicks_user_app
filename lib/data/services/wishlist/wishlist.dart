@@ -69,7 +69,7 @@ class WishListApi extends WishlistRepository {
   Future<Either<Failure, SucessModel>> removeFromWishList(
       {required RemoveFromWishListQurrey idQurrey}) async {
     try {
-      final response = await apiServices.post(Apiendpoints.removeFromWishList,
+      final response = await apiServices.delete(Apiendpoints.removeFromWishList,
           queryParameters: idQurrey.toJson());
       if (response.statusCode == 200 || response.statusCode == 201) {
         return Right(SucessModel.fromJson(response.data));

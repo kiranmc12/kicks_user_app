@@ -16,7 +16,7 @@ class InventoryCart {
   @JsonKey(name: 'total_price')
   int? totalPrice;
   @JsonKey(name: 'discounted_price')
-  int? discountedPrice;
+  double? discountedPrice;
 
   InventoryCart({
     this.productId,

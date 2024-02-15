@@ -67,6 +67,13 @@ void sizeFinder(BuildContext context) {
   sHeight = size.height;
   sWidth = size.width;
 }
+ButtonStyle elevatedButtonStyle = ElevatedButton.styleFrom(
+  side: const BorderSide(color: kWhite),
+  fixedSize: Size(sWidth * 0.45, sWidth * 0.10),
+  backgroundColor: kBlack,
+  foregroundColor: kWhite,
+  shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(kRadius5)),
+);
 
 const String nikeUrl =
     "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Logo_NIKE.svg/330px-Logo_NIKE.svg.png";

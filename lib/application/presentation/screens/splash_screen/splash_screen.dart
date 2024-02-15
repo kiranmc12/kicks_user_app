@@ -12,9 +12,13 @@ class ScreenSplash extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Timer(const Duration(seconds: 1), () {
-      context.read<AuthBloc>().add(AuthEvent.loggedIn());
-    });
+        sizeFinder(context);
+
+    // Timer(const Duration(seconds: 1), () {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        context.read<AuthBloc>().add(AuthEvent.loggedIn());
+      });
+    // });
     return Scaffold(
       backgroundColor: kBlack,
       body: BlocListener<AuthBloc, AuthState>(

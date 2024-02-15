@@ -1,4 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'package:kicks_sneakerapp/domain/models/inventory/get_inventory_response_model/datum.dart';
 
 import 'datum.dart';
 
@@ -9,7 +10,7 @@ class GetWishListResponseModel {
   @JsonKey(name: 'status_code')
   int? statusCode;
   String? message;
-  List<Datum>? data;
+  List<Inventory>? data;
   dynamic error;
 
   GetWishListResponseModel({
