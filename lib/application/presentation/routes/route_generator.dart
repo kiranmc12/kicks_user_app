@@ -7,6 +7,7 @@ import 'package:kicks_sneakerapp/application/presentation/screens/auth/sign_in.d
 import 'package:kicks_sneakerapp/application/presentation/screens/auth/sign_up.dart';
 import 'package:kicks_sneakerapp/application/presentation/screens/cart/cart_screen.dart';
 import 'package:kicks_sneakerapp/application/presentation/screens/categoey/category_screen.dart';
+import 'package:kicks_sneakerapp/application/presentation/screens/coupons/coupon_screen.dart';
 import 'package:kicks_sneakerapp/application/presentation/screens/inventory/product_details.dart';
 import 'package:kicks_sneakerapp/application/presentation/screens/splash_screen/splash_screen.dart';
 import 'package:kicks_sneakerapp/application/presentation/screens/user_details/user_details.dart';
@@ -25,7 +26,8 @@ class RouteGenerator {
       case Routes.bottomNav:
         return MaterialPageRoute(builder: (ctx) => const ScreenBottombar());
       case Routes.OtpScreen:
-        return MaterialPageRoute(builder: (ctx) => ScreenOtpVerification());
+        return MaterialPageRoute(
+            builder: (ctx) => const ScreenOtpVerification());
       case Routes.categoryListScreen:
         return arguments is String
             ? MaterialPageRoute(
@@ -44,11 +46,11 @@ class RouteGenerator {
       case Routes.addressScreen:
         return MaterialPageRoute(builder: (ctx) => const ScreenAddress());
       case Routes.cartScreen:
-        return MaterialPageRoute(builder: (ctx) => ScreenCart());
+        return MaterialPageRoute(builder: (ctx) => const ScreenCart());
       case Routes.userDetailScreen:
-        return MaterialPageRoute(builder: (ctx) => ScreenUserDetails());
-      //      case Routes.couponScreen:
-      //   return MaterialPageRoute(builder: (ctx) => const ScreenCoupon());
+        return MaterialPageRoute(builder: (ctx) => const ScreenUserDetails());
+      case Routes.couponScreen:
+        return MaterialPageRoute(builder: (ctx) => const ScreenCoupon());
       // case Routes.checkoutScreen:
       //   return MaterialPageRoute(builder: (ctx) => const ScreenCheckout());
       default:

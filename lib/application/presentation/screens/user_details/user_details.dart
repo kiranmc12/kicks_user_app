@@ -5,7 +5,6 @@ import 'package:kicks_sneakerapp/application/presentation/screens/user_details/w
 import 'package:kicks_sneakerapp/application/presentation/screens/user_details/widgets/passwor_edit_widget.dart';
 import 'package:kicks_sneakerapp/application/presentation/utils/constants.dart';
 import 'package:kicks_sneakerapp/application/presentation/widgets/appbar_widget.dart';
-import 'package:kicks_sneakerapp/domain/repositories/user_repository.dart';
 
 class ScreenUserDetails extends StatelessWidget {
   const ScreenUserDetails({super.key});
@@ -13,7 +12,7 @@ class ScreenUserDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      context.read<UserBloc>().add(UserEvent.getUserDetails());
+      context.read<UserBloc>().add(const UserEvent.getUserDetails());
     });
     return Scaffold(
       appBar: appbarWidget(title: "User Details"),
@@ -27,7 +26,7 @@ class ScreenUserDetails extends StatelessWidget {
             builder: (context, state) {
               return Column(
                 children: [
-                  Divider(),
+                  const Divider(),
                   ChangeDetailWidget(
                     detail: 'Name',
                     controller: context.read<UserBloc>().changeNameController,
@@ -70,9 +69,9 @@ class ScreenUserDetails extends StatelessWidget {
                         child: ElevatedButton(
                             onPressed: () {},
                             style: elevatedButtonStyle,
-                            child: Text("Change Password")),
+                            child: const Text("Change Password")),
                       ),
-                      Divider()
+                      const Divider()
                     ],
                   )
                 ],

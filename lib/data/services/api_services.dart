@@ -34,7 +34,7 @@ class ApiServices {
             .navigatorKey
             .currentState!
             .pushNamed(Routes.signInPage);
-        final SnackBar snackBar =
+        const SnackBar snackBar =
             SnackBar(content: Text("Token Expired Login Again"));
         NavigationService()
             .scaffoldMessengerKey
@@ -77,7 +77,7 @@ class ApiServices {
             .navigatorKey
             .currentState!
             .pushNamedAndRemoveUntil(Routes.signInPage, (route) => false);
-        final SnackBar snackBar =
+        const SnackBar snackBar =
             SnackBar(content: Text("Token Expired Login Again"));
         NavigationService()
             .scaffoldMessengerKey
@@ -119,7 +119,7 @@ class ApiServices {
             .navigatorKey
             .currentState!
             .pushNamed(Routes.signInPage);
-        final SnackBar snackBar =
+        const SnackBar snackBar =
             SnackBar(content: Text("Token Expired Login Again"));
         NavigationService()
             .scaffoldMessengerKey
@@ -159,7 +159,7 @@ class ApiServices {
             .navigatorKey
             .currentState!
             .pushNamed(Routes.signInPage);
-        final SnackBar snackBar =
+        const SnackBar snackBar =
             SnackBar(content: Text("Token Expired Login Again"));
         NavigationService()
             .scaffoldMessengerKey

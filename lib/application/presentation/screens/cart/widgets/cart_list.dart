@@ -6,7 +6,6 @@ import 'package:kicks_sneakerapp/application/presentation/utils/colors.dart';
 import 'package:kicks_sneakerapp/application/presentation/utils/constants.dart';
 import 'package:kicks_sneakerapp/application/presentation/utils/loadin_animation/loading_animation.dart';
 import 'package:kicks_sneakerapp/application/presentation/utils/snackbar/showSnack.dart';
-import 'package:lottie/lottie.dart';
 
 class CartItemsList extends StatelessWidget {
   const CartItemsList({

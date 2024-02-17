@@ -13,14 +13,14 @@ class CustomTextFormFieldWidget extends StatefulWidget {
   final String hintText;
 
   const CustomTextFormFieldWidget({
-    Key? key,
+    super.key,
     required this.label,
     required this.keyboardType,
     this.isPassword = false,
     required this.hintText,
     this.icon,
     required this.controller,
-  }) : super(key: key);
+  });
 
   @override
   State<CustomTextFormFieldWidget> createState() =>
@@ -36,7 +36,7 @@ class _CustomTextFormFieldWidgetState extends State<CustomTextFormFieldWidget> {
       children: [
         Text(
           widget.label,
-          style: TextStyle(color: kWhite),
+          style: const TextStyle(color: kWhite),
         ),
         TextFormField(
           controller: widget.controller,

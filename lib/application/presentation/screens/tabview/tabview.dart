@@ -7,9 +7,9 @@ class ScreenTabView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Coupons"),
+        title: const Text("Coupons"),
       ),
-      body: Center(
+      body: const Center(
         child: Text("cOUPOUNS"),
       ),
     );

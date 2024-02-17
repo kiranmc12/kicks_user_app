@@ -19,15 +19,18 @@ class Orderapi implements OrderRepository {
       baseUrl: Apiendpoints.baseUrl);
 
   @override
-  Future<Either<Failure, SucessModel>> cancelOrder({required IdQuery idQuery}) async{
-   try{
-    final response=await apiServices.delete(Apiendpoints.cancelOrder,queryParameters:idQuery.toJson());
-    if(response.statusCode == 200) {
-      return Right(SucessModel.fromJson(response.data));
-    }else{
-      return Left(Failure(message: SucessModel.fromJson(response.data).message!));
-    }
-  }on DioException catch (dioError) {
+  Future<Either<Failure, SucessModel>> cancelOrder(
+      {required IdQuery idQuery}) async {
+    try {
+      final response = await apiServices.delete(Apiendpoints.cancelOrder,
+          queryParameters: idQuery.toJson());
+      if (response.statusCode == 200) {
+        return Right(SucessModel.fromJson(response.data));
+      } else {
+        return Left(
+            Failure(message: SucessModel.fromJson(response.data).message!));
+      }
+    } on DioException catch (dioError) {
       if (dioError.response!.statusCode == 500) {
         return Left(Failure(message: dioError.response!.data['message']));
       }
@@ -40,15 +43,19 @@ class Orderapi implements OrderRepository {
   }
 
   @override
-  Future<Either<Failure, GetCheckoutResponseModel>> getCheckout({required IdQuery idQuery}) async {
-  try{
-    final response=await apiServices.get(Apiendpoints.checkOut,queryParameters:idQuery.toJson());
-    if(response.statusCode == 200) {
-      return Right(GetCheckoutResponseModel.fromJson(response.data));
-    }else{
-      return Left(Failure(message: GetCheckoutResponseModel.fromJson(response.data).message!));
-    }
-  }on DioException catch (dioError) {
+  Future<Either<Failure, GetCheckoutResponseModel>> getCheckout(
+      {required IdQuery idQuery}) async {
+    try {
+      final response = await apiServices.get(Apiendpoints.checkOut,
+          queryParameters: idQuery.toJson());
+      if (response.statusCode == 200) {
+        return Right(GetCheckoutResponseModel.fromJson(response.data));
+      } else {
+        return Left(Failure(
+            message:
+                GetCheckoutResponseModel.fromJson(response.data).message!));
+      }
+    } on DioException catch (dioError) {
       if (dioError.response!.statusCode == 500) {
         return Left(Failure(message: dioError.response!.data['message']));
       }
@@ -61,15 +68,19 @@ class Orderapi implements OrderRepository {
   }
 
   @override
-  Future<Either<Failure, GetOrderDetailsResponseModel>> getOrderDetails({required int orderId}) async {
-     try{
-    final response=await apiServices.get(Apiendpoints.orderDetails.replaceAll('{id}',orderId.toString()));
-    if(response.statusCode == 200) {
-      return Right(GetOrderDetailsResponseModel.fromJson(response.data));
-    }else{
-      return Left(Failure(message: GetCheckoutResponseModel.fromJson(response.data).message!));
-    }
-  }on DioException catch (dioError) {
+  Future<Either<Failure, GetOrderDetailsResponseModel>> getOrderDetails(
+      {required int orderId}) async {
+    try {
+      final response = await apiServices.get(
+          Apiendpoints.orderDetails.replaceAll('{id}', orderId.toString()));
+      if (response.statusCode == 200) {
+        return Right(GetOrderDetailsResponseModel.fromJson(response.data));
+      } else {
+        return Left(Failure(
+            message:
+                GetCheckoutResponseModel.fromJson(response.data).message!));
+      }
+    } on DioException catch (dioError) {
       if (dioError.response!.statusCode == 500) {
         return Left(Failure(message: dioError.response!.data['message']));
       }
@@ -82,15 +93,19 @@ class Orderapi implements OrderRepository {
   }
 
   @override
-  Future<Either<Failure, GetAllOrdersResposneModel>> getOrders({required IdQuery idQuery}) async {
-    try{
-    final response=await apiServices.get(Apiendpoints.getOrders,queryParameters:idQuery.toJson());
-    if(response.statusCode == 200) {
-      return Right(GetAllOrdersResposneModel.fromJson(response.data));
-    }else{
-      return Left(Failure(message: GetAllOrdersResposneModel.fromJson(response.data).message!));
-    }
-  }on DioException catch (dioError) {
+  Future<Either<Failure, GetAllOrdersResposneModel>> getOrders(
+      {required IdQuery idQuery}) async {
+    try {
+      final response = await apiServices.get(Apiendpoints.getOrders,
+          queryParameters: idQuery.toJson());
+      if (response.statusCode == 200) {
+        return Right(GetAllOrdersResposneModel.fromJson(response.data));
+      } else {
+        return Left(Failure(
+            message:
+                GetAllOrdersResposneModel.fromJson(response.data).message!));
+      }
+    } on DioException catch (dioError) {
       if (dioError.response!.statusCode == 500) {
         return Left(Failure(message: dioError.response!.data['message']));
       }
@@ -103,15 +118,18 @@ class Orderapi implements OrderRepository {
   }
 
   @override
-  Future<Either<Failure, SucessModel>> placeOrder({required PlaceOrderModel placeOrderModel}) async{
-   try{
-    final response=await apiServices.post(Apiendpoints.checkOutOrder,data: placeOrderModel.toJson());
-    if(response.statusCode == 200) {
-      return Right(SucessModel.fromJson(response.data));
-    }else{
-      return Left(Failure(message: SucessModel.fromJson(response.data).message!));
-    }
-  }on DioException catch (dioError) {
+  Future<Either<Failure, SucessModel>> placeOrder(
+      {required PlaceOrderModel placeOrderModel}) async {
+    try {
+      final response = await apiServices.post(Apiendpoints.checkOutOrder,
+          data: placeOrderModel.toJson());
+      if (response.statusCode == 200) {
+        return Right(SucessModel.fromJson(response.data));
+      } else {
+        return Left(
+            Failure(message: SucessModel.fromJson(response.data).message!));
+      }
+    } on DioException catch (dioError) {
       if (dioError.response!.statusCode == 500) {
         return Left(Failure(message: dioError.response!.data['message']));
       }
@@ -124,15 +142,18 @@ class Orderapi implements OrderRepository {
   }
 
   @override
-  Future<Either<Failure, SucessModel>> returnOrder({required IdQuery idQuery}) async {
-   try{
-    final response=await apiServices.post(Apiendpoints.returnOrder,queryParameters: idQuery.toJson());
-    if(response.statusCode == 200) {
-      return Right(SucessModel.fromJson(response.data));
-    }else{
-      return Left(Failure(message: SucessModel.fromJson(response.data).message!));
-    }
-  }on DioException catch (dioError) {
+  Future<Either<Failure, SucessModel>> returnOrder(
+      {required IdQuery idQuery}) async {
+    try {
+      final response = await apiServices.post(Apiendpoints.returnOrder,
+          queryParameters: idQuery.toJson());
+      if (response.statusCode == 200) {
+        return Right(SucessModel.fromJson(response.data));
+      } else {
+        return Left(
+            Failure(message: SucessModel.fromJson(response.data).message!));
+      }
+    } on DioException catch (dioError) {
       if (dioError.response!.statusCode == 500) {
         return Left(Failure(message: dioError.response!.data['message']));
       }
@@ -143,5 +164,4 @@ class Orderapi implements OrderRepository {
       return Left(Failure(message: e.toString()));
     }
   }
-      
 }

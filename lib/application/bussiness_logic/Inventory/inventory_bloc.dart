@@ -1,11 +1,9 @@
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:kicks_sneakerapp/domain/core/failure/failure.dart';
 import 'package:kicks_sneakerapp/domain/models/id_query/id_query.dart';
 import 'package:kicks_sneakerapp/domain/models/inventory/get_individual_product_details/get_individual_product_details.dart';
 import 'package:kicks_sneakerapp/domain/models/inventory/get_inventory_page_query/get_inventory_page_query.dart';
 import 'package:kicks_sneakerapp/domain/models/inventory/get_inventory_response_model/datum.dart';
-import 'package:kicks_sneakerapp/domain/models/inventory/get_inventory_response_model/get_inventory_response_model.dart';
 import 'package:kicks_sneakerapp/domain/models/inventory/search_model/search_model.dart';
 import 'package:kicks_sneakerapp/domain/repositories/inventory_respository.dart';
 

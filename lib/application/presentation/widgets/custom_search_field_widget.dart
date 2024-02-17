@@ -13,7 +13,7 @@ class CustomSearchFieldWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final _debonucer = Debouncer(delay: const Duration(milliseconds: 500));
+    final debonucer = Debouncer(delay: const Duration(milliseconds: 500));
     return TextField(
       style: const TextStyle(color: kBlack),
       decoration: InputDecoration(

@@ -23,8 +23,9 @@ mixin _$CartEvent {
     required TResult Function(int productId) removeFromCart,
     required TResult Function(int productId) updateQuantityPlus,
     required TResult Function(int productId) updateQuantityMinus,
-    required TResult Function(UpdateCartQuery updateCartQuery) getCoupon,
+    required TResult Function() getCoupon,
     required TResult Function(Coupons coupon) chooseCoupon,
+    required TResult Function() removeCoupon,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -34,8 +35,9 @@ mixin _$CartEvent {
     TResult? Function(int productId)? removeFromCart,
     TResult? Function(int productId)? updateQuantityPlus,
     TResult? Function(int productId)? updateQuantityMinus,
-    TResult? Function(UpdateCartQuery updateCartQuery)? getCoupon,
+    TResult? Function()? getCoupon,
     TResult? Function(Coupons coupon)? chooseCoupon,
+    TResult? Function()? removeCoupon,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -45,8 +47,9 @@ mixin _$CartEvent {
     TResult Function(int productId)? removeFromCart,
     TResult Function(int productId)? updateQuantityPlus,
     TResult Function(int productId)? updateQuantityMinus,
-    TResult Function(UpdateCartQuery updateCartQuery)? getCoupon,
+    TResult Function()? getCoupon,
     TResult Function(Coupons coupon)? chooseCoupon,
+    TResult Function()? removeCoupon,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -59,6 +62,7 @@ mixin _$CartEvent {
     required TResult Function(_UpdateQuantityMinus value) updateQuantityMinus,
     required TResult Function(_GetCoupon value) getCoupon,
     required TResult Function(_ChooseCoupon value) chooseCoupon,
+    required TResult Function(_RemoveCoupon value) removeCoupon,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -70,6 +74,7 @@ mixin _$CartEvent {
     TResult? Function(_UpdateQuantityMinus value)? updateQuantityMinus,
     TResult? Function(_GetCoupon value)? getCoupon,
     TResult? Function(_ChooseCoupon value)? chooseCoupon,
+    TResult? Function(_RemoveCoupon value)? removeCoupon,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -81,6 +86,7 @@ mixin _$CartEvent {
     TResult Function(_UpdateQuantityMinus value)? updateQuantityMinus,
     TResult Function(_GetCoupon value)? getCoupon,
     TResult Function(_ChooseCoupon value)? chooseCoupon,
+    TResult Function(_RemoveCoupon value)? removeCoupon,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -146,8 +152,9 @@ class _$GetCartImpl implements _GetCart {
     required TResult Function(int productId) removeFromCart,
     required TResult Function(int productId) updateQuantityPlus,
     required TResult Function(int productId) updateQuantityMinus,
-    required TResult Function(UpdateCartQuery updateCartQuery) getCoupon,
+    required TResult Function() getCoupon,
     required TResult Function(Coupons coupon) chooseCoupon,
+    required TResult Function() removeCoupon,
   }) {
     return getCart();
   }
@@ -160,8 +167,9 @@ class _$GetCartImpl implements _GetCart {
     TResult? Function(int productId)? removeFromCart,
     TResult? Function(int productId)? updateQuantityPlus,
     TResult? Function(int productId)? updateQuantityMinus,
-    TResult? Function(UpdateCartQuery updateCartQuery)? getCoupon,
+    TResult? Function()? getCoupon,
     TResult? Function(Coupons coupon)? chooseCoupon,
+    TResult? Function()? removeCoupon,
   }) {
     return getCart?.call();
   }
@@ -174,8 +182,9 @@ class _$GetCartImpl implements _GetCart {
     TResult Function(int productId)? removeFromCart,
     TResult Function(int productId)? updateQuantityPlus,
     TResult Function(int productId)? updateQuantityMinus,
-    TResult Function(UpdateCartQuery updateCartQuery)? getCoupon,
+    TResult Function()? getCoupon,
     TResult Function(Coupons coupon)? chooseCoupon,
+    TResult Function()? removeCoupon,
     required TResult orElse(),
   }) {
     if (getCart != null) {
@@ -194,6 +203,7 @@ class _$GetCartImpl implements _GetCart {
     required TResult Function(_UpdateQuantityMinus value) updateQuantityMinus,
     required TResult Function(_GetCoupon value) getCoupon,
     required TResult Function(_ChooseCoupon value) chooseCoupon,
+    required TResult Function(_RemoveCoupon value) removeCoupon,
   }) {
     return getCart(this);
   }
@@ -208,6 +218,7 @@ class _$GetCartImpl implements _GetCart {
     TResult? Function(_UpdateQuantityMinus value)? updateQuantityMinus,
     TResult? Function(_GetCoupon value)? getCoupon,
     TResult? Function(_ChooseCoupon value)? chooseCoupon,
+    TResult? Function(_RemoveCoupon value)? removeCoupon,
   }) {
     return getCart?.call(this);
   }
@@ -222,6 +233,7 @@ class _$GetCartImpl implements _GetCart {
     TResult Function(_UpdateQuantityMinus value)? updateQuantityMinus,
     TResult Function(_GetCoupon value)? getCoupon,
     TResult Function(_ChooseCoupon value)? chooseCoupon,
+    TResult Function(_RemoveCoupon value)? removeCoupon,
     required TResult orElse(),
   }) {
     if (getCart != null) {
@@ -306,8 +318,9 @@ class _$AddToCartModelImpl implements _AddToCartModel {
     required TResult Function(int productId) removeFromCart,
     required TResult Function(int productId) updateQuantityPlus,
     required TResult Function(int productId) updateQuantityMinus,
-    required TResult Function(UpdateCartQuery updateCartQuery) getCoupon,
+    required TResult Function() getCoupon,
     required TResult Function(Coupons coupon) chooseCoupon,
+    required TResult Function() removeCoupon,
   }) {
     return addToCart(addToCartModel);
   }
@@ -320,8 +333,9 @@ class _$AddToCartModelImpl implements _AddToCartModel {
     TResult? Function(int productId)? removeFromCart,
     TResult? Function(int productId)? updateQuantityPlus,
     TResult? Function(int productId)? updateQuantityMinus,
-    TResult? Function(UpdateCartQuery updateCartQuery)? getCoupon,
+    TResult? Function()? getCoupon,
     TResult? Function(Coupons coupon)? chooseCoupon,
+    TResult? Function()? removeCoupon,
   }) {
     return addToCart?.call(addToCartModel);
   }
@@ -334,8 +348,9 @@ class _$AddToCartModelImpl implements _AddToCartModel {
     TResult Function(int productId)? removeFromCart,
     TResult Function(int productId)? updateQuantityPlus,
     TResult Function(int productId)? updateQuantityMinus,
-    TResult Function(UpdateCartQuery updateCartQuery)? getCoupon,
+    TResult Function()? getCoupon,
     TResult Function(Coupons coupon)? chooseCoupon,
+    TResult Function()? removeCoupon,
     required TResult orElse(),
   }) {
     if (addToCart != null) {
@@ -354,6 +369,7 @@ class _$AddToCartModelImpl implements _AddToCartModel {
     required TResult Function(_UpdateQuantityMinus value) updateQuantityMinus,
     required TResult Function(_GetCoupon value) getCoupon,
     required TResult Function(_ChooseCoupon value) chooseCoupon,
+    required TResult Function(_RemoveCoupon value) removeCoupon,
   }) {
     return addToCart(this);
   }
@@ -368,6 +384,7 @@ class _$AddToCartModelImpl implements _AddToCartModel {
     TResult? Function(_UpdateQuantityMinus value)? updateQuantityMinus,
     TResult? Function(_GetCoupon value)? getCoupon,
     TResult? Function(_ChooseCoupon value)? chooseCoupon,
+    TResult? Function(_RemoveCoupon value)? removeCoupon,
   }) {
     return addToCart?.call(this);
   }
@@ -382,6 +399,7 @@ class _$AddToCartModelImpl implements _AddToCartModel {
     TResult Function(_UpdateQuantityMinus value)? updateQuantityMinus,
     TResult Function(_GetCoupon value)? getCoupon,
     TResult Function(_ChooseCoupon value)? chooseCoupon,
+    TResult Function(_RemoveCoupon value)? removeCoupon,
     required TResult orElse(),
   }) {
     if (addToCart != null) {
@@ -472,8 +490,9 @@ class _$RemoveFromCartImpl implements _RemoveFromCart {
     required TResult Function(int productId) removeFromCart,
     required TResult Function(int productId) updateQuantityPlus,
     required TResult Function(int productId) updateQuantityMinus,
-    required TResult Function(UpdateCartQuery updateCartQuery) getCoupon,
+    required TResult Function() getCoupon,
     required TResult Function(Coupons coupon) chooseCoupon,
+    required TResult Function() removeCoupon,
   }) {
     return removeFromCart(productId);
   }
@@ -486,8 +505,9 @@ class _$RemoveFromCartImpl implements _RemoveFromCart {
     TResult? Function(int productId)? removeFromCart,
     TResult? Function(int productId)? updateQuantityPlus,
     TResult? Function(int productId)? updateQuantityMinus,
-    TResult? Function(UpdateCartQuery updateCartQuery)? getCoupon,
+    TResult? Function()? getCoupon,
     TResult? Function(Coupons coupon)? chooseCoupon,
+    TResult? Function()? removeCoupon,
   }) {
     return removeFromCart?.call(productId);
   }
@@ -500,8 +520,9 @@ class _$RemoveFromCartImpl implements _RemoveFromCart {
     TResult Function(int productId)? removeFromCart,
     TResult Function(int productId)? updateQuantityPlus,
     TResult Function(int productId)? updateQuantityMinus,
-    TResult Function(UpdateCartQuery updateCartQuery)? getCoupon,
+    TResult Function()? getCoupon,
     TResult Function(Coupons coupon)? chooseCoupon,
+    TResult Function()? removeCoupon,
     required TResult orElse(),
   }) {
     if (removeFromCart != null) {
@@ -520,6 +541,7 @@ class _$RemoveFromCartImpl implements _RemoveFromCart {
     required TResult Function(_UpdateQuantityMinus value) updateQuantityMinus,
     required TResult Function(_GetCoupon value) getCoupon,
     required TResult Function(_ChooseCoupon value) chooseCoupon,
+    required TResult Function(_RemoveCoupon value) removeCoupon,
   }) {
     return removeFromCart(this);
   }
@@ -534,6 +556,7 @@ class _$RemoveFromCartImpl implements _RemoveFromCart {
     TResult? Function(_UpdateQuantityMinus value)? updateQuantityMinus,
     TResult? Function(_GetCoupon value)? getCoupon,
     TResult? Function(_ChooseCoupon value)? chooseCoupon,
+    TResult? Function(_RemoveCoupon value)? removeCoupon,
   }) {
     return removeFromCart?.call(this);
   }
@@ -548,6 +571,7 @@ class _$RemoveFromCartImpl implements _RemoveFromCart {
     TResult Function(_UpdateQuantityMinus value)? updateQuantityMinus,
     TResult Function(_GetCoupon value)? getCoupon,
     TResult Function(_ChooseCoupon value)? chooseCoupon,
+    TResult Function(_RemoveCoupon value)? removeCoupon,
     required TResult orElse(),
   }) {
     if (removeFromCart != null) {
@@ -638,8 +662,9 @@ class _$UpdateQuantityPlusImpl implements _UpdateQuantityPlus {
     required TResult Function(int productId) removeFromCart,
     required TResult Function(int productId) updateQuantityPlus,
     required TResult Function(int productId) updateQuantityMinus,
-    required TResult Function(UpdateCartQuery updateCartQuery) getCoupon,
+    required TResult Function() getCoupon,
     required TResult Function(Coupons coupon) chooseCoupon,
+    required TResult Function() removeCoupon,
   }) {
     return updateQuantityPlus(productId);
   }
@@ -652,8 +677,9 @@ class _$UpdateQuantityPlusImpl implements _UpdateQuantityPlus {
     TResult? Function(int productId)? removeFromCart,
     TResult? Function(int productId)? updateQuantityPlus,
     TResult? Function(int productId)? updateQuantityMinus,
-    TResult? Function(UpdateCartQuery updateCartQuery)? getCoupon,
+    TResult? Function()? getCoupon,
     TResult? Function(Coupons coupon)? chooseCoupon,
+    TResult? Function()? removeCoupon,
   }) {
     return updateQuantityPlus?.call(productId);
   }
@@ -666,8 +692,9 @@ class _$UpdateQuantityPlusImpl implements _UpdateQuantityPlus {
     TResult Function(int productId)? removeFromCart,
     TResult Function(int productId)? updateQuantityPlus,
     TResult Function(int productId)? updateQuantityMinus,
-    TResult Function(UpdateCartQuery updateCartQuery)? getCoupon,
+    TResult Function()? getCoupon,
     TResult Function(Coupons coupon)? chooseCoupon,
+    TResult Function()? removeCoupon,
     required TResult orElse(),
   }) {
     if (updateQuantityPlus != null) {
@@ -686,6 +713,7 @@ class _$UpdateQuantityPlusImpl implements _UpdateQuantityPlus {
     required TResult Function(_UpdateQuantityMinus value) updateQuantityMinus,
     required TResult Function(_GetCoupon value) getCoupon,
     required TResult Function(_ChooseCoupon value) chooseCoupon,
+    required TResult Function(_RemoveCoupon value) removeCoupon,
   }) {
     return updateQuantityPlus(this);
   }
@@ -700,6 +728,7 @@ class _$UpdateQuantityPlusImpl implements _UpdateQuantityPlus {
     TResult? Function(_UpdateQuantityMinus value)? updateQuantityMinus,
     TResult? Function(_GetCoupon value)? getCoupon,
     TResult? Function(_ChooseCoupon value)? chooseCoupon,
+    TResult? Function(_RemoveCoupon value)? removeCoupon,
   }) {
     return updateQuantityPlus?.call(this);
   }
@@ -714,6 +743,7 @@ class _$UpdateQuantityPlusImpl implements _UpdateQuantityPlus {
     TResult Function(_UpdateQuantityMinus value)? updateQuantityMinus,
     TResult Function(_GetCoupon value)? getCoupon,
     TResult Function(_ChooseCoupon value)? chooseCoupon,
+    TResult Function(_RemoveCoupon value)? removeCoupon,
     required TResult orElse(),
   }) {
     if (updateQuantityPlus != null) {
@@ -804,8 +834,9 @@ class _$UpdateQuantityMinusImpl implements _UpdateQuantityMinus {
     required TResult Function(int productId) removeFromCart,
     required TResult Function(int productId) updateQuantityPlus,
     required TResult Function(int productId) updateQuantityMinus,
-    required TResult Function(UpdateCartQuery updateCartQuery) getCoupon,
+    required TResult Function() getCoupon,
     required TResult Function(Coupons coupon) chooseCoupon,
+    required TResult Function() removeCoupon,
   }) {
     return updateQuantityMinus(productId);
   }
@@ -818,8 +849,9 @@ class _$UpdateQuantityMinusImpl implements _UpdateQuantityMinus {
     TResult? Function(int productId)? removeFromCart,
     TResult? Function(int productId)? updateQuantityPlus,
     TResult? Function(int productId)? updateQuantityMinus,
-    TResult? Function(UpdateCartQuery updateCartQuery)? getCoupon,
+    TResult? Function()? getCoupon,
     TResult? Function(Coupons coupon)? chooseCoupon,
+    TResult? Function()? removeCoupon,
   }) {
     return updateQuantityMinus?.call(productId);
   }
@@ -832,8 +864,9 @@ class _$UpdateQuantityMinusImpl implements _UpdateQuantityMinus {
     TResult Function(int productId)? removeFromCart,
     TResult Function(int productId)? updateQuantityPlus,
     TResult Function(int productId)? updateQuantityMinus,
-    TResult Function(UpdateCartQuery updateCartQuery)? getCoupon,
+    TResult Function()? getCoupon,
     TResult Function(Coupons coupon)? chooseCoupon,
+    TResult Function()? removeCoupon,
     required TResult orElse(),
   }) {
     if (updateQuantityMinus != null) {
@@ -852,6 +885,7 @@ class _$UpdateQuantityMinusImpl implements _UpdateQuantityMinus {
     required TResult Function(_UpdateQuantityMinus value) updateQuantityMinus,
     required TResult Function(_GetCoupon value) getCoupon,
     required TResult Function(_ChooseCoupon value) chooseCoupon,
+    required TResult Function(_RemoveCoupon value) removeCoupon,
   }) {
     return updateQuantityMinus(this);
   }
@@ -866,6 +900,7 @@ class _$UpdateQuantityMinusImpl implements _UpdateQuantityMinus {
     TResult? Function(_UpdateQuantityMinus value)? updateQuantityMinus,
     TResult? Function(_GetCoupon value)? getCoupon,
     TResult? Function(_ChooseCoupon value)? chooseCoupon,
+    TResult? Function(_RemoveCoupon value)? removeCoupon,
   }) {
     return updateQuantityMinus?.call(this);
   }
@@ -880,6 +915,7 @@ class _$UpdateQuantityMinusImpl implements _UpdateQuantityMinus {
     TResult Function(_UpdateQuantityMinus value)? updateQuantityMinus,
     TResult Function(_GetCoupon value)? getCoupon,
     TResult Function(_ChooseCoupon value)? chooseCoupon,
+    TResult Function(_RemoveCoupon value)? removeCoupon,
     required TResult orElse(),
   }) {
     if (updateQuantityMinus != null) {
@@ -904,8 +940,6 @@ abstract class _$$GetCouponImplCopyWith<$Res> {
   factory _$$GetCouponImplCopyWith(
           _$GetCouponImpl value, $Res Function(_$GetCouponImpl) then) =
       __$$GetCouponImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({UpdateCartQuery updateCartQuery});
 }
 
 /// @nodoc
@@ -915,51 +949,26 @@ class __$$GetCouponImplCopyWithImpl<$Res>
   __$$GetCouponImplCopyWithImpl(
       _$GetCouponImpl _value, $Res Function(_$GetCouponImpl) _then)
       : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? updateCartQuery = null,
-  }) {
-    return _then(_$GetCouponImpl(
-      updateCartQuery: null == updateCartQuery
-          ? _value.updateCartQuery
-          : updateCartQuery // ignore: cast_nullable_to_non_nullable
-              as UpdateCartQuery,
-    ));
-  }
 }
 
 /// @nodoc
 
 class _$GetCouponImpl implements _GetCoupon {
-  const _$GetCouponImpl({required this.updateCartQuery});
-
-  @override
-  final UpdateCartQuery updateCartQuery;
+  const _$GetCouponImpl();
 
   @override
   String toString() {
-    return 'CartEvent.getCoupon(updateCartQuery: $updateCartQuery)';
+    return 'CartEvent.getCoupon()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$GetCouponImpl &&
-            (identical(other.updateCartQuery, updateCartQuery) ||
-                other.updateCartQuery == updateCartQuery));
+        (other.runtimeType == runtimeType && other is _$GetCouponImpl);
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, updateCartQuery);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$GetCouponImplCopyWith<_$GetCouponImpl> get copyWith =>
-      __$$GetCouponImplCopyWithImpl<_$GetCouponImpl>(this, _$identity);
+  int get hashCode => runtimeType.hashCode;
 
   @override
   @optionalTypeArgs
@@ -969,10 +978,11 @@ class _$GetCouponImpl implements _GetCoupon {
     required TResult Function(int productId) removeFromCart,
     required TResult Function(int productId) updateQuantityPlus,
     required TResult Function(int productId) updateQuantityMinus,
-    required TResult Function(UpdateCartQuery updateCartQuery) getCoupon,
+    required TResult Function() getCoupon,
     required TResult Function(Coupons coupon) chooseCoupon,
+    required TResult Function() removeCoupon,
   }) {
-    return getCoupon(updateCartQuery);
+    return getCoupon();
   }
 
   @override
@@ -983,10 +993,11 @@ class _$GetCouponImpl implements _GetCoupon {
     TResult? Function(int productId)? removeFromCart,
     TResult? Function(int productId)? updateQuantityPlus,
     TResult? Function(int productId)? updateQuantityMinus,
-    TResult? Function(UpdateCartQuery updateCartQuery)? getCoupon,
+    TResult? Function()? getCoupon,
     TResult? Function(Coupons coupon)? chooseCoupon,
+    TResult? Function()? removeCoupon,
   }) {
-    return getCoupon?.call(updateCartQuery);
+    return getCoupon?.call();
   }
 
   @override
@@ -997,12 +1008,13 @@ class _$GetCouponImpl implements _GetCoupon {
     TResult Function(int productId)? removeFromCart,
     TResult Function(int productId)? updateQuantityPlus,
     TResult Function(int productId)? updateQuantityMinus,
-    TResult Function(UpdateCartQuery updateCartQuery)? getCoupon,
+    TResult Function()? getCoupon,
     TResult Function(Coupons coupon)? chooseCoupon,
+    TResult Function()? removeCoupon,
     required TResult orElse(),
   }) {
     if (getCoupon != null) {
-      return getCoupon(updateCartQuery);
+      return getCoupon();
     }
     return orElse();
   }
@@ -1017,6 +1029,7 @@ class _$GetCouponImpl implements _GetCoupon {
     required TResult Function(_UpdateQuantityMinus value) updateQuantityMinus,
     required TResult Function(_GetCoupon value) getCoupon,
     required TResult Function(_ChooseCoupon value) chooseCoupon,
+    required TResult Function(_RemoveCoupon value) removeCoupon,
   }) {
     return getCoupon(this);
   }
@@ -1031,6 +1044,7 @@ class _$GetCouponImpl implements _GetCoupon {
     TResult? Function(_UpdateQuantityMinus value)? updateQuantityMinus,
     TResult? Function(_GetCoupon value)? getCoupon,
     TResult? Function(_ChooseCoupon value)? chooseCoupon,
+    TResult? Function(_RemoveCoupon value)? removeCoupon,
   }) {
     return getCoupon?.call(this);
   }
@@ -1045,6 +1059,7 @@ class _$GetCouponImpl implements _GetCoupon {
     TResult Function(_UpdateQuantityMinus value)? updateQuantityMinus,
     TResult Function(_GetCoupon value)? getCoupon,
     TResult Function(_ChooseCoupon value)? chooseCoupon,
+    TResult Function(_RemoveCoupon value)? removeCoupon,
     required TResult orElse(),
   }) {
     if (getCoupon != null) {
@@ -1055,13 +1070,7 @@ class _$GetCouponImpl implements _GetCoupon {
 }
 
 abstract class _GetCoupon implements CartEvent {
-  const factory _GetCoupon({required final UpdateCartQuery updateCartQuery}) =
-      _$GetCouponImpl;
-
-  UpdateCartQuery get updateCartQuery;
-  @JsonKey(ignore: true)
-  _$$GetCouponImplCopyWith<_$GetCouponImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  const factory _GetCoupon() = _$GetCouponImpl;
 }
 
 /// @nodoc
@@ -1133,8 +1142,9 @@ class _$ChooseCouponImpl implements _ChooseCoupon {
     required TResult Function(int productId) removeFromCart,
     required TResult Function(int productId) updateQuantityPlus,
     required TResult Function(int productId) updateQuantityMinus,
-    required TResult Function(UpdateCartQuery updateCartQuery) getCoupon,
+    required TResult Function() getCoupon,
     required TResult Function(Coupons coupon) chooseCoupon,
+    required TResult Function() removeCoupon,
   }) {
     return chooseCoupon(coupon);
   }
@@ -1147,8 +1157,9 @@ class _$ChooseCouponImpl implements _ChooseCoupon {
     TResult? Function(int productId)? removeFromCart,
     TResult? Function(int productId)? updateQuantityPlus,
     TResult? Function(int productId)? updateQuantityMinus,
-    TResult? Function(UpdateCartQuery updateCartQuery)? getCoupon,
+    TResult? Function()? getCoupon,
     TResult? Function(Coupons coupon)? chooseCoupon,
+    TResult? Function()? removeCoupon,
   }) {
     return chooseCoupon?.call(coupon);
   }
@@ -1161,8 +1172,9 @@ class _$ChooseCouponImpl implements _ChooseCoupon {
     TResult Function(int productId)? removeFromCart,
     TResult Function(int productId)? updateQuantityPlus,
     TResult Function(int productId)? updateQuantityMinus,
-    TResult Function(UpdateCartQuery updateCartQuery)? getCoupon,
+    TResult Function()? getCoupon,
     TResult Function(Coupons coupon)? chooseCoupon,
+    TResult Function()? removeCoupon,
     required TResult orElse(),
   }) {
     if (chooseCoupon != null) {
@@ -1181,6 +1193,7 @@ class _$ChooseCouponImpl implements _ChooseCoupon {
     required TResult Function(_UpdateQuantityMinus value) updateQuantityMinus,
     required TResult Function(_GetCoupon value) getCoupon,
     required TResult Function(_ChooseCoupon value) chooseCoupon,
+    required TResult Function(_RemoveCoupon value) removeCoupon,
   }) {
     return chooseCoupon(this);
   }
@@ -1195,6 +1208,7 @@ class _$ChooseCouponImpl implements _ChooseCoupon {
     TResult? Function(_UpdateQuantityMinus value)? updateQuantityMinus,
     TResult? Function(_GetCoupon value)? getCoupon,
     TResult? Function(_ChooseCoupon value)? chooseCoupon,
+    TResult? Function(_RemoveCoupon value)? removeCoupon,
   }) {
     return chooseCoupon?.call(this);
   }
@@ -1209,6 +1223,7 @@ class _$ChooseCouponImpl implements _ChooseCoupon {
     TResult Function(_UpdateQuantityMinus value)? updateQuantityMinus,
     TResult Function(_GetCoupon value)? getCoupon,
     TResult Function(_ChooseCoupon value)? chooseCoupon,
+    TResult Function(_RemoveCoupon value)? removeCoupon,
     required TResult orElse(),
   }) {
     if (chooseCoupon != null) {
@@ -1229,6 +1244,144 @@ abstract class _ChooseCoupon implements CartEvent {
 }
 
 /// @nodoc
+abstract class _$$RemoveCouponImplCopyWith<$Res> {
+  factory _$$RemoveCouponImplCopyWith(
+          _$RemoveCouponImpl value, $Res Function(_$RemoveCouponImpl) then) =
+      __$$RemoveCouponImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$RemoveCouponImplCopyWithImpl<$Res>
+    extends _$CartEventCopyWithImpl<$Res, _$RemoveCouponImpl>
+    implements _$$RemoveCouponImplCopyWith<$Res> {
+  __$$RemoveCouponImplCopyWithImpl(
+      _$RemoveCouponImpl _value, $Res Function(_$RemoveCouponImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$RemoveCouponImpl implements _RemoveCoupon {
+  const _$RemoveCouponImpl();
+
+  @override
+  String toString() {
+    return 'CartEvent.removeCoupon()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$RemoveCouponImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() getCart,
+    required TResult Function(AddToCartModel addToCartModel) addToCart,
+    required TResult Function(int productId) removeFromCart,
+    required TResult Function(int productId) updateQuantityPlus,
+    required TResult Function(int productId) updateQuantityMinus,
+    required TResult Function() getCoupon,
+    required TResult Function(Coupons coupon) chooseCoupon,
+    required TResult Function() removeCoupon,
+  }) {
+    return removeCoupon();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? getCart,
+    TResult? Function(AddToCartModel addToCartModel)? addToCart,
+    TResult? Function(int productId)? removeFromCart,
+    TResult? Function(int productId)? updateQuantityPlus,
+    TResult? Function(int productId)? updateQuantityMinus,
+    TResult? Function()? getCoupon,
+    TResult? Function(Coupons coupon)? chooseCoupon,
+    TResult? Function()? removeCoupon,
+  }) {
+    return removeCoupon?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getCart,
+    TResult Function(AddToCartModel addToCartModel)? addToCart,
+    TResult Function(int productId)? removeFromCart,
+    TResult Function(int productId)? updateQuantityPlus,
+    TResult Function(int productId)? updateQuantityMinus,
+    TResult Function()? getCoupon,
+    TResult Function(Coupons coupon)? chooseCoupon,
+    TResult Function()? removeCoupon,
+    required TResult orElse(),
+  }) {
+    if (removeCoupon != null) {
+      return removeCoupon();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_GetCart value) getCart,
+    required TResult Function(_AddToCartModel value) addToCart,
+    required TResult Function(_RemoveFromCart value) removeFromCart,
+    required TResult Function(_UpdateQuantityPlus value) updateQuantityPlus,
+    required TResult Function(_UpdateQuantityMinus value) updateQuantityMinus,
+    required TResult Function(_GetCoupon value) getCoupon,
+    required TResult Function(_ChooseCoupon value) chooseCoupon,
+    required TResult Function(_RemoveCoupon value) removeCoupon,
+  }) {
+    return removeCoupon(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_GetCart value)? getCart,
+    TResult? Function(_AddToCartModel value)? addToCart,
+    TResult? Function(_RemoveFromCart value)? removeFromCart,
+    TResult? Function(_UpdateQuantityPlus value)? updateQuantityPlus,
+    TResult? Function(_UpdateQuantityMinus value)? updateQuantityMinus,
+    TResult? Function(_GetCoupon value)? getCoupon,
+    TResult? Function(_ChooseCoupon value)? chooseCoupon,
+    TResult? Function(_RemoveCoupon value)? removeCoupon,
+  }) {
+    return removeCoupon?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_GetCart value)? getCart,
+    TResult Function(_AddToCartModel value)? addToCart,
+    TResult Function(_RemoveFromCart value)? removeFromCart,
+    TResult Function(_UpdateQuantityPlus value)? updateQuantityPlus,
+    TResult Function(_UpdateQuantityMinus value)? updateQuantityMinus,
+    TResult Function(_GetCoupon value)? getCoupon,
+    TResult Function(_ChooseCoupon value)? chooseCoupon,
+    TResult Function(_RemoveCoupon value)? removeCoupon,
+    required TResult orElse(),
+  }) {
+    if (removeCoupon != null) {
+      return removeCoupon(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _RemoveCoupon implements CartEvent {
+  const factory _RemoveCoupon() = _$RemoveCouponImpl;
+}
+
+/// @nodoc
 mixin _$CartState {
   bool get isLoading => throw _privateConstructorUsedError;
   bool get hasError => throw _privateConstructorUsedError;
@@ -1236,6 +1389,7 @@ mixin _$CartState {
   bool get quantityIndicator => throw _privateConstructorUsedError;
   Map<int, int> get cartItems => throw _privateConstructorUsedError;
   double? get bagTotal => throw _privateConstructorUsedError;
+  double? get priceWithoutOffer => throw _privateConstructorUsedError;
   double? get amountPayable => throw _privateConstructorUsedError;
   String? get message => throw _privateConstructorUsedError;
   GetCartResponseModel? get getCartResponseModel =>
@@ -1259,6 +1413,7 @@ abstract class $CartStateCopyWith<$Res> {
       bool quantityIndicator,
       Map<int, int> cartItems,
       double? bagTotal,
+      double? priceWithoutOffer,
       double? amountPayable,
       String? message,
       GetCartResponseModel? getCartResponseModel,
@@ -1284,6 +1439,7 @@ class _$CartStateCopyWithImpl<$Res, $Val extends CartState>
     Object? quantityIndicator = null,
     Object? cartItems = null,
     Object? bagTotal = freezed,
+    Object? priceWithoutOffer = freezed,
     Object? amountPayable = freezed,
     Object? message = freezed,
     Object? getCartResponseModel = freezed,
@@ -1313,6 +1469,10 @@ class _$CartStateCopyWithImpl<$Res, $Val extends CartState>
       bagTotal: freezed == bagTotal
           ? _value.bagTotal
           : bagTotal // ignore: cast_nullable_to_non_nullable
+              as double?,
+      priceWithoutOffer: freezed == priceWithoutOffer
+          ? _value.priceWithoutOffer
+          : priceWithoutOffer // ignore: cast_nullable_to_non_nullable
               as double?,
       amountPayable: freezed == amountPayable
           ? _value.amountPayable
@@ -1349,6 +1509,7 @@ abstract class _$$InitialImplCopyWith<$Res>
       bool quantityIndicator,
       Map<int, int> cartItems,
       double? bagTotal,
+      double? priceWithoutOffer,
       double? amountPayable,
       String? message,
       GetCartResponseModel? getCartResponseModel,
@@ -1372,6 +1533,7 @@ class __$$InitialImplCopyWithImpl<$Res>
     Object? quantityIndicator = null,
     Object? cartItems = null,
     Object? bagTotal = freezed,
+    Object? priceWithoutOffer = freezed,
     Object? amountPayable = freezed,
     Object? message = freezed,
     Object? getCartResponseModel = freezed,
@@ -1401,6 +1563,10 @@ class __$$InitialImplCopyWithImpl<$Res>
       bagTotal: freezed == bagTotal
           ? _value.bagTotal
           : bagTotal // ignore: cast_nullable_to_non_nullable
+              as double?,
+      priceWithoutOffer: freezed == priceWithoutOffer
+          ? _value.priceWithoutOffer
+          : priceWithoutOffer // ignore: cast_nullable_to_non_nullable
               as double?,
       amountPayable: freezed == amountPayable
           ? _value.amountPayable
@@ -1432,6 +1598,7 @@ class _$InitialImpl implements _Initial {
       required this.quantityIndicator,
       required final Map<int, int> cartItems,
       this.bagTotal,
+      this.priceWithoutOffer,
       this.amountPayable,
       this.message,
       this.getCartResponseModel,
@@ -1458,6 +1625,8 @@ class _$InitialImpl implements _Initial {
   @override
   final double? bagTotal;
   @override
+  final double? priceWithoutOffer;
+  @override
   final double? amountPayable;
   @override
   final String? message;
@@ -1475,7 +1644,7 @@ class _$InitialImpl implements _Initial {
 
   @override
   String toString() {
-    return 'CartState(isLoading: $isLoading, hasError: $hasError, isDone: $isDone, quantityIndicator: $quantityIndicator, cartItems: $cartItems, bagTotal: $bagTotal, amountPayable: $amountPayable, message: $message, getCartResponseModel: $getCartResponseModel, coupons: $coupons)';
+    return 'CartState(isLoading: $isLoading, hasError: $hasError, isDone: $isDone, quantityIndicator: $quantityIndicator, cartItems: $cartItems, bagTotal: $bagTotal, priceWithoutOffer: $priceWithoutOffer, amountPayable: $amountPayable, message: $message, getCartResponseModel: $getCartResponseModel, coupons: $coupons)';
   }
 
   @override
@@ -1494,6 +1663,8 @@ class _$InitialImpl implements _Initial {
                 .equals(other._cartItems, _cartItems) &&
             (identical(other.bagTotal, bagTotal) ||
                 other.bagTotal == bagTotal) &&
+            (identical(other.priceWithoutOffer, priceWithoutOffer) ||
+                other.priceWithoutOffer == priceWithoutOffer) &&
             (identical(other.amountPayable, amountPayable) ||
                 other.amountPayable == amountPayable) &&
             (identical(other.message, message) || other.message == message) &&
@@ -1511,6 +1682,7 @@ class _$InitialImpl implements _Initial {
       quantityIndicator,
       const DeepCollectionEquality().hash(_cartItems),
       bagTotal,
+      priceWithoutOffer,
       amountPayable,
       message,
       getCartResponseModel,
@@ -1531,6 +1703,7 @@ abstract class _Initial implements CartState {
       required final bool quantityIndicator,
       required final Map<int, int> cartItems,
       final double? bagTotal,
+      final double? priceWithoutOffer,
       final double? amountPayable,
       final String? message,
       final GetCartResponseModel? getCartResponseModel,
@@ -1548,6 +1721,8 @@ abstract class _Initial implements CartState {
   Map<int, int> get cartItems;
   @override
   double? get bagTotal;
+  @override
+  double? get priceWithoutOffer;
   @override
   double? get amountPayable;
   @override

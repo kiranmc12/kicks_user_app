@@ -9,7 +9,6 @@ import 'package:kicks_sneakerapp/domain/models/user_details/address/get_address_
 import 'package:kicks_sneakerapp/domain/models/user_details/edit_details/edit_email/edit_email.dart';
 import 'package:kicks_sneakerapp/domain/models/user_details/edit_details/edit_name/edit_name.dart';
 import 'package:kicks_sneakerapp/domain/models/user_details/edit_details/edit_phone/edit_phone.dart';
-import 'package:kicks_sneakerapp/domain/models/user_details/get_user_details_response/get_user_details_response.dart';
 import 'package:kicks_sneakerapp/domain/models/user_details/get_user_details_response/user_details.dart';
 import 'package:kicks_sneakerapp/domain/models/user_details/security/change_password_model/change_password_model.dart';
 import 'package:kicks_sneakerapp/domain/repositories/user_repository.dart';

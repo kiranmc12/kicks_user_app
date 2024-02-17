@@ -75,7 +75,7 @@ class CartApi implements CartRepository {
         return Right(GetCouponResponse.fromJson(response.data));
       } else {
         return Left(Failure(
-            message: CartResponseModel.fromJson(response.data).message!));
+            message: GetCouponResponse.fromJson(response.data).message!));
       }
     } on DioException catch (dioError) {
       if (dioError.response!.statusCode == 500) {

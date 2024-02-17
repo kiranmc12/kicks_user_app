@@ -9,6 +9,7 @@ class CartState with _$CartState {
       required bool quantityIndicator,
       required Map<int, int> cartItems,
       double? bagTotal,
+      double? priceWithoutOffer,
       double? amountPayable,
       String? message,
       GetCartResponseModel? getCartResponseModel,

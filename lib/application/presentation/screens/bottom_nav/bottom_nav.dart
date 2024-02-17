@@ -15,7 +15,7 @@ import 'package:kicks_sneakerapp/application/presentation/utils/snackbar/showSna
 import 'package:kicks_sneakerapp/application/presentation/widgets/appbar_widget.dart';
 
 class ScreenBottombar extends StatefulWidget {
-  const ScreenBottombar({Key? key}) : super(key: key);
+  const ScreenBottombar({super.key});
 
   @override
   _ScreenBottombarState createState() => _ScreenBottombarState();
@@ -123,7 +123,7 @@ class _ScreenBottombarState extends State<ScreenBottombar>
           body: BottomBar(
             borderRadius: BorderRadius.circular(500),
             body: (context, controller) => Padding(
-              padding: EdgeInsets.fromLTRB(20, 5, 20, 0),
+              padding: const EdgeInsets.fromLTRB(20, 5, 20, 0),
               child: TabBarView(
                   controller: tabController,
                   dragStartBehavior: DragStartBehavior.down,

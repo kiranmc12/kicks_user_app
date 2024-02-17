@@ -38,15 +38,18 @@ class CartBloc extends Bloc<CartEvent, CartState> {
           (getCartResponseModel) {
         Map<int, int> map = {};
         double bagTotal = 0, amountPayable = 0;
+        double priceWithoutOffer = 0;
         if (getCartResponseModel.data!.data != null) {
           map = setQuantity(getCartResponseModel.data!.data!);
           for (var item in getCartResponseModel.data!.data!) {
-            bagTotal += item.totalPrice!;
+            priceWithoutOffer += item.totalPrice!;
+            bagTotal += item.discountedPrice!;
             amountPayable += item.discountedPrice!;
           }
         }
         emit(state.copyWith(
             isLoading: false,
+            priceWithoutOffer: priceWithoutOffer,
             amountPayable: amountPayable,
             bagTotal: bagTotal,
             getCartResponseModel: getCartResponseModel,
@@ -97,7 +100,7 @@ class CartBloc extends Bloc<CartEvent, CartState> {
             isDone: true,
             hasError: false,
             message: "Item removed from cart sucessfully"));
-        add(CartEvent.getCart());
+        add(const CartEvent.getCart());
       });
     });
     on<_UpdateQuantityPlus>((event, emit) async {
@@ -114,7 +117,8 @@ class CartBloc extends Bloc<CartEvent, CartState> {
         emit(state.copyWith(
             quantityIndicator: true,
             cartItems: map,
-            bagTotal: state.bagTotal! + item.totalPrice!,
+            priceWithoutOffer: state.priceWithoutOffer! + item.totalPrice!,
+            bagTotal: state.bagTotal! + item.discountedPrice!,
             amountPayable: state.amountPayable! + item.discountedPrice!));
       });
     });
@@ -135,7 +139,8 @@ class CartBloc extends Bloc<CartEvent, CartState> {
         emit(state.copyWith(
             quantityIndicator: true,
             cartItems: map,
-            bagTotal: state.bagTotal! - item.totalPrice!,
+            priceWithoutOffer: state.priceWithoutOffer! - item.totalPrice!,
+            bagTotal: state.bagTotal! - item.discountedPrice!,
             amountPayable: state.amountPayable! - item.discountedPrice!));
       });
     });
@@ -151,13 +156,14 @@ class CartBloc extends Bloc<CartEvent, CartState> {
           (failure) => emit(state.copyWith(
               isLoading: false,
               hasError: true,
-              message: "Please refresh your screen")), (getCartResponseModel) {
+              message: failure.message)), (getCartResponseModel) {
         emit(state.copyWith(
-            isLoading: false,
-            coupons: getCartResponseModel.data!
-                .where((element) => element.valid!)
-                .toList()));
+            isLoading: false, coupons: getCartResponseModel.data!));
       });
+    });
+    on<_RemoveCoupon>((event, emit) {
+      usedCouponId = 0;
+      add(const CartEvent.getCart());
     });
 
     on<_ChooseCoupon>((event, emit) {

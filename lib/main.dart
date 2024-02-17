@@ -10,8 +10,6 @@ import 'package:kicks_sneakerapp/application/bussiness_logic/user/user_bloc.dart
 import 'package:kicks_sneakerapp/application/bussiness_logic/wishlsit/wishlist_bloc.dart';
 import 'package:kicks_sneakerapp/application/presentation/routes/navigator_key.dart';
 import 'package:kicks_sneakerapp/application/presentation/routes/route_generator.dart';
-import 'package:kicks_sneakerapp/application/presentation/routes/routes.dart';
-import 'package:kicks_sneakerapp/application/presentation/utils/constants.dart';
 
 import 'package:kicks_sneakerapp/data/services/auth/auth.dart';
 import 'package:kicks_sneakerapp/data/services/cart/cart.dart';
@@ -41,7 +39,7 @@ class KicksUserApp extends StatelessWidget {
         BlocProvider(create: (context) => UserBloc(UserProfile())),
       ],
       child: ScreenUtilInit(
-        designSize: Size(300, 800),
+        designSize: const Size(300, 800),
         child: MaterialApp(
           title: 'Flutter Demo',
           debugShowCheckedModeBanner: false,

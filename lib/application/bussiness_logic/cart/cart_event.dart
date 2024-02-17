@@ -11,8 +11,8 @@ class CartEvent with _$CartEvent {
       _UpdateQuantityPlus;
   const factory CartEvent.updateQuantityMinus({required int productId}) =
       _UpdateQuantityMinus;
-  const factory CartEvent.getCoupon(
-      {required UpdateCartQuery updateCartQuery}) = _GetCoupon;
+  const factory CartEvent.getCoupon() = _GetCoupon;
   const factory CartEvent.chooseCoupon({required Coupons coupon}) =
       _ChooseCoupon;
+  const factory CartEvent.removeCoupon() = _RemoveCoupon;
 }

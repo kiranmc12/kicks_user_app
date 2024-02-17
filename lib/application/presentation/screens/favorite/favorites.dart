@@ -4,10 +4,8 @@ import 'package:kicks_sneakerapp/application/bussiness_logic/Inventory/inventory
 import 'package:kicks_sneakerapp/application/bussiness_logic/wishlsit/wishlist_bloc.dart';
 import 'package:kicks_sneakerapp/application/presentation/screens/favorite/fav_tile.dart';
 import 'package:kicks_sneakerapp/application/presentation/utils/colors.dart';
-import 'package:kicks_sneakerapp/application/presentation/utils/constants.dart';
 import 'package:kicks_sneakerapp/application/presentation/utils/loadin_animation/loading_animation.dart';
 import 'package:kicks_sneakerapp/application/presentation/utils/snackbar/showSnack.dart';
-import 'package:kicks_sneakerapp/application/presentation/widgets/appbar_widget.dart';
 
 class ScreenFavorites extends StatelessWidget {
   const ScreenFavorites({super.key});

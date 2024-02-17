@@ -40,6 +40,26 @@ class BottomCheckOutSession extends StatelessWidget {
                               kHeight5,
                               Row(
                                 children: [
+                                  const Text('Price'),
+                                  const Spacer(),
+                                  Text(
+                                    '₹ ${state.priceWithoutOffer!.round().toString()}',
+                                    style: tektur(),
+                                  )
+                                ],
+                              ),
+                              Row(
+                                children: [
+                                  const Text('Discount'),
+                                  const Spacer(),
+                                  Text(
+                                    '- ₹ ${state.priceWithoutOffer! - state.bagTotal!}',
+                                    style: tektur(),
+                                  )
+                                ],
+                              ),
+                              Row(
+                                children: [
                                   const Text('Bag Total'),
                                   const Spacer(),
                                   Text(
@@ -51,6 +71,20 @@ class BottomCheckOutSession extends StatelessWidget {
                               Row(
                                 children: [
                                   const Text('Coupon used'),
+                                  Spacer(),
+                                   context.read<CartBloc>().usedCouponId !=0?
+                                  InkWell(
+                                    onTap: () {
+                                      context
+                                          .read<CartBloc>()
+                                          .add(const CartEvent.removeCoupon());
+                                    },
+                                   
+                                    child: Text(
+                                      "Remove Coupon",
+                                      style: tektur(color: kRed),
+                                    ),
+                                  ):const Spacer(),
                                   const Spacer(),
                                   InkWell(
                                       onTap: () {
@@ -74,8 +108,8 @@ class BottomCheckOutSession extends StatelessWidget {
                               ),
                               Row(
                                 children: [
-                                  Text('Delivery fee'),
-                                  Spacer(),
+                                  const Text('Delivery fee'),
+                                  const Spacer(),
                                   Text(
                                     '₹ 0.0',
                                     style: tektur(),

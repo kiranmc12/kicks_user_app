@@ -11,7 +11,7 @@ import 'package:loading_indicator/loading_indicator.dart';
 import 'package:pinput/pinput.dart';
 
 class ScreenOtpVerification extends StatelessWidget {
-  ScreenOtpVerification({super.key});
+  const ScreenOtpVerification({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -3,7 +3,6 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kicks_sneakerapp/application/bussiness_logic/cart/cart_bloc.dart';
 import 'package:kicks_sneakerapp/application/presentation/routes/routes.dart';
-import 'package:kicks_sneakerapp/application/presentation/screens/cart/widgets/cart_list.dart';
 import 'package:kicks_sneakerapp/application/presentation/utils/colors.dart';
 import 'package:kicks_sneakerapp/application/presentation/utils/constants.dart';
 
@@ -13,10 +12,10 @@ AppBar appbarWidget({required String title}) {
         statusBarColor: kWhite, systemNavigationBarColor: kWhite),
     title: Text(
       title != "Kicks" ? title : "Kicks",
-      style: TextStyle(fontWeight: FontWeight.bold),
+      style: const TextStyle(fontWeight: FontWeight.bold),
     ),
     centerTitle: true,
-    actions: [const CartButtonWidget(), kWidth10],
+    actions: const [CartButtonWidget(), kWidth10],
   );
 }
 
@@ -51,7 +50,7 @@ class CartButtonWidget extends StatelessWidget {
             // buildWhen: (p, c) => p.cartItems.length != c.cartItems.length,
             builder: (context, state) {
               if (state.cartItems.isEmpty) {
-                return SizedBox();
+                return const SizedBox();
               } else {
                 return CircleAvatar(
                   backgroundColor: kWhite.withOpacity(0),
