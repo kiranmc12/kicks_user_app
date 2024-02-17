@@ -1,12 +1,12 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'datum.dart';
+part of 'address.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-Datum _$DatumFromJson(Map<String, dynamic> json) => Datum(
+Address _$AddressFromJson(Map<String, dynamic> json) => Address(
       id: json['id'] as int?,
       userId: json['user_id'] as int?,
       name: json['name'] as String?,
@@ -16,10 +16,10 @@ Datum _$DatumFromJson(Map<String, dynamic> json) => Datum(
       state: json['state'] as String?,
       phone: json['phone'] as String?,
       pin: json['pin'] as String?,
-      datumDefault: json['default'] as bool?,
+      defaultAddress: json['default'] as bool?,
     );
 
-Map<String, dynamic> _$DatumToJson(Datum instance) => <String, dynamic>{
+Map<String, dynamic> _$AddressToJson(Address instance) => <String, dynamic>{
       'id': instance.id,
       'user_id': instance.userId,
       'name': instance.name,
@@ -29,5 +29,5 @@ Map<String, dynamic> _$DatumToJson(Datum instance) => <String, dynamic>{
       'state': instance.state,
       'phone': instance.phone,
       'pin': instance.pin,
-      'default': instance.datumDefault,
+      'default': instance.defaultAddress,
     };

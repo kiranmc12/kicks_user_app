@@ -1,9 +1,9 @@
 import 'package:json_annotation/json_annotation.dart';
 
-part 'datum.g.dart';
+part 'address.g.dart';
 
 @JsonSerializable()
-class Datum {
+class Address {
   int? id;
   @JsonKey(name: 'user_id')
   int? userId;
@@ -16,9 +16,9 @@ class Datum {
   String? phone;
   String? pin;
   @JsonKey(name: 'default')
-  bool? datumDefault;
+  bool? defaultAddress;
 
-  Datum({
+  Address({
     this.id,
     this.userId,
     this.name,
@@ -28,10 +28,11 @@ class Datum {
     this.state,
     this.phone,
     this.pin,
-    this.datumDefault,
+    this.defaultAddress,
   });
 
-  factory Datum.fromJson(Map<String, dynamic> json) => _$DatumFromJson(json);
+  factory Address.fromJson(Map<String, dynamic> json) =>
+      _$AddressFromJson(json);
 
-  Map<String, dynamic> toJson() => _$DatumToJson(this);
+  Map<String, dynamic> toJson() => _$AddressToJson(this);
 }

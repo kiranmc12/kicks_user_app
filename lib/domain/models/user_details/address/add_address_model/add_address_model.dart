@@ -11,15 +11,16 @@ class AddAddressModel {
   String? pin;
   String? state;
   String? street;
+  String? phone;
 
-  AddAddressModel({
-    this.city,
-    this.houseName,
-    this.name,
-    this.pin,
-    this.state,
-    this.street,
-  });
+  AddAddressModel(
+      {this.city,
+      this.houseName,
+      this.name,
+      this.pin,
+      this.state,
+      this.street,
+      this.phone});
 
   factory AddAddressModel.fromJson(Map<String, dynamic> json) {
     return _$AddAddressModelFromJson(json);

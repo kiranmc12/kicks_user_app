@@ -30,16 +30,16 @@ class ApiServices {
       return response;
     } on DioException catch (exception) {
       if (exception.response?.statusCode == 401) {
-        // NavigationService()
-        //     .navigatorKey
-        //     .currentState!
-        //     .pushNamed(Routes.signInPage);
-        // final SnackBar snackBar =
-        //     SnackBar(content: Text("Token Expired Login Again"));
-        // NavigationService()
-        //     .scaffoldMessengerKey
-        //     .currentState!
-        //     .showSnackBar(snackBar);
+        NavigationService()
+            .navigatorKey
+            .currentState!
+            .pushNamed(Routes.signInPage);
+        final SnackBar snackBar =
+            SnackBar(content: Text("Token Expired Login Again"));
+        NavigationService()
+            .scaffoldMessengerKey
+            .currentState!
+            .showSnackBar(snackBar);
 
         rethrow;
       } else {
@@ -73,16 +73,16 @@ class ApiServices {
       return response;
     } on DioException catch (exception) {
       if (exception.response?.statusCode == 401) {
-        // NavigationService()
-        //     .navigatorKey
-        //     .currentState!
-        //     .pushNamedAndRemoveUntil(Routes.signInPage, (route) => false);
-        // final SnackBar snackBar =
-        //     SnackBar(content: Text("Token Expired Login Again"));
-        // NavigationService()
-        //     .scaffoldMessengerKey
-        //     .currentState!
-        //     .showSnackBar(snackBar);
+        NavigationService()
+            .navigatorKey
+            .currentState!
+            .pushNamedAndRemoveUntil(Routes.signInPage, (route) => false);
+        final SnackBar snackBar =
+            SnackBar(content: Text("Token Expired Login Again"));
+        NavigationService()
+            .scaffoldMessengerKey
+            .currentState!
+            .showSnackBar(snackBar);
 
         rethrow;
       } else {
@@ -115,16 +115,16 @@ class ApiServices {
       return response;
     } on DioException catch (exception) {
       if (exception.response?.statusCode == 401) {
-        // NavigationService()
-        //     .navigatorKey
-        //     .currentState!
-        //     .pushNamed(Routes.signInPage);
-        // final SnackBar snackBar =
-        //     SnackBar(content: Text("Token Expired Login Again"));
-        // NavigationService()
-        //     .scaffoldMessengerKey
-        //     .currentState!
-        //     .showSnackBar(snackBar);
+        NavigationService()
+            .navigatorKey
+            .currentState!
+            .pushNamed(Routes.signInPage);
+        final SnackBar snackBar =
+            SnackBar(content: Text("Token Expired Login Again"));
+        NavigationService()
+            .scaffoldMessengerKey
+            .currentState!
+            .showSnackBar(snackBar);
 
         rethrow;
       } else {
@@ -155,16 +155,16 @@ class ApiServices {
       return response;
     } on DioException catch (exception) {
       if (exception.response?.statusCode == 401) {
-        // NavigationService()
-        //     .navigatorKey
-        //     .currentState!
-        //     .pushNamed(Routes.signInPage);
-        // final SnackBar snackBar =
-        //     SnackBar(content: Text("Token Expired Login Again"));
-        // NavigationService()
-        //     .scaffoldMessengerKey
-        //     .currentState!
-        //     .showSnackBar(snackBar);
+        NavigationService()
+            .navigatorKey
+            .currentState!
+            .pushNamed(Routes.signInPage);
+        final SnackBar snackBar =
+            SnackBar(content: Text("Token Expired Login Again"));
+        NavigationService()
+            .scaffoldMessengerKey
+            .currentState!
+            .showSnackBar(snackBar);
 
         rethrow;
       } else {

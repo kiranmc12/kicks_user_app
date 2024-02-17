@@ -22,7 +22,6 @@ class ScreenFavorites extends StatelessWidget {
       child: Column(
         children: [
           SizedBox(
-            height: sHeight * 0.80,
             child: BlocConsumer<WishlistBloc, WishlistState>(
                 listener: (context, state) {
                   if (state.hasError || state.isDone) {

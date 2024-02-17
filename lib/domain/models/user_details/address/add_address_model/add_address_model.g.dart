@@ -14,6 +14,7 @@ AddAddressModel _$AddAddressModelFromJson(Map<String, dynamic> json) =>
       pin: json['pin'] as String?,
       state: json['state'] as String?,
       street: json['street'] as String?,
+      phone: json['phone'] as String?,
     );
 
 Map<String, dynamic> _$AddAddressModelToJson(AddAddressModel instance) =>
@@ -24,4 +25,5 @@ Map<String, dynamic> _$AddAddressModelToJson(AddAddressModel instance) =>
       'pin': instance.pin,
       'state': instance.state,
       'street': instance.street,
+      'phone': instance.phone,
     };

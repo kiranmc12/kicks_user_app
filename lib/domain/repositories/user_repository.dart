@@ -18,17 +18,15 @@ abstract class UserRepository {
       {required AddAddressModel addAddressModel, required IdQuery idQuery});
 
   Future<Either<Failure, GetAddressResponseModel>> getAddress(
-      { required IdQuery idQurrey});
+      {required IdQuery idQurrey});
 
-        Future<Either<Failure, SucessModel>> changeEmail(
+  Future<Either<Failure, SucessModel>> changeEmail(
       {required EditEmail editEmail, required IdQuery idQuery});
-              Future<Either<Failure, SucessModel>> changePhone(
+  Future<Either<Failure, SucessModel>> changePhone(
       {required EditPhone editPhone, required IdQuery idQuery});
-              Future<Either<Failure, SucessModel>> changeName(
+  Future<Either<Failure, SucessModel>> changeName(
       {required EditName editName, required IdQuery idQuery});
 
-        Future<Either<Failure, SucessModel>> changePassword(
-      {
-      required IdQuery idQurrey,
-      required ChangePasswordModel changePassword});
+  Future<Either<Failure, SucessModel>> changePassword(
+      {required IdQuery idQurrey, required ChangePasswordModel changePassword});
 }

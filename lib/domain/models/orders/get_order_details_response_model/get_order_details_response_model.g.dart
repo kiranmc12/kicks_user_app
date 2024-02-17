@@ -1,27 +1,27 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'get_user_details_response.dart';
+part of 'get_order_details_response_model.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-GetUserDetailsResponse _$GetUserDetailsResponseFromJson(
+GetOrderDetailsResponseModel _$GetOrderDetailsResponseModelFromJson(
         Map<String, dynamic> json) =>
-    GetUserDetailsResponse(
+    GetOrderDetailsResponseModel(
       statusCode: json['status_code'] as int?,
       message: json['message'] as String?,
-      userDetails: json['data'] == null
+      data: json['data'] == null
           ? null
-          : UserDetails.fromJson(json['data'] as Map<String, dynamic>),
+          : Data.fromJson(json['data'] as Map<String, dynamic>),
       error: json['error'],
     );
 
-Map<String, dynamic> _$GetUserDetailsResponseToJson(
-        GetUserDetailsResponse instance) =>
+Map<String, dynamic> _$GetOrderDetailsResponseModelToJson(
+        GetOrderDetailsResponseModel instance) =>
     <String, dynamic>{
       'status_code': instance.statusCode,
       'message': instance.message,
-      'data': instance.userDetails,
+      'data': instance.data,
       'error': instance.error,
     };

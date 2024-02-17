@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kicks_sneakerapp/application/bussiness_logic/cart/cart_bloc.dart';
@@ -23,7 +22,6 @@ class FavTile extends StatelessWidget {
       children: [
         ProductTile(inventories: inventory),
         BlocBuilder<CartBloc, CartState>(
-  
           builder: (context, state) {
             return ElevatedButton(
                 style: elevatedButtonStyle.copyWith(),

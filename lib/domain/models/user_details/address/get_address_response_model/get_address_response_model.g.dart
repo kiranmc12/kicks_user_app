@@ -11,8 +11,8 @@ GetAddressResponseModel _$GetAddressResponseModelFromJson(
     GetAddressResponseModel(
       statusCode: json['status_code'] as int?,
       message: json['message'] as String?,
-      data: (json['data'] as List<dynamic>?)
-          ?.map((e) => Datum.fromJson(e as Map<String, dynamic>))
+      address: (json['data'] as List<dynamic>?)
+          ?.map((e) => Address.fromJson(e as Map<String, dynamic>))
           .toList(),
       error: json['error'],
     );
@@ -22,6 +22,6 @@ Map<String, dynamic> _$GetAddressResponseModelToJson(
     <String, dynamic>{
       'status_code': instance.statusCode,
       'message': instance.message,
-      'data': instance.data,
+      'data': instance.address,
       'error': instance.error,
     };

@@ -1,6 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 
-import 'datum.dart';
+import 'address.dart';
 
 part 'get_address_response_model.g.dart';
 
@@ -9,13 +9,14 @@ class GetAddressResponseModel {
   @JsonKey(name: 'status_code')
   int? statusCode;
   String? message;
-  List<Datum>? data;
+  @JsonKey(name: 'data')
+  List<Address>? address;
   dynamic error;
 
   GetAddressResponseModel({
     this.statusCode,
     this.message,
-    this.data,
+    this.address,
     this.error,
   });
 

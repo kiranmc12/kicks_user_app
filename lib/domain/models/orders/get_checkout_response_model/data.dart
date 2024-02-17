@@ -1,6 +1,7 @@
 import 'package:json_annotation/json_annotation.dart';
 
 import 'address.dart';
+import 'payment_method.dart';
 import 'product.dart';
 
 part 'data.g.dart';
@@ -14,7 +15,7 @@ class Data {
   @JsonKey(name: 'Products')
   List<Product>? products;
   @JsonKey(name: 'PaymentMethods')
-  dynamic paymentMethods;
+  List<PaymentMethod>? paymentMethods;
   @JsonKey(name: 'TotalPrice')
   int? totalPrice;
   @JsonKey(name: 'DiscountedPrice')

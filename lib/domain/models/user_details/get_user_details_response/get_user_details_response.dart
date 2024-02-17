@@ -1,6 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 
-import 'data.dart';
+import 'user_details.dart';
 
 part 'get_user_details_response.g.dart';
 
@@ -9,13 +9,14 @@ class GetUserDetailsResponse {
   @JsonKey(name: 'status_code')
   int? statusCode;
   String? message;
-  Data? data;
+  @JsonKey(name: 'data')
+  UserDetails? userDetails;
   dynamic error;
 
   GetUserDetailsResponse({
     this.statusCode,
     this.message,
-    this.data,
+    this.userDetails,
     this.error,
   });
 

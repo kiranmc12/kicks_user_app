@@ -22,12 +22,14 @@ class BottomButtonsDetails extends StatelessWidget {
       leading: Container(
         decoration: const BoxDecoration(
             color: kGrey, borderRadius: BorderRadius.all(kRadius5)),
-        child: FavButton(isFav: inventory.ifPresentAtWishlist!, id: inventory.id!,),
+        child: FavButton(
+          isFav: inventory.ifPresentAtWishlist!,
+          id: inventory.id!,
+        ),
       ),
       trailing: BlocBuilder<CartBloc, CartState>(
         buildWhen: (p, c) =>
-            p.cartItems[inventory.id!] !=
-            c.cartItems[inventory.id!],
+            p.cartItems[inventory.id!] != c.cartItems[inventory.id!],
         builder: (context, state) {
           return ElevatedButton(
               onPressed: () {
@@ -35,8 +37,8 @@ class BottomButtonsDetails extends StatelessWidget {
                   Navigator.pushNamed(context, Routes.cartScreen);
                 } else {
                   context.read<CartBloc>().add(CartEvent.addToCart(
-                      addToCartModel: AddToCartModel(
-                          inventoryId: inventory.id!)));
+                      addToCartModel:
+                          AddToCartModel(inventoryId: inventory.id!)));
                 }
               },
               style: ElevatedButton.styleFrom(
@@ -53,4 +55,3 @@ class BottomButtonsDetails extends StatelessWidget {
     );
   }
 }
-

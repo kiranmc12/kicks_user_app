@@ -67,6 +67,7 @@ void sizeFinder(BuildContext context) {
   sHeight = size.height;
   sWidth = size.width;
 }
+
 ButtonStyle elevatedButtonStyle = ElevatedButton.styleFrom(
   side: const BorderSide(color: kWhite),
   fixedSize: Size(sWidth * 0.45, sWidth * 0.10),

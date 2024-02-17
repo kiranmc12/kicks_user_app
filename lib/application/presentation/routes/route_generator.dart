@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kicks_sneakerapp/application/presentation/routes/routes.dart';
+import 'package:kicks_sneakerapp/application/presentation/screens/address/address_screen.dart';
 import 'package:kicks_sneakerapp/application/presentation/screens/auth/otp_verification.dart';
 import 'package:kicks_sneakerapp/application/presentation/screens/bottom_nav/bottom_nav.dart';
 import 'package:kicks_sneakerapp/application/presentation/screens/auth/sign_in.dart';
@@ -8,6 +9,7 @@ import 'package:kicks_sneakerapp/application/presentation/screens/cart/cart_scre
 import 'package:kicks_sneakerapp/application/presentation/screens/categoey/category_screen.dart';
 import 'package:kicks_sneakerapp/application/presentation/screens/inventory/product_details.dart';
 import 'package:kicks_sneakerapp/application/presentation/screens/splash_screen/splash_screen.dart';
+import 'package:kicks_sneakerapp/application/presentation/screens/user_details/user_details.dart';
 import 'package:kicks_sneakerapp/domain/models/inventory/get_inventory_response_model/datum.dart';
 
 class RouteGenerator {
@@ -29,13 +31,26 @@ class RouteGenerator {
             ? MaterialPageRoute(
                 builder: (ctx) => ScreenCategory(title: arguments))
             : _errorScreen();
+      //        case Routes.orderDetailScreen:
+      // return arguments is int
+      //     ? MaterialPageRoute(
+      //         builder: (ctx) => ScreenOrderDetails(orderID: arguments))
+      //     : _errorScreen();
       case Routes.inventoryDetailScreen:
         return arguments is Inventory
             ? MaterialPageRoute(
                 builder: (ctx) => ScreenInventoryDetails(inventory: arguments))
             : _errorScreen();
+      case Routes.addressScreen:
+        return MaterialPageRoute(builder: (ctx) => const ScreenAddress());
       case Routes.cartScreen:
         return MaterialPageRoute(builder: (ctx) => ScreenCart());
+      case Routes.userDetailScreen:
+        return MaterialPageRoute(builder: (ctx) => ScreenUserDetails());
+      //      case Routes.couponScreen:
+      //   return MaterialPageRoute(builder: (ctx) => const ScreenCoupon());
+      // case Routes.checkoutScreen:
+      //   return MaterialPageRoute(builder: (ctx) => const ScreenCheckout());
       default:
         return _errorScreen();
     }
