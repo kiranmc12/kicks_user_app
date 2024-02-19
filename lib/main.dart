@@ -6,6 +6,7 @@ import 'package:kicks_sneakerapp/application/bussiness_logic/Inventory/inventory
 import 'package:kicks_sneakerapp/application/bussiness_logic/auth/auth_bloc.dart';
 import 'package:kicks_sneakerapp/application/bussiness_logic/cart/cart_bloc.dart';
 import 'package:kicks_sneakerapp/application/bussiness_logic/home/home_bloc.dart';
+import 'package:kicks_sneakerapp/application/bussiness_logic/orders/orders_bloc.dart';
 import 'package:kicks_sneakerapp/application/bussiness_logic/user/user_bloc.dart';
 import 'package:kicks_sneakerapp/application/bussiness_logic/wishlsit/wishlist_bloc.dart';
 import 'package:kicks_sneakerapp/application/presentation/routes/navigator_key.dart';
@@ -15,6 +16,7 @@ import 'package:kicks_sneakerapp/data/services/auth/auth.dart';
 import 'package:kicks_sneakerapp/data/services/cart/cart.dart';
 import 'package:kicks_sneakerapp/data/services/home/home.dart';
 import 'package:kicks_sneakerapp/data/services/inventory/inventory.dart';
+import 'package:kicks_sneakerapp/data/services/orders/orders.dart';
 import 'package:kicks_sneakerapp/data/services/user_profile/user_profile.dart';
 import 'package:kicks_sneakerapp/data/services/wishlist/wishlist.dart';
 
@@ -37,6 +39,7 @@ class KicksUserApp extends StatelessWidget {
         BlocProvider(create: (context) => CartBloc(CartApi())),
         BlocProvider(create: (context) => WishlistBloc(WishListApi())),
         BlocProvider(create: (context) => UserBloc(UserProfile())),
+        BlocProvider(create: (context) => OrdersBloc(Orderapi())),
       ],
       child: ScreenUtilInit(
         designSize: const Size(300, 800),

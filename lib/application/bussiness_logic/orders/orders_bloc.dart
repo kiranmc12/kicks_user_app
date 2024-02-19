@@ -22,12 +22,15 @@ class OrdersBloc extends Bloc<OrdersEvent, OrdersState> {
       final tokenModel = await SharedPref.getToken();
       final result = await orderRepository.getOrders(
           idQuery: IdQuery(id: tokenModel.userId));
-      result.fold(
-          (failure) => emit(state.copyWith(
-              isLoading: false, hasError: true, message: failure.message)),
-          (getAllordersResponse) => emit(state.copyWith(
-              isLoading: false,
-              getAllOrdersResposneModel: getAllordersResponse)));
+      result.fold((failure) {
+        emit(state.copyWith(
+            isLoading: false, hasError: true, message: failure.message));
+      }, (getAllordersResponse) {
+        print("bloc");
+        print(getAllordersResponse);
+        emit(state.copyWith(
+            isLoading: false, getAllOrdersResposneModel: getAllordersResponse));
+      });
     });
 
     on<_GetOrderDetails>((event, emit) async {
@@ -84,9 +87,7 @@ class OrdersBloc extends Bloc<OrdersEvent, OrdersState> {
           (failure) => emit(state.copyWith(
               hasError: true, isLoading: false, message: failure.message)),
           (successResponseModel) => emit(state.copyWith(
-              isLoading: false,
-              isDone: true,
-              message: successResponseModel.message)));
+              isLoading: false, isDone: true, message: 'Order placed')));
     });
 
     on<_GetCheckOut>((event, emit) async {
@@ -97,10 +98,14 @@ class OrdersBloc extends Bloc<OrdersEvent, OrdersState> {
           idQuery: IdQuery(id: tokenModel.userId));
       result.fold(
           (failure) => emit(state.copyWith(
-              isLoading: false, hasError: true, message: failure.message)),
-          (getCheckoutResponseModel) => emit(state.copyWith(
               isLoading: false,
-              getCheckoutResponseModel: getCheckoutResponseModel)));
+              hasError: true,
+              message: failure.message)), (getCheckoutResponseModel) {
+        print(getCheckoutResponseModel);
+        emit(state.copyWith(
+            isLoading: false,
+            getCheckoutResponseModel: getCheckoutResponseModel));
+      });
     });
 
     on<_SetAddress>((event, emit) {

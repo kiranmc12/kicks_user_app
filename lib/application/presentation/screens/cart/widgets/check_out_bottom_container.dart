@@ -71,7 +71,7 @@ class BottomCheckOutSession extends StatelessWidget {
                               Row(
                                 children: [
                                   const Text('Coupon used'),
-                                  Spacer(),
+                                  const Spacer(),
                                    context.read<CartBloc>().usedCouponId !=0?
                                   InkWell(
                                     onTap: () {

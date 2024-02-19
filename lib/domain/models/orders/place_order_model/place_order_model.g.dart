@@ -11,6 +11,7 @@ PlaceOrderModel _$PlaceOrderModelFromJson(Map<String, dynamic> json) =>
       userId: json['user_id'] as int?,
       addressId: json['address_id'] as int?,
       paymentId: json['payment_id'] as int?,
+      couponId: json['coupon_id'],
     );
 
 Map<String, dynamic> _$PlaceOrderModelToJson(PlaceOrderModel instance) =>
@@ -18,4 +19,5 @@ Map<String, dynamic> _$PlaceOrderModelToJson(PlaceOrderModel instance) =>
       'user_id': instance.userId,
       'address_id': instance.addressId,
       'payment_id': instance.paymentId,
+      'coupon_id': instance.couponId,
     };

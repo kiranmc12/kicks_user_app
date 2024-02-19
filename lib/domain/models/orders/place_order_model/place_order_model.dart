@@ -10,8 +10,10 @@ class PlaceOrderModel {
   int? addressId;
   @JsonKey(name: 'payment_id')
   int? paymentId;
+    @JsonKey(name: 'coupon_id')
+  int? couponId;
 
-  PlaceOrderModel({this.userId, this.addressId, this.paymentId});
+  PlaceOrderModel({this.userId, this.addressId, this.paymentId, required couponId});
 
   factory PlaceOrderModel.fromJson(Map<String, dynamic> json) {
     return _$PlaceOrderModelFromJson(json);

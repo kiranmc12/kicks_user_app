@@ -33,5 +33,7 @@ class Product {
     return _$ProductFromJson(json);
   }
 
+  get amount => null;
+
   Map<String, dynamic> toJson() => _$ProductToJson(this);
 }
