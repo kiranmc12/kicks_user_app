@@ -7,10 +7,11 @@ class UserState with _$UserState {
       required bool hasError,
       required bool isDone,
       String? message,
+      required bool passwordChanged,
       required bool showList,
       UserDetails? userDetails,
       List<Address>? address}) = _Initial;
 
-  factory UserState.initial() => const UserState(
+  factory UserState.initial() =>  UserState(passwordChanged: false,
       isloading: true, hasError: false, isDone: false, showList: false);
 }

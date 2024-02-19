@@ -159,7 +159,10 @@ class UserBloc extends Bloc<UserEvent, UserState> {
               hasError: true,
               message: failure.message)), (sucess) {
         passwordController.clear();
+        newPasswordController.clear();
+        confirmPasswordController.clear();
         emit(state.copyWith(
+          passwordChanged: true,
             isloading: false, isDone: true, message: sucess.message));
         add(const _GetDetails());
       });

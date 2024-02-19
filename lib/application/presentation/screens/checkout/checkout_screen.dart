@@ -33,7 +33,7 @@ class ScreenCheckout extends StatelessWidget {
               child: Text("Cart Items"),
             ),
             SizedBox(
-              height: sWidth * 0.50,
+              height: sWidth * 0.60,
               child: BlocConsumer<OrdersBloc, OrdersState>(
                 listener: (context, state) {
                   if (state.isDone || state.hasError) {
@@ -51,7 +51,7 @@ class ScreenCheckout extends StatelessWidget {
                   if (state.isLoading) {
                     return const LoadingAnimation(width: 0.20);
                   }
-        
+
                   if (state.getCheckoutResponseModel == null ||
                       state.getCheckoutResponseModel!.data == null ||
                       state.getCheckoutResponseModel!.data!.products == null ||
@@ -59,7 +59,7 @@ class ScreenCheckout extends StatelessWidget {
                     return const Text('items is empty');
                   }
                   final data = state.getCheckoutResponseModel!.data!.products;
-        
+
                   return ListView.builder(
                       itemCount: data!.length,
                       scrollDirection: Axis.horizontal,
@@ -76,11 +76,13 @@ class ScreenCheckout extends StatelessWidget {
                                 color: kGrey,
                                 image: DecorationImage(
                                   image: NetworkImage(data[index].image!),
+                                  fit: BoxFit.contain,
                                 ),
                               ),
                             ),
                             SizedBox(
                               width: sWidth * 0.40,
+                              height: sWidth * 0.20,
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
@@ -90,9 +92,25 @@ class ScreenCheckout extends StatelessWidget {
                                     style: roboto(fontSize: 0.04),
                                   ),
                                   Text(
-                                    '₹ ${data[index].totalPrice!.round()} X ${data[index].quantity}',
-                                    style: roboto(fontSize: 0.035),
-                                  )
+                                      '₹ ${data[index].discountedPrice!.round()} ',
+                                      style: roboto(
+                                          fontSize: 0.04,
+                                          fontWeight: FontWeight.bold)),
+                                  Row(
+                                    children: [
+                                      Text(
+                                        '₹ ${data[index].totalPrice!.round()}',
+                                        style: priceStyleSmall,
+                                      ),
+                                      Spacer(),
+                                      Text(
+                                        "Qty :${data[index].quantity}",
+                                        style:
+                                            roboto(fontWeight: FontWeight.bold),
+                                      ),
+                                      kWidth10
+                                    ],
+                                  ),
                                 ],
                               ),
                             ),

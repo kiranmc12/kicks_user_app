@@ -31,20 +31,35 @@ class PasswordEditWidget extends StatelessWidget {
           ),
         ),
         kWidth10,
-        Container(
-          height: sWidth * 0.08,
-          width: sWidth * 0.55,
-          decoration: const BoxDecoration(
-              color: kGrey, borderRadius: BorderRadius.all(kRadius5)),
+        SizedBox(
+          height: sWidth * 0.13,
+          width: sWidth * 0.60,
           child: TextFormField(
             obscureText: isObscure,
-            controller: TextEditingController(),
+            controller: controller,
             onTap: () {
               isObscure = false;
             },
             onTapOutside: (_) {
               isObscure = true;
             },
+            
+            decoration: InputDecoration(
+            
+              enabledBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(3.0),
+                borderSide: const BorderSide(
+                    color: kBlack), // Adjust the color as needed
+              ),
+              fillColor: kGrey,
+              filled: true,
+              labelStyle: const TextStyle(fontSize: 16.0),
+              contentPadding: const EdgeInsets.symmetric(
+                vertical: 10,
+                horizontal: 10,
+              ),
+            ),
+            autovalidateMode: AutovalidateMode.onUserInteraction,
             validator: (value) {
               if (value!.isEmpty) {
                 return 'fill this field';

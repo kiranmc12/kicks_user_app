@@ -1692,6 +1692,7 @@ mixin _$UserState {
   bool get hasError => throw _privateConstructorUsedError;
   bool get isDone => throw _privateConstructorUsedError;
   String? get message => throw _privateConstructorUsedError;
+  bool get passwordChanged => throw _privateConstructorUsedError;
   bool get showList => throw _privateConstructorUsedError;
   UserDetails? get userDetails => throw _privateConstructorUsedError;
   List<Address>? get address => throw _privateConstructorUsedError;
@@ -1711,6 +1712,7 @@ abstract class $UserStateCopyWith<$Res> {
       bool hasError,
       bool isDone,
       String? message,
+      bool passwordChanged,
       bool showList,
       UserDetails? userDetails,
       List<Address>? address});
@@ -1733,6 +1735,7 @@ class _$UserStateCopyWithImpl<$Res, $Val extends UserState>
     Object? hasError = null,
     Object? isDone = null,
     Object? message = freezed,
+    Object? passwordChanged = null,
     Object? showList = null,
     Object? userDetails = freezed,
     Object? address = freezed,
@@ -1754,6 +1757,10 @@ class _$UserStateCopyWithImpl<$Res, $Val extends UserState>
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String?,
+      passwordChanged: null == passwordChanged
+          ? _value.passwordChanged
+          : passwordChanged // ignore: cast_nullable_to_non_nullable
+              as bool,
       showList: null == showList
           ? _value.showList
           : showList // ignore: cast_nullable_to_non_nullable
@@ -1783,6 +1790,7 @@ abstract class _$$InitialImplCopyWith<$Res>
       bool hasError,
       bool isDone,
       String? message,
+      bool passwordChanged,
       bool showList,
       UserDetails? userDetails,
       List<Address>? address});
@@ -1803,6 +1811,7 @@ class __$$InitialImplCopyWithImpl<$Res>
     Object? hasError = null,
     Object? isDone = null,
     Object? message = freezed,
+    Object? passwordChanged = null,
     Object? showList = null,
     Object? userDetails = freezed,
     Object? address = freezed,
@@ -1824,6 +1833,10 @@ class __$$InitialImplCopyWithImpl<$Res>
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String?,
+      passwordChanged: null == passwordChanged
+          ? _value.passwordChanged
+          : passwordChanged // ignore: cast_nullable_to_non_nullable
+              as bool,
       showList: null == showList
           ? _value.showList
           : showList // ignore: cast_nullable_to_non_nullable
@@ -1848,6 +1861,7 @@ class _$InitialImpl with DiagnosticableTreeMixin implements _Initial {
       required this.hasError,
       required this.isDone,
       this.message,
+      required this.passwordChanged,
       required this.showList,
       this.userDetails,
       final List<Address>? address})
@@ -1861,6 +1875,8 @@ class _$InitialImpl with DiagnosticableTreeMixin implements _Initial {
   final bool isDone;
   @override
   final String? message;
+  @override
+  final bool passwordChanged;
   @override
   final bool showList;
   @override
@@ -1877,7 +1893,7 @@ class _$InitialImpl with DiagnosticableTreeMixin implements _Initial {
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'UserState(isloading: $isloading, hasError: $hasError, isDone: $isDone, message: $message, showList: $showList, userDetails: $userDetails, address: $address)';
+    return 'UserState(isloading: $isloading, hasError: $hasError, isDone: $isDone, message: $message, passwordChanged: $passwordChanged, showList: $showList, userDetails: $userDetails, address: $address)';
   }
 
   @override
@@ -1889,6 +1905,7 @@ class _$InitialImpl with DiagnosticableTreeMixin implements _Initial {
       ..add(DiagnosticsProperty('hasError', hasError))
       ..add(DiagnosticsProperty('isDone', isDone))
       ..add(DiagnosticsProperty('message', message))
+      ..add(DiagnosticsProperty('passwordChanged', passwordChanged))
       ..add(DiagnosticsProperty('showList', showList))
       ..add(DiagnosticsProperty('userDetails', userDetails))
       ..add(DiagnosticsProperty('address', address));
@@ -1905,6 +1922,8 @@ class _$InitialImpl with DiagnosticableTreeMixin implements _Initial {
                 other.hasError == hasError) &&
             (identical(other.isDone, isDone) || other.isDone == isDone) &&
             (identical(other.message, message) || other.message == message) &&
+            (identical(other.passwordChanged, passwordChanged) ||
+                other.passwordChanged == passwordChanged) &&
             (identical(other.showList, showList) ||
                 other.showList == showList) &&
             (identical(other.userDetails, userDetails) ||
@@ -1919,6 +1938,7 @@ class _$InitialImpl with DiagnosticableTreeMixin implements _Initial {
       hasError,
       isDone,
       message,
+      passwordChanged,
       showList,
       userDetails,
       const DeepCollectionEquality().hash(_address));
@@ -1936,6 +1956,7 @@ abstract class _Initial implements UserState {
       required final bool hasError,
       required final bool isDone,
       final String? message,
+      required final bool passwordChanged,
       required final bool showList,
       final UserDetails? userDetails,
       final List<Address>? address}) = _$InitialImpl;
@@ -1948,6 +1969,8 @@ abstract class _Initial implements UserState {
   bool get isDone;
   @override
   String? get message;
+  @override
+  bool get passwordChanged;
   @override
   bool get showList;
   @override

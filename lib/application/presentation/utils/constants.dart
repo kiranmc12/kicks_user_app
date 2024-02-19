@@ -60,7 +60,12 @@ const boxborder = BoxDecoration(
     color: kBlack);
 
 TextStyle priceStyle =
-    TextStyle(fontWeight: FontWeight.w700, fontSize: sWidth * 0.050);
+    TextStyle(fontWeight: FontWeight.w100, fontSize: sWidth * 0.050);
+    TextStyle priceStyleSmall =
+    TextStyle(
+      fontWeight: FontWeight.normal, 
+      fontSize: sWidth * 0.035,
+      decoration: TextDecoration.lineThrough);
 
 void sizeFinder(BuildContext context) {
   final size = MediaQuery.of(context).size;
