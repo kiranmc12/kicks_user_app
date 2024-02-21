@@ -1,6 +1,8 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:kicks_sneakerapp/application/presentation/utils/colors.dart';
 import 'package:kicks_sneakerapp/application/presentation/utils/constants.dart';
+import 'package:kicks_sneakerapp/application/presentation/utils/loadin_animation/loading_animation.dart';
 
 class ImageShowContainer extends StatelessWidget {
   const ImageShowContainer({
@@ -15,16 +17,17 @@ class ImageShowContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.fromLTRB(20, 30, 30, 5),
-      height: sWidth * width,
-      decoration: const BoxDecoration(
-          color: kWhite, borderRadius: BorderRadius.all(kRadius10)),
-      child: SizedBox(
+        padding: const EdgeInsets.fromLTRB(20, 30, 30, 5),
+        height: sWidth * width,
+        decoration: const BoxDecoration(
+            color: kWhite, borderRadius: BorderRadius.all(kRadius10)),
+        child: SizedBox(
           width: double.infinity,
-          child: Image.network(
-            image,
-            fit: BoxFit.fill,
-          )),
-    );
+          child: CachedNetworkImage(
+            imageUrl: image,
+            placeholder: (context, url) => LoadingAnimation(width: 0.002),
+            errorWidget: (context, url, error) => Icon(Icons.error),
+          ),
+        ));
   }
 }

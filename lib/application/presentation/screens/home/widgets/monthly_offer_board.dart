@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kicks_sneakerapp/application/bussiness_logic/home/home_bloc.dart';
@@ -43,7 +44,11 @@ class MonthlyOfferBoard extends StatelessWidget {
                           SizedBox(
                             height: sWidth * 0.30,
                             width: sWidth * 0.25,
-                            child: Image.network(state.banners![0].images![0]),
+                            child:CachedNetworkImage(imageUrl: state.banners![0].images![0],
+                            errorWidget:(context, object, stackTrace){
+                              return Icon(Icons.error);
+
+                            }),
                           ),
                           Positioned(
                             right: 0,

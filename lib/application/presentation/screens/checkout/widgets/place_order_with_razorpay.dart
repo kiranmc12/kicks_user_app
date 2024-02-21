@@ -43,13 +43,14 @@ class _PlaceOrderWithRazorPayState extends State<PlaceOrderWithRazorPay> {
         builder: (context, state) {
           return Row(
             children: [
-              // Text(
-              //   "₹ ${state.getCheckoutResponseModel!.data!
-              //                   .discountedPrice!
-              //                   .round() *
-              //               100}",
-              //   style: priceStyle,
-              // ),
+              BlocBuilder<CartBloc, CartState>(
+                builder: (context, cart) {
+                  return Text(
+                    "₹ ${cart.amountPayable!.round() * 100}",
+                    style: priceStyle,
+                  );
+                },
+              ),
               Spacer(),
               ElevatedButton(
                   style: elevatedButtonStyle,

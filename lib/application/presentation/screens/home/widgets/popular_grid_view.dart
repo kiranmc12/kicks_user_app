@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kicks_sneakerapp/application/bussiness_logic/Inventory/inventory_bloc.dart';
@@ -78,7 +79,12 @@ class ProductTile extends StatelessWidget {
                     color: kGrey, // Replace with your desired color
                     child: SizedBox(
                       width: double.infinity,
-                      child: Image.network(inventories.image!),
+                      child: CachedNetworkImage(
+                        imageUrl: inventories.image!,
+                        placeholder: (context, url) =>
+                            LoadingAnimation(width: sWidth*0.005),
+                        errorWidget: (context, url, error) => Icon(Icons.error),
+                      ),
                     )),
               ),
               Positioned(

@@ -54,6 +54,18 @@ class ChangeDetailWidget extends StatelessWidget {
                         message: state.message!,
                         color: kGreen);
                   }
+                    if (state.isDone && detail == "Email") {
+                    showSnack(
+                        context: context,
+                        message: state.message!,
+                        color: kGreen);
+                  }
+                    if (state.isDone && detail == "Phone") {
+                    showSnack(
+                        context: context,
+                        message: state.message!,
+                        color: kGreen);
+                  }
                 },
                 builder: (context, state) {
                   return TextFormField(

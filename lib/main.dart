@@ -6,6 +6,7 @@ import 'package:kicks_sneakerapp/application/bussiness_logic/Inventory/inventory
 import 'package:kicks_sneakerapp/application/bussiness_logic/auth/auth_bloc.dart';
 import 'package:kicks_sneakerapp/application/bussiness_logic/cart/cart_bloc.dart';
 import 'package:kicks_sneakerapp/application/bussiness_logic/home/home_bloc.dart';
+import 'package:kicks_sneakerapp/application/bussiness_logic/network/network_bloc.dart';
 import 'package:kicks_sneakerapp/application/bussiness_logic/orders/orders_bloc.dart';
 import 'package:kicks_sneakerapp/application/bussiness_logic/user/user_bloc.dart';
 import 'package:kicks_sneakerapp/application/bussiness_logic/wishlsit/wishlist_bloc.dart';
@@ -31,8 +32,11 @@ class KicksUserApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    
+
     return MultiBlocProvider(
       providers: [
+        BlocProvider(create: (context)=>NetworkBloc()..add(NetworkObserve())),
         BlocProvider(create: (context) => AuthBloc(AuthApi())),
         BlocProvider(create: (context) => HomeBloc(HomeApi())),
         BlocProvider(create: (context) => InventoryBloc(InventoryApi())),
@@ -52,8 +56,8 @@ class KicksUserApp extends StatelessWidget {
             useMaterial3: true,
           ),
           onGenerateRoute: routeGenerator.onGenerateRoute,
-          navigatorKey: NavigationService().navigatorKey,
-          scaffoldMessengerKey: NavigationService().scaffoldMessengerKey,
+          navigatorKey: NavigationService.getNavigatorKey,
+          scaffoldMessengerKey: NavigationService.getScaffoldMessengerKey,
         ),
       ),
     );
