@@ -12,6 +12,7 @@ import 'package:kicks_sneakerapp/application/presentation/screens/coupons/coupon
 import 'package:kicks_sneakerapp/application/presentation/screens/inventory/product_details.dart';
 import 'package:kicks_sneakerapp/application/presentation/screens/orders/order_details.dart';
 import 'package:kicks_sneakerapp/application/presentation/screens/orders/order_screen.dart';
+import 'package:kicks_sneakerapp/application/presentation/screens/profile/widgets/about.dart';
 import 'package:kicks_sneakerapp/application/presentation/screens/splash_screen/splash_screen.dart';
 import 'package:kicks_sneakerapp/application/presentation/screens/user_details/user_details.dart';
 import 'package:kicks_sneakerapp/domain/models/inventory/get_inventory_response_model/datum.dart';
@@ -31,6 +32,9 @@ class RouteGenerator {
       case Routes.OtpScreen:
         return MaterialPageRoute(
             builder: (ctx) => const ScreenOtpVerification());
+             case Routes.aboouAndPolicyScreen:
+        return MaterialPageRoute(
+            builder: (ctx) => About());
       case Routes.categoryListScreen:
         return arguments is String
             ? MaterialPageRoute(

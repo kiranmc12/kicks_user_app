@@ -10,5 +10,5 @@ class HomeState with _$HomeState {
       List<Banners>? banners,
       List<Category>? category}) = _Initial;
   factory HomeState.initial() =>
-      HomeState(isLoading: false, hasError: false, expired: false);
+      const HomeState(isLoading: false, hasError: false, expired: false);
 }

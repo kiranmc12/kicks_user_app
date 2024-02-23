@@ -10,8 +10,10 @@ class OrdersState with _$OrdersState {
       Address? selecteAddress,
       PaymentMethod? selectedPaymentMethod,
       GetCheckoutResponseModel? getCheckoutResponseModel,
+      List<Orders>? orders,
+    
       GetAllOrdersResposneModel? getAllOrdersResposneModel,
       GetOrderDetailsResponseModel? getOrderDetailsResponseModel}) = _Initial;
   factory OrdersState.initial() =>
-      const OrdersState(isLoading: false, hasError: false, isDone: false);
+      const OrdersState(isLoading: true, hasError: false, isDone: false);
 }

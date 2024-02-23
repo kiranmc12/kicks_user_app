@@ -48,13 +48,10 @@ class _ScreenSearchState extends State<ScreenSearch> {
               if (state.inventories == null || state.inventories!.isEmpty) {
                 return Column(
                   children: [
-                    Center(
-                      child: Lottie.network(
-                          'https://lottie.host/0be2ee81-6259-4d63-9408-8b2dbdf04b4a/4VfozZiSJO.json'),
-                    ),
+                    Center(child: Lottie.asset(noDataUrl)),
                     Text(
-                      "No result",
-                      style: roboto(fontSize: 0.04),
+                      "Sorry!,No result",
+                      style: tektur(fontSize: 0.04),
                     )
                   ],
                 );
@@ -69,7 +66,7 @@ class _ScreenSearchState extends State<ScreenSearch> {
                       crossAxisCount: 2,
                       childAspectRatio: 1 / 1.5,
                       mainAxisSpacing: 10,
-                      crossAxisSpacing: 20),
+                      crossAxisSpacing: 10),
                   itemBuilder: (context, index) {
                     if (state.loadMore && index == state.inventories!.length) {
                       return const LoadingAnimation(width: 0.20);

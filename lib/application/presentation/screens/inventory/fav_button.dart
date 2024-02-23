@@ -20,6 +20,11 @@ class _FavButtonState extends State<FavButton> {
   @override
   Widget build(BuildContext context) {
     return InkWell(
+      hoverColor: kWhite,
+      splashColor: kWhite,
+      highlightColor: kWhite,
+      
+      focusColor: kWhite,
       onTap: () {
         widget.isFav
             ? context

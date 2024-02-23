@@ -46,7 +46,7 @@ class _PlaceOrderWithRazorPayState extends State<PlaceOrderWithRazorPay> {
               BlocBuilder<CartBloc, CartState>(
                 builder: (context, cart) {
                   return Text(
-                    "₹ ${cart.amountPayable!.round() * 100}",
+                    "₹ ${cart.amountPayable!.round()}",
                     style: priceStyle,
                   );
                 },

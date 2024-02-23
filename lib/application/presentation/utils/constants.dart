@@ -61,11 +61,10 @@ const boxborder = BoxDecoration(
 
 TextStyle priceStyle =
     TextStyle(fontWeight: FontWeight.w100, fontSize: sWidth * 0.050);
-    TextStyle priceStyleSmall =
-    TextStyle(
-      fontWeight: FontWeight.normal, 
-      fontSize: sWidth * 0.035,
-      decoration: TextDecoration.lineThrough);
+TextStyle priceStyleSmall = TextStyle(
+    fontWeight: FontWeight.normal,
+    fontSize: sWidth * 0.035,
+    decoration: TextDecoration.lineThrough);
 
 void sizeFinder(BuildContext context) {
   final size = MediaQuery.of(context).size;
@@ -80,12 +79,13 @@ ButtonStyle elevatedButtonStyle = ElevatedButton.styleFrom(
   foregroundColor: kWhite,
   shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(kRadius5)),
 );
+const String noDataUrl = "assets/nodatacart.json";
 
 const String nikeUrl =
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Logo_NIKE.svg/330px-Logo_NIKE.svg.png";
+    "assets/nike.png";
 const String adidasUrl =
-    "https://imgs.search.brave.com/eFLIdRLc7yR2-jZ4bi28dC5qyUum8A5tlYLDphjEGsw/rs:fit:500:0:0/g:ce/aHR0cHM6Ly91cGxv/YWQud2lraW1lZGlh/Lm9yZy93aWtpcGVk/aWEvY29tbW9ucy90/aHVtYi8xLzFiL0Fk/aWRhc18yMDIyX2xv/Z28uc3ZnLzUxMnB4/LUFkaWRhc18yMDIy/X2xvZ28uc3ZnLnBu/Zw";
-const String pumaURL =
-    "https://imgs.search.brave.com/oOFidxC2ihu_aIu98spBekqq3iYWqNb7htov-9dv4A8/rs:fit:500:0:0/g:ce/aHR0cHM6Ly93d3cu/ZmFtb3VzbG9nb3Mu/b3JnL2xvZ29zL3B1/bWEtbG9nby5qcGc";
+    "assets/adidaslogo.webp";
+const String newBalanceUrl =
+    "assets/newbalance.png";
 const String shoe1uRL =
     "https://assets.adidas.com/images/w_600,f_auto,q_auto/f81a93942800473fa6cbaf7b00b2d48b_9366/Campus_00s_Shoes_Blue_H03471_01_standard.jpg";

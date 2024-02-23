@@ -1,6 +1,5 @@
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:injectable/injectable.dart';
 import 'package:kicks_sneakerapp/data/shared_preferences/shared_preferences.dart';
 import 'package:kicks_sneakerapp/domain/models/cart/add_to_cart_model/add_to_cart_model.dart';
 import 'package:kicks_sneakerapp/domain/models/cart/get_cart_response_model/get_cart_response_model.dart';
@@ -125,7 +124,7 @@ class CartBloc extends Bloc<CartEvent, CartState> {
 
     on<_UpdateQuantityMinus>((event, emit) async {
       if (state.cartItems[event.productId] == 1) {
-        add(CartEvent.updateQuantityMinus(productId: event.productId));
+        add(CartEvent.removeFromCart(productId: event.productId));
         return;
       }
       final result = await cartRepository.updateQuantityMinus(

@@ -12,7 +12,6 @@ import 'package:kicks_sneakerapp/application/bussiness_logic/user/user_bloc.dart
 import 'package:kicks_sneakerapp/application/bussiness_logic/wishlsit/wishlist_bloc.dart';
 import 'package:kicks_sneakerapp/application/presentation/routes/navigator_key.dart';
 import 'package:kicks_sneakerapp/application/presentation/routes/route_generator.dart';
-
 import 'package:kicks_sneakerapp/data/services/auth/auth.dart';
 import 'package:kicks_sneakerapp/data/services/cart/cart.dart';
 import 'package:kicks_sneakerapp/data/services/home/home.dart';
@@ -56,8 +55,7 @@ class KicksUserApp extends StatelessWidget {
             useMaterial3: true,
           ),
           onGenerateRoute: routeGenerator.onGenerateRoute,
-          navigatorKey: NavigationService.getNavigatorKey,
-          scaffoldMessengerKey: NavigationService.getScaffoldMessengerKey,
+          // navigatorKey: NavigationService.getNavigatorKey,
         ),
       ),
     );

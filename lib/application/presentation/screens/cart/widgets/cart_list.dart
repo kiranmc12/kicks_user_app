@@ -6,6 +6,7 @@ import 'package:kicks_sneakerapp/application/presentation/utils/colors.dart';
 import 'package:kicks_sneakerapp/application/presentation/utils/constants.dart';
 import 'package:kicks_sneakerapp/application/presentation/utils/loadin_animation/loading_animation.dart';
 import 'package:kicks_sneakerapp/application/presentation/utils/snackbar/showSnack.dart';
+import 'package:lottie/lottie.dart';
 
 class CartItemsList extends StatelessWidget {
   const CartItemsList({
@@ -36,11 +37,14 @@ class CartItemsList extends StatelessWidget {
                   state.getCartResponseModel!.data == null ||
                   state.getCartResponseModel!.data!.data == null ||
                   state.getCartResponseModel!.data!.data!.isEmpty) {
-                return Center(
-                  child: Text(
-                    "Your cart is empty",
-                    style: tektur(fontSize: 0.05),
-                  ),
+                return Column(
+                  children: [
+                    Lottie.asset(noDataUrl),
+                    Text(
+                      "Your cart is empty",
+                      style: tektur(fontSize: 0.05),
+                    ),
+                  ],
                 );
               } else if (state.getCartResponseModel != null &&
                   state.getCartResponseModel!.data!.data!.isNotEmpty) {

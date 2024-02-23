@@ -38,9 +38,9 @@ class PopularGridView extends StatelessWidget {
                   physics: const NeverScrollableScrollPhysics(),
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2,
-                      childAspectRatio: 1 / 1.5,
+                      childAspectRatio: 1 / 1.6,
                       mainAxisSpacing: 10,
-                      crossAxisSpacing: 20),
+                      crossAxisSpacing: 10),
                   itemBuilder: (context, index) =>
                       ProductTile(inventories: state.inventories![index]));
             } else {
@@ -82,8 +82,8 @@ class ProductTile extends StatelessWidget {
                       child: CachedNetworkImage(
                         imageUrl: inventories.image!,
                         placeholder: (context, url) =>
-                            LoadingAnimation(width: sWidth*0.005),
-                        errorWidget: (context, url, error) => Icon(Icons.error),
+                            LoadingAnimation(width: sWidth*0.0002),
+                        errorWidget: (context, url, error) => const Icon(Icons.error),
                       ),
                     )),
               ),
@@ -114,7 +114,7 @@ class ProductTile extends StatelessWidget {
             ),
             kWidth10,
             Text(
-              '₹ ${inventories.price!.roundToDouble().toString()}',
+              '₹ ${inventories.price!.toString()}',
               style: TextStyle(
                   fontWeight: FontWeight.w400,
                   fontSize: sWidth * 0.03,
@@ -123,14 +123,18 @@ class ProductTile extends StatelessWidget {
             ),
             const Spacer(),
             Container(
+              padding: EdgeInsets.all(0),
               decoration: const BoxDecoration(
                   borderRadius: BorderRadius.all(kRadius5), color: kGreen),
               height: 20,
-              width: 30,
-              child: Text(
-                "${(100 - (inventories.discountedPrice! / inventories.price!) * 100).round()}% off",
-                textAlign: TextAlign.center,
-                style: roboto(color: kWhite, fontWeight: FontWeight.bold),
+              width: 40,
+              child: Center(
+                child: Text(
+                  
+                  "${(100 - (inventories.discountedPrice! / inventories.price!) * 100).round()}% off",
+                  textAlign: TextAlign.center,
+                  style: roboto(color: kWhite,fontWeight: FontWeight.bold, fontSize: 0.025),
+                ),
               ),
             ),
             kWidth10,

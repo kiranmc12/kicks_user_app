@@ -95,6 +95,7 @@ class AuthApi implements AuthRepository {
       final response =
           await dio.post(Apiendpoints.signUp, data: signUpModel.toJson());
       if (response.statusCode == 200 || response.statusCode == 201) {
+         print(response.data);
         print(SignUpResponseModel.fromJson(response.data));
         return Right(SignUpResponseModel.fromJson(response.data));
       } else {

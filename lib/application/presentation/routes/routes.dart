@@ -15,5 +15,5 @@ class Routes {
   static const String inventoryDetailScreen = '/inventory_detail_screen';
   static const String couponScreen = '/coupon_screen';
   static const String checkoutScreen = '/checkout_screen';
-  static const String aboouAndPolicyScreen = '/about_and_policy_screen';
+  static const String aboouAndPolicyScreen = '/about';
 }

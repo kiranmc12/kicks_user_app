@@ -2,6 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:kicks_sneakerapp/data/shared_preferences/shared_preferences.dart';
 import 'package:kicks_sneakerapp/domain/models/id_query/id_query.dart';
+import 'package:kicks_sneakerapp/domain/models/orders/get_all_orders_resposne_model/datum.dart';
 import 'package:kicks_sneakerapp/domain/models/orders/get_all_orders_resposne_model/get_all_orders_resposne_model.dart';
 import 'package:kicks_sneakerapp/domain/models/orders/get_checkout_response_model/get_checkout_response_model.dart';
 import 'package:kicks_sneakerapp/domain/models/orders/get_checkout_response_model/payment_method.dart';
@@ -26,10 +27,15 @@ class OrdersBloc extends Bloc<OrdersEvent, OrdersState> {
         emit(state.copyWith(
             isLoading: false, hasError: true, message: failure.message));
       }, (getAllordersResponse) {
-        print("bloc");
-        print(getAllordersResponse);
+        List<Orders> revList = [];
+
+        for (var order in getAllordersResponse.data!.reversed) {
+          revList.add(order);
+        }
+        print(revList);
         emit(state.copyWith(
-            isLoading: false, getAllOrdersResposneModel: getAllordersResponse));
+            isLoading: false, 
+            orders: revList));
       });
     });
 

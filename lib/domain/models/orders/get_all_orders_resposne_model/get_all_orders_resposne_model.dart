@@ -9,7 +9,7 @@ class GetAllOrdersResposneModel {
   @JsonKey(name: 'status_code')
   int? statusCode;
   String? message;
-  List<Datum>? data;
+  List<Orders>? data;
   dynamic error;
 
   GetAllOrdersResposneModel({

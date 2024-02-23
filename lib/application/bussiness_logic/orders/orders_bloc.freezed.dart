@@ -1681,6 +1681,7 @@ mixin _$OrdersState {
       throw _privateConstructorUsedError;
   GetCheckoutResponseModel? get getCheckoutResponseModel =>
       throw _privateConstructorUsedError;
+  List<Orders>? get orders => throw _privateConstructorUsedError;
   GetAllOrdersResposneModel? get getAllOrdersResposneModel =>
       throw _privateConstructorUsedError;
   GetOrderDetailsResponseModel? get getOrderDetailsResponseModel =>
@@ -1705,6 +1706,7 @@ abstract class $OrdersStateCopyWith<$Res> {
       Address? selecteAddress,
       PaymentMethod? selectedPaymentMethod,
       GetCheckoutResponseModel? getCheckoutResponseModel,
+      List<Orders>? orders,
       GetAllOrdersResposneModel? getAllOrdersResposneModel,
       GetOrderDetailsResponseModel? getOrderDetailsResponseModel});
 }
@@ -1729,6 +1731,7 @@ class _$OrdersStateCopyWithImpl<$Res, $Val extends OrdersState>
     Object? selecteAddress = freezed,
     Object? selectedPaymentMethod = freezed,
     Object? getCheckoutResponseModel = freezed,
+    Object? orders = freezed,
     Object? getAllOrdersResposneModel = freezed,
     Object? getOrderDetailsResponseModel = freezed,
   }) {
@@ -1761,6 +1764,10 @@ class _$OrdersStateCopyWithImpl<$Res, $Val extends OrdersState>
           ? _value.getCheckoutResponseModel
           : getCheckoutResponseModel // ignore: cast_nullable_to_non_nullable
               as GetCheckoutResponseModel?,
+      orders: freezed == orders
+          ? _value.orders
+          : orders // ignore: cast_nullable_to_non_nullable
+              as List<Orders>?,
       getAllOrdersResposneModel: freezed == getAllOrdersResposneModel
           ? _value.getAllOrdersResposneModel
           : getAllOrdersResposneModel // ignore: cast_nullable_to_non_nullable
@@ -1789,6 +1796,7 @@ abstract class _$$InitialImplCopyWith<$Res>
       Address? selecteAddress,
       PaymentMethod? selectedPaymentMethod,
       GetCheckoutResponseModel? getCheckoutResponseModel,
+      List<Orders>? orders,
       GetAllOrdersResposneModel? getAllOrdersResposneModel,
       GetOrderDetailsResponseModel? getOrderDetailsResponseModel});
 }
@@ -1811,6 +1819,7 @@ class __$$InitialImplCopyWithImpl<$Res>
     Object? selecteAddress = freezed,
     Object? selectedPaymentMethod = freezed,
     Object? getCheckoutResponseModel = freezed,
+    Object? orders = freezed,
     Object? getAllOrdersResposneModel = freezed,
     Object? getOrderDetailsResponseModel = freezed,
   }) {
@@ -1843,6 +1852,10 @@ class __$$InitialImplCopyWithImpl<$Res>
           ? _value.getCheckoutResponseModel
           : getCheckoutResponseModel // ignore: cast_nullable_to_non_nullable
               as GetCheckoutResponseModel?,
+      orders: freezed == orders
+          ? _value._orders
+          : orders // ignore: cast_nullable_to_non_nullable
+              as List<Orders>?,
       getAllOrdersResposneModel: freezed == getAllOrdersResposneModel
           ? _value.getAllOrdersResposneModel
           : getAllOrdersResposneModel // ignore: cast_nullable_to_non_nullable
@@ -1866,8 +1879,10 @@ class _$InitialImpl implements _Initial {
       this.selecteAddress,
       this.selectedPaymentMethod,
       this.getCheckoutResponseModel,
+      final List<Orders>? orders,
       this.getAllOrdersResposneModel,
-      this.getOrderDetailsResponseModel});
+      this.getOrderDetailsResponseModel})
+      : _orders = orders;
 
   @override
   final bool isLoading;
@@ -1883,6 +1898,16 @@ class _$InitialImpl implements _Initial {
   final PaymentMethod? selectedPaymentMethod;
   @override
   final GetCheckoutResponseModel? getCheckoutResponseModel;
+  final List<Orders>? _orders;
+  @override
+  List<Orders>? get orders {
+    final value = _orders;
+    if (value == null) return null;
+    if (_orders is EqualUnmodifiableListView) return _orders;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
   @override
   final GetAllOrdersResposneModel? getAllOrdersResposneModel;
   @override
@@ -1890,7 +1915,7 @@ class _$InitialImpl implements _Initial {
 
   @override
   String toString() {
-    return 'OrdersState(isLoading: $isLoading, hasError: $hasError, isDone: $isDone, message: $message, selecteAddress: $selecteAddress, selectedPaymentMethod: $selectedPaymentMethod, getCheckoutResponseModel: $getCheckoutResponseModel, getAllOrdersResposneModel: $getAllOrdersResposneModel, getOrderDetailsResponseModel: $getOrderDetailsResponseModel)';
+    return 'OrdersState(isLoading: $isLoading, hasError: $hasError, isDone: $isDone, message: $message, selecteAddress: $selecteAddress, selectedPaymentMethod: $selectedPaymentMethod, getCheckoutResponseModel: $getCheckoutResponseModel, orders: $orders, getAllOrdersResposneModel: $getAllOrdersResposneModel, getOrderDetailsResponseModel: $getOrderDetailsResponseModel)';
   }
 
   @override
@@ -1911,6 +1936,7 @@ class _$InitialImpl implements _Initial {
             (identical(
                     other.getCheckoutResponseModel, getCheckoutResponseModel) ||
                 other.getCheckoutResponseModel == getCheckoutResponseModel) &&
+            const DeepCollectionEquality().equals(other._orders, _orders) &&
             (identical(other.getAllOrdersResposneModel,
                     getAllOrdersResposneModel) ||
                 other.getAllOrdersResposneModel == getAllOrdersResposneModel) &&
@@ -1930,6 +1956,7 @@ class _$InitialImpl implements _Initial {
       selecteAddress,
       selectedPaymentMethod,
       getCheckoutResponseModel,
+      const DeepCollectionEquality().hash(_orders),
       getAllOrdersResposneModel,
       getOrderDetailsResponseModel);
 
@@ -1949,6 +1976,7 @@ abstract class _Initial implements OrdersState {
           final Address? selecteAddress,
           final PaymentMethod? selectedPaymentMethod,
           final GetCheckoutResponseModel? getCheckoutResponseModel,
+          final List<Orders>? orders,
           final GetAllOrdersResposneModel? getAllOrdersResposneModel,
           final GetOrderDetailsResponseModel? getOrderDetailsResponseModel}) =
       _$InitialImpl;
@@ -1967,6 +1995,8 @@ abstract class _Initial implements OrdersState {
   PaymentMethod? get selectedPaymentMethod;
   @override
   GetCheckoutResponseModel? get getCheckoutResponseModel;
+  @override
+  List<Orders>? get orders;
   @override
   GetAllOrdersResposneModel? get getAllOrdersResposneModel;
   @override

@@ -8,16 +8,19 @@ import 'package:kicks_sneakerapp/application/presentation/utils/validator_functi
 import 'package:kicks_sneakerapp/domain/models/user_details/edit_details/edit_email/edit_email.dart';
 import 'package:kicks_sneakerapp/domain/models/user_details/edit_details/edit_name/edit_name.dart';
 import 'package:kicks_sneakerapp/domain/models/user_details/edit_details/edit_phone/edit_phone.dart';
+import 'package:pinput/pinput.dart';
 
 class ChangeDetailWidget extends StatelessWidget {
   const ChangeDetailWidget(
       {super.key,
       required this.detail,
       required this.controller,
-      required this.hintValue});
+      required this.hintValue,
+      this.textInputType = TextInputType.name});
 
   final String detail;
   final String hintValue;
+  final TextInputType textInputType;
   final TextEditingController controller;
 
   @override
@@ -25,6 +28,7 @@ class ChangeDetailWidget extends StatelessWidget {
     return Column(
       children: [
         Text('Change $detail'),
+        kHeight5,
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -41,11 +45,9 @@ class ChangeDetailWidget extends StatelessWidget {
               ),
             ),
             kWidth10,
-            Container(
-              height: sWidth * 0.08,
+            SizedBox(
+              height: sWidth * 0.13,
               width: sWidth * 0.65,
-              decoration: const BoxDecoration(
-                  color: kGrey, borderRadius: BorderRadius.all(kRadius5)),
               child: BlocConsumer<UserBloc, UserState>(
                 listener: (context, state) {
                   if (state.isDone && detail == "Name") {
@@ -54,13 +56,13 @@ class ChangeDetailWidget extends StatelessWidget {
                         message: state.message!,
                         color: kGreen);
                   }
-                    if (state.isDone && detail == "Email") {
+                  if (state.isDone && detail == "Email") {
                     showSnack(
                         context: context,
                         message: state.message!,
                         color: kGreen);
                   }
-                    if (state.isDone && detail == "Phone") {
+                  if (state.isDone && detail == "Phone") {
                     showSnack(
                         context: context,
                         message: state.message!,
@@ -69,8 +71,18 @@ class ChangeDetailWidget extends StatelessWidget {
                 },
                 builder: (context, state) {
                   return TextFormField(
+                    autovalidateMode: AutovalidateMode.onUserInteraction,
                     controller: controller,
-                    decoration: InputDecoration(hintText: hintValue),
+                    keyboardType: textInputType,
+                    decoration: InputDecoration(
+                      fillColor: kGrey,
+                      filled: true,
+                      contentPadding: const EdgeInsets.symmetric(
+                        vertical: 10,
+                        horizontal: 10,
+                      ),
+                      hintText: hintValue,
+                    ),
                     validator: (value) {
                       if (value!.isEmpty) {
                         return 'enter $detail';
@@ -80,7 +92,7 @@ class ChangeDetailWidget extends StatelessWidget {
                         return 'enter valid email';
                       } else if (controller ==
                               context.read<UserBloc>().changeNameController &&
-                          isAlphabet(value)) {
+                              context.read<UserBloc>().changeNameController.length<4 ){
                         return 'enter valid name';
                       } else if (controller ==
                               context.read<UserBloc>().changePhoneController &&

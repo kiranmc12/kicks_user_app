@@ -4,8 +4,10 @@ import 'package:kicks_sneakerapp/application/bussiness_logic/Inventory/inventory
 import 'package:kicks_sneakerapp/application/bussiness_logic/wishlsit/wishlist_bloc.dart';
 import 'package:kicks_sneakerapp/application/presentation/screens/favorite/fav_tile.dart';
 import 'package:kicks_sneakerapp/application/presentation/utils/colors.dart';
+import 'package:kicks_sneakerapp/application/presentation/utils/constants.dart';
 import 'package:kicks_sneakerapp/application/presentation/utils/loadin_animation/loading_animation.dart';
 import 'package:kicks_sneakerapp/application/presentation/utils/snackbar/showSnack.dart';
+import 'package:lottie/lottie.dart';
 
 class ScreenFavorites extends StatelessWidget {
   const ScreenFavorites({super.key});
@@ -47,8 +49,11 @@ class ScreenFavorites extends StatelessWidget {
                   } else if (state.getWishListResponseModel != null) {
                     if (state.getWishListResponseModel!.data == null ||
                         state.getWishListResponseModel!.data!.isEmpty) {
-                      return const Center(
-                        child: Text("No data"),
+                      return Column(
+                        children: [
+                          Lottie.asset(noDataUrl),
+                          Text("Wishlist empty",style: tektur(fontSize: 0.06),),
+                        ],
                       );
                     }
                     return GridView.builder(
@@ -57,8 +62,8 @@ class ScreenFavorites extends StatelessWidget {
                       gridDelegate:
                           const SliverGridDelegateWithFixedCrossAxisCount(
                         childAspectRatio: 1 / 1.8,
-                        mainAxisSpacing: 10,
-                        crossAxisSpacing: 20,
+                        mainAxisSpacing: 20,
+                        crossAxisSpacing: 10,
                         crossAxisCount: 2,
                       ),
                       itemBuilder: (context, index) => FavTile(

@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:kicks_sneakerapp/application/bussiness_logic/auth/auth_bloc.dart';
 import 'package:kicks_sneakerapp/application/presentation/routes/routes.dart';
 import 'package:kicks_sneakerapp/application/presentation/utils/constants.dart';
 import 'package:kicks_sneakerapp/application/presentation/utils/show_dialog/show_dialog.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class SettingTiles extends StatelessWidget {
   const SettingTiles({
@@ -52,7 +54,9 @@ class SettingTiles extends StatelessWidget {
               Icons.arrow_back_ios_new_outlined,
               size: 15,
             ),
-            onTap: () {},
+            onTap: () {
+              Navigator.pushNamed(context, Routes.aboouAndPolicyScreen);
+            },
           ),
           const Divider(),
           ListTile(
@@ -61,7 +65,13 @@ class SettingTiles extends StatelessWidget {
               Icons.arrow_back_ios_new_outlined,
               size: 15,
             ),
-            onTap: () {},
+            onTap: () async {
+              final Uri url = Uri.parse(
+                  'https://www.privacypolicies.com/live/381f2dcb-89c2-4bad-8291-1f9381b65693');
+              if (!await launchUrl(url)) {
+                Fluttertoast.showToast(msg: 'cannot open url');
+              }
+            },
           ),
           const Divider(),
           ListTile(

@@ -13,8 +13,11 @@ Future<dynamic> customShowDialoge(
                   Navigator.pop(context);
                 },
                 style: ElevatedButton.styleFrom(
-                    backgroundColor: kGreen, foregroundColor: kWhite),
-                child: const Text('NO'),
+                    backgroundColor: kBlack, foregroundColor: kWhite),
+                child: Text(
+                  'NO',
+                  style: roboto(color: kWhite),
+                ),
               ),
               kWidth20,
               ElevatedButton(
@@ -23,10 +26,16 @@ Future<dynamic> customShowDialoge(
                   onPress();
                 },
                 style: ElevatedButton.styleFrom(
-                    backgroundColor: kRed, foregroundColor: kWhite),
-                child: const Text('YES'),
+                    backgroundColor: kBlack, foregroundColor: kWhite),
+                child: Text(
+                  'YES',
+                  style: roboto(color: kWhite),
+                ),
               )
             ],
-            title: const Text('are you sure?'),
+            title: Text(
+              'Are you sure?',
+              style: roboto(fontSize: 0.06),
+            ),
           ));
 }

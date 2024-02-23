@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:kicks_sneakerapp/application/presentation/screens/orders/widgets/stack_image_container.dart';
 import 'package:kicks_sneakerapp/application/presentation/utils/colors.dart';
@@ -11,7 +10,7 @@ class MyOrderListTile extends StatelessWidget {
     required this.data,
   });
 
-  final Datum data;
+  final Orders data;
 
   @override
   Widget build(BuildContext context) {

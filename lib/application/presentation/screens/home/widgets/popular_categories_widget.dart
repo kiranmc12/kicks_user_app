@@ -18,7 +18,7 @@ class PopularCategories extends StatelessWidget {
     return Container(
       height: 100,
       color: kWhite,
-      child: const Row(
+      child:  const Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           CircleAvatarWidget(
@@ -30,8 +30,8 @@ class PopularCategories extends StatelessWidget {
             brandName: 'Adidas',
           ),
           CircleAvatarWidget(
-            imageUrl: pumaURL,
-            brandName: 'Nike',
+            imageUrl: newBalanceUrl,
+            brandName: 'NewBalance',
           )
         ],
       ),

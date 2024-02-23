@@ -32,6 +32,7 @@ class UserBloc extends Bloc<UserEvent, UserState> {
   final TextEditingController stateController = TextEditingController();
   final TextEditingController phoneController = TextEditingController();
   final TextEditingController pinController = TextEditingController();
+    final GlobalKey<FormState> changeDetailskey = GlobalKey<FormState>();
   final UserRepository userRepository;
   Address? defaultAddress;
 

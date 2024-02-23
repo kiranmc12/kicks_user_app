@@ -31,78 +31,82 @@ class ScreenUserDetails extends StatelessWidget {
               }
             },
             builder: (context, state) {
-              return Column(
-                children: [
-                  const Divider(),
-                  ChangeDetailWidget(
-                    detail: 'Name',
-                    controller: context.read<UserBloc>().changeNameController,
-                    hintValue: state.userDetails!.name!,
-                  ),
-                  ChangeDetailWidget(
-                      detail: 'Email',
-                      hintValue: state.userDetails!.email!,
-                      controller:
-                          context.read<UserBloc>().changeEmailController),
-                  ChangeDetailWidget(
-                      detail: 'Phone',
-                      hintValue: state.userDetails!.phone!,
-                      controller:
-                          context.read<UserBloc>().changePhoneController),
-                  Column(
-                    children: [
-                      Text(
-                        'Change Password',
-                        style: roboto(),
-                      ),
-                      PasswordEditWidget(
-                          text: 'Password',
-                          controller:
-                              context.read<UserBloc>().passwordController),
-                      kHeight5,
-                      PasswordEditWidget(
-                          text: "New Password",
-                          controller:
-                              context.read<UserBloc>().newPasswordController),
-                      kHeight5,
-                      PasswordEditWidget(
-                          text: "Confirm Password",
-                          controller: context
-                              .read<UserBloc>()
-                              .confirmPasswordController),
-                      kHeight5,
-                      Align(
-                        alignment: Alignment.centerRight,
-                        child: ElevatedButton(
-                            onPressed: () {
-                              context.read<UserBloc>().add(
-                                  UserEvent.changePassword(
-                                      changePassword: ChangePasswordModel(
-                                          oldPassword:
-                                              context
-                                                  .read<UserBloc>()
-                                                  .passwordController
-                                                  .text
-                                                  .trim(),
-                                          password:
-                                              context
-                                                  .read<UserBloc>()
-                                                  .newPasswordController
-                                                  .text
-                                                  .trim(),
-                                          rePassword: context
-                                              .read<UserBloc>()
-                                              .confirmPasswordController
-                                              .text
-                                              .trim())));
-                            },
-                            style: elevatedButtonStyle,
-                            child: const Text("Change Password")),
-                      ),
-                      const Divider()
-                    ],
-                  )
-                ],
+              return Form(
+                key: context.read<UserBloc>().changeDetailskey,
+                child: Column(
+                  children: [
+                    const Divider(),
+                    ChangeDetailWidget(
+                      detail: 'Name',
+                      controller: context.read<UserBloc>().changeNameController,
+                      hintValue: state.userDetails!.name!,
+                    ),
+                    ChangeDetailWidget(
+                        detail: 'Email',
+                        hintValue: state.userDetails!.email!,
+                        controller:
+                            context.read<UserBloc>().changeEmailController),
+                    ChangeDetailWidget(
+                        detail: 'Phone',
+                        hintValue: state.userDetails!.phone!,
+                        textInputType: TextInputType.phone,
+                        controller:
+                            context.read<UserBloc>().changePhoneController),
+                    Column(
+                      children: [
+                        Text(
+                          'Change Password',
+                          style: roboto(),
+                        ),
+                        PasswordEditWidget(
+                            text: 'Password',
+                            controller:
+                                context.read<UserBloc>().passwordController),
+                        kHeight5,
+                        PasswordEditWidget(
+                            text: "New Password",
+                            controller:
+                                context.read<UserBloc>().newPasswordController),
+                        kHeight5,
+                        PasswordEditWidget(
+                            text: "Confirm Password",
+                            controller: context
+                                .read<UserBloc>()
+                                .confirmPasswordController),
+                        kHeight5,
+                        Align(
+                          alignment: Alignment.centerRight,
+                          child: ElevatedButton(
+                              onPressed: () {
+                                context.read<UserBloc>().add(
+                                    UserEvent.changePassword(
+                                        changePassword: ChangePasswordModel(
+                                            oldPassword:
+                                                context
+                                                    .read<UserBloc>()
+                                                    .passwordController
+                                                    .text
+                                                    .trim(),
+                                            password:
+                                                context
+                                                    .read<UserBloc>()
+                                                    .newPasswordController
+                                                    .text
+                                                    .trim(),
+                                            rePassword: context
+                                                .read<UserBloc>()
+                                                .confirmPasswordController
+                                                .text
+                                                .trim())));
+                              },
+                              style: elevatedButtonStyle,
+                              child: const Text("Change Password")),
+                        ),
+                        const Divider()
+                      ],
+                    )
+                  ],
+                ),
               );
             },
           ),

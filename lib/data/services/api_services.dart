@@ -1,10 +1,9 @@
 import 'package:dio/dio.dart';
-import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:kicks_sneakerapp/application/presentation/routes/navigator_key.dart';
 import 'package:kicks_sneakerapp/application/presentation/routes/routes.dart';
 import 'package:kicks_sneakerapp/application/presentation/utils/colors.dart';
-import 'package:kicks_sneakerapp/data/services/dierror.dart';
+
 import 'package:kicks_sneakerapp/data/shared_preferences/shared_preferences.dart';
 
 class ApiServices {
@@ -30,26 +29,20 @@ class ApiServices {
       );
       final response =
           await dio.get(url, data: data, queryParameters: queryParameters);
+
       return response;
     } on DioException catch (exception) {
-      final errorMessage = handleError(exception);
-      print(errorMessage);
+      // final errorMessage = handleError(exception);
+      // print(errorMessage);
 
-      print(
-          "Scaffold Messenger Key: ${NavigationService.scaffoldMessengerKey.currentState}");
-
-      // Show a Toast
-      Fluttertoast.showToast(msg: errorMessage, backgroundColor: kRed);
+      // Fluttertoast.showToast(msg: errorMessage, backgroundColor: kRed);
 
       // Show a Snackbar
-      final snackBar = SnackBar(content: Text(errorMessage));
-      NavigationService.scaffoldMessengerKey.currentState
-          ?.showSnackBar(snackBar);
 
       if (exception.response?.statusCode == 401) {
-        NavigationService.navigatorKey.currentState
-            ?.pushNamed(Routes.signInPage);
-        Fluttertoast.showToast(msg: "Token Expired", backgroundColor: kRed);
+        // NavigationService.navigatorKey.currentState
+        //     ?.pushNamedAndRemoveUntil(Routes.signInPage,(route) => false);
+        // Fluttertoast.showToast(msg: "Token Expired", backgroundColor: kRed);
         rethrow;
       } else {
         rethrow;
@@ -81,17 +74,14 @@ class ApiServices {
       );
       return response;
     } on DioException catch (exception) {
-      final errorMessage = handleError(exception);
+      // final errorMessage = handleError(exception);
 
       // Show a Toast
-      Fluttertoast.showToast(msg: errorMessage, backgroundColor: kRed);
+      // Fluttertoast.showToast(msg: errorMessage, backgroundColor: kRed);
       if (exception.response?.statusCode == 401) {
-        NavigationService.navigatorKey.currentState!
-            .pushNamedAndRemoveUntil(Routes.signInPage, (route) => false);
-        const SnackBar snackBar =
-            SnackBar(content: Text("Token Expired Login Again"));
-        NavigationService.scaffoldMessengerKey.currentState!
-            .showSnackBar(snackBar);
+        // NavigationService.navigatorKey.currentState!
+        //     .pushNamedAndRemoveUntil(Routes.signInPage, (route) => false);
+        // Fluttertoast.showToast(msg: "Token Expired", backgroundColor: kRed);
 
         rethrow;
       } else {
@@ -123,18 +113,14 @@ class ApiServices {
           queryParameters: queryParameters);
       return response;
     } on DioException catch (exception) {
-      final errorMessage = handleError(exception);
+      // final errorMessage = handleError(exception);
 
       // Show a Toast
-      Fluttertoast.showToast(msg: errorMessage, backgroundColor: kRed);
+      // Fluttertoast.showToast(msg: errorMessage, backgroundColor: kRed);
       if (exception.response?.statusCode == 401) {
-        NavigationService.navigatorKey.currentState!
-            .pushNamed(Routes.signInPage);
-        const SnackBar snackBar =
-            SnackBar(content: Text("Token Expired Login Again"));
-        NavigationService.scaffoldMessengerKey.currentState!
-            .showSnackBar(snackBar);
-
+        // NavigationService.navigatorKey.currentState!
+        //     .pushNamedAndRemoveUntil(Routes.signInPage,(route) => false);
+        // Fluttertoast.showToast(msg: "Token Expired", backgroundColor: kRed);
         rethrow;
       } else {
         rethrow;
@@ -163,17 +149,14 @@ class ApiServices {
           await dio.delete(url, data: data, queryParameters: queryParameters);
       return response;
     } on DioException catch (exception) {
-      final errorMessage = handleError(exception);
+      // final errorMessage = handleError(exception);
 
       // Show a Toast
-      Fluttertoast.showToast(msg: errorMessage, backgroundColor: kRed);
+      // Fluttertoast.showToast(msg: errorMessage, backgroundColor: kRed);
       if (exception.response?.statusCode == 401) {
-        NavigationService.navigatorKey.currentState!
-            .pushNamed(Routes.signInPage);
-        const SnackBar snackBar =
-            SnackBar(content: Text("Token Expired Login Again"));
-        NavigationService.scaffoldMessengerKey.currentState!
-            .showSnackBar(snackBar);
+        // NavigationService.navigatorKey.currentState!
+        //     .pushNamedAndRemoveUntil(Routes.signInPage,(route) => false);
+        // Fluttertoast.showToast(msg: "Token Expired", backgroundColor: kRed);
 
         rethrow;
       } else {

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_floating_bottom_bar/flutter_floating_bottom_bar.dart';
 import 'package:kicks_sneakerapp/application/bussiness_logic/auth/auth_bloc.dart';
+import 'package:kicks_sneakerapp/application/bussiness_logic/user/user_bloc.dart';
 import 'package:kicks_sneakerapp/application/presentation/routes/routes.dart';
 import 'package:kicks_sneakerapp/application/presentation/screens/favorite/favorites.dart';
 import 'package:kicks_sneakerapp/application/presentation/screens/home/home.dart';
@@ -55,71 +56,12 @@ class _ScreenBottombarState extends State<ScreenBottombar>
 
   @override
   Widget build(BuildContext context) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      context.read<UserBloc>().add(UserEvent.getUserDetails());
+    });
     return SafeArea(
       child: Scaffold(
           appBar: appbarWidget(title: 'Kicks'),
-          drawer: Drawer(
-            child: Column(
-              children: [
-                Container(
-                  height: 200,
-                  color: kGrey,
-                  child: const CircleAvatar(
-                    radius: 50,
-                    backgroundColor: kBlack,
-                    child: Icon(
-                      Icons.settings,
-                      size: 55,
-                      color: kWhite,
-                    ),
-                  ),
-                ),
-                Expanded(
-                  child: ListView(
-                    children: [
-                      ListTile(
-                        title: const Text("Logout"),
-                        trailing: const Icon(Icons.logout),
-                        tileColor: kGrey,
-                        onTap: () {
-                          showDialog(
-                              context: context,
-                              builder: (context) => AlertDialog(
-                                    title: const Text("Logout"),
-                                    content: const Text(
-                                        "Are you sure you want to logout?"),
-                                    actions: [
-                                      TextButton(
-                                          onPressed: () {
-                                            Navigator.of(context).pop();
-                                          },
-                                          child: const Text("Cancel")),
-                                      TextButton(
-                                          onPressed: () {
-                                            context
-                                                .read<AuthBloc>()
-                                                .add(AuthEvent.signOut());
-                                            Navigator.pushNamedAndRemoveUntil(
-                                                context,
-                                                Routes.signInPage,
-                                                (route) => false);
-                                            showSnack(
-                                                context: context,
-                                                message:
-                                                    "Logged out successfully",
-                                                color: kGreen);
-                                          },
-                                          child: const Text("Ok"))
-                                    ],
-                                  ));
-                        },
-                      )
-                    ],
-                  ),
-                ),
-              ],
-            ),
-          ),
           body: BottomBar(
             borderRadius: BorderRadius.circular(500),
             body: (context, controller) => Padding(

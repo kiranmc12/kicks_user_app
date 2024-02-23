@@ -1,7 +1,10 @@
+import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:iconsax/iconsax.dart';
 import 'package:kicks_sneakerapp/application/bussiness_logic/cart/cart_bloc.dart';
+import 'package:kicks_sneakerapp/application/bussiness_logic/user/user_bloc.dart';
 import 'package:kicks_sneakerapp/application/presentation/routes/routes.dart';
 import 'package:kicks_sneakerapp/application/presentation/utils/colors.dart';
 import 'package:kicks_sneakerapp/application/presentation/utils/constants.dart';
@@ -13,8 +16,28 @@ AppBar appbarWidget({required String title}) {
     title: Text(
       title != "Kicks" ? title : "Kicks",
       style: const TextStyle(fontWeight: FontWeight.bold),
+      overflow: TextOverflow.ellipsis, // Truncate long titles
     ),
     centerTitle: true,
+    leading: BlocBuilder<UserBloc, UserState>(
+      builder: (context, state) {
+        return Row(
+          
+          children: [
+            kWidth20,
+            Flexible(
+              child: Text(
+                state.userDetails != null
+                    ? "Hi ${state.userDetails!.name!}"
+                    : "AA",
+                style: roboto(color: kBlack, fontSize: 0.03),
+                softWrap: false, // Keep text in a single line
+              ),
+            ),
+          ],
+        );
+      },
+    ),
     actions: const [CartButtonWidget(), kWidth10],
   );
 }

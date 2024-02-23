@@ -26,7 +26,7 @@ class PasswordEditWidget extends StatelessWidget {
           child: Center(
             child: Text(
               text,
-              style: roboto(color: kWhite),
+              style: roboto(color: kWhite,fontSize: 0.025),
             ),
           ),
         ),

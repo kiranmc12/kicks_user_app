@@ -5,7 +5,7 @@ import 'order_details.dart';
 part 'datum.g.dart';
 
 @JsonSerializable()
-class Datum {
+class Orders {
   @JsonKey(name: 'OrderDetails')
   OrderDetails? orderDetails;
   @JsonKey(name: 'Images')
@@ -13,9 +13,9 @@ class Datum {
   @JsonKey(name: 'PaymentMethod')
   String? paymentMethod;
 
-  Datum({this.orderDetails, this.images, this.paymentMethod});
+  Orders({this.orderDetails, this.images, this.paymentMethod});
 
-  factory Datum.fromJson(Map<String, dynamic> json) => _$DatumFromJson(json);
+  factory Orders.fromJson(Map<String, dynamic> json) => _$OrdersFromJson(json);
 
-  Map<String, dynamic> toJson() => _$DatumToJson(this);
+  Map<String, dynamic> toJson() => _$OrdersToJson(this);
 }
