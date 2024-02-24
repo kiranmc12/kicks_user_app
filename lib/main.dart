@@ -10,7 +10,6 @@ import 'package:kicks_sneakerapp/application/bussiness_logic/network/network_blo
 import 'package:kicks_sneakerapp/application/bussiness_logic/orders/orders_bloc.dart';
 import 'package:kicks_sneakerapp/application/bussiness_logic/user/user_bloc.dart';
 import 'package:kicks_sneakerapp/application/bussiness_logic/wishlsit/wishlist_bloc.dart';
-import 'package:kicks_sneakerapp/application/presentation/routes/navigator_key.dart';
 import 'package:kicks_sneakerapp/application/presentation/routes/route_generator.dart';
 import 'package:kicks_sneakerapp/data/services/auth/auth.dart';
 import 'package:kicks_sneakerapp/data/services/cart/cart.dart';
@@ -35,7 +34,7 @@ class KicksUserApp extends StatelessWidget {
 
     return MultiBlocProvider(
       providers: [
-        BlocProvider(create: (context)=>NetworkBloc()..add(NetworkObserve())),
+        // BlocProvider(create: (context)=>NetworkBloc()..add(NetworkObserve())),
         BlocProvider(create: (context) => AuthBloc(AuthApi())),
         BlocProvider(create: (context) => HomeBloc(HomeApi())),
         BlocProvider(create: (context) => InventoryBloc(InventoryApi())),
@@ -45,7 +44,7 @@ class KicksUserApp extends StatelessWidget {
         BlocProvider(create: (context) => OrdersBloc(Orderapi())),
       ],
       child: ScreenUtilInit(
-        designSize: const Size(300, 800),
+        designSize: const Size(412, 892),
         child: MaterialApp(
           title: 'Flutter Demo',
           debugShowCheckedModeBanner: false,

@@ -18,9 +18,9 @@ class CheckoutAddressTile extends StatelessWidget {
             SizedBox(
               width: sWidth,
               child: Card(
-                margin: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+                margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
                 child: Padding(
-                  padding: EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.all(8.0),
                   child: Row(
                     children: [
                       defaultAddress == null
@@ -41,7 +41,7 @@ class CheckoutAddressTile extends StatelessWidget {
                                     '${defaultAddress.name}\n${defaultAddress.houseName},\n${defaultAddress.street},\n${defaultAddress.city},\n${defaultAddress.state} \npin: ${defaultAddress.pin}'),
                               ],
                             ),
-                      Spacer(),
+                      const Spacer(),
                       Column(
                         children: [
                           IconButton(
@@ -49,14 +49,14 @@ class CheckoutAddressTile extends StatelessWidget {
                                 Navigator.pushNamed(
                                     context, Routes.addressScreen);
                               },
-                              icon: Icon(Icons.add)),
+                              icon: const Icon(Icons.add)),
                           IconButton(
                               onPressed: () {
                                 context
                                     .read<UserBloc>()
                                     .add(const UserEvent.showList());
                               },
-                              icon: Icon(Icons.arrow_drop_down_circle_sharp))
+                              icon: const Icon(Icons.arrow_drop_down_circle_sharp))
                         ],
                       )
                     ],

@@ -17,13 +17,16 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       emit(state.copyWith(isLoading: true, hasError: false, expired: false));
       final result = await homeRespository.getBanners();
       result.fold((failure) {
+        if (failure.statuscode == 401) {
+          return emit(state.copyWith(expired: true));
+        }
         emit(state.copyWith(
             isLoading: false,
             hasError: true,
             message: 'please refresh your application'));
       }, (getBannerResponseModel) {
         emit(state.copyWith(
-            isLoading: false, banners: getBannerResponseModel.data));
+            isLoading: false, banners: getBannerResponseModel.data,));
       });
     });
 
@@ -34,7 +37,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
         emit(state.copyWith(
             isLoading: false,
             hasError: true,
-            message: "Please refresh your application"));
+            message: failure.message));
       }, (getCategoryResponseModel) {
         if (getCategoryResponseModel.data != null) {
           for (var item in getCategoryResponseModel.data!) {
@@ -43,7 +46,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
           }
         }
         emit(state.copyWith(
-            isLoading: false, category: getCategoryResponseModel.data));
+            isLoading: false, category: getCategoryResponseModel.data,));
       });
     });
   }

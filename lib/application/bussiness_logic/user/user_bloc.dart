@@ -32,22 +32,27 @@ class UserBloc extends Bloc<UserEvent, UserState> {
   final TextEditingController stateController = TextEditingController();
   final TextEditingController phoneController = TextEditingController();
   final TextEditingController pinController = TextEditingController();
-    final GlobalKey<FormState> changeDetailskey = GlobalKey<FormState>();
+  final GlobalKey<FormState> changeDetailskey = GlobalKey<FormState>();
   final UserRepository userRepository;
   Address? defaultAddress;
 
   UserBloc(this.userRepository) : super(UserState.initial()) {
     on<_GetDetails>((event, emit) async {
-      emit(state.copyWith(isloading: true, hasError: false, isDone: false));
+      emit(state.copyWith(isloading: true, hasError: false, isDone: false,));
       final tokenModel = await SharedPref.getToken();
       final result = await userRepository.getUserDetails(
           userId: IdQuery(id: tokenModel.userId));
       result.fold(
           (failure) => emit(state.copyWith(
-              isloading: false, hasError: true, message: failure.message)),
-          (getUserDetailsResponse) => emit(state.copyWith(
               isloading: false,
-              userDetails: getUserDetailsResponse.userDetails)));
+              hasError: true,
+              message: failure.message)), (getUserDetailsResponse) {
+        changeNameController.text = getUserDetailsResponse.userDetails!.name!;
+        changeEmailController.text = getUserDetailsResponse.userDetails!.email!;
+        changePhoneController.text = getUserDetailsResponse.userDetails!.phone!;
+        emit(state.copyWith(
+            isloading: false, userDetails: getUserDetailsResponse.userDetails,message: null));
+      });
     });
 
     on<_GetAddress>((event, emit) async {
@@ -109,7 +114,6 @@ class UserBloc extends Bloc<UserEvent, UserState> {
         changeEmailController.clear();
         emit(state.copyWith(
             isloading: false, isDone: true, message: sucess.message));
-        add(const _GetDetails());
       });
     });
 
@@ -127,7 +131,6 @@ class UserBloc extends Bloc<UserEvent, UserState> {
         changePhoneController.clear();
         emit(state.copyWith(
             isloading: false, isDone: true, message: sucess.message));
-        add(const _GetDetails());
       });
     });
 
@@ -136,15 +139,13 @@ class UserBloc extends Bloc<UserEvent, UserState> {
       final tokenModel = await SharedPref.getToken();
       final result = await userRepository.changeName(
           editName: event.changeName, idQuery: IdQuery(id: tokenModel.userId));
-      result.fold(
-          (failure) => emit(state.copyWith(
-              isloading: false,
-              hasError: true,
-              message: failure.message)), (sucess) {
-        changeNameController.clear();
+      result.fold((failure) {
+        emit(state.copyWith(
+            isloading: false, hasError: true, message: failure.message));
+      }, (sucess) {
+        changeNameController.text = state.userDetails!.name!;
         emit(state.copyWith(
             isloading: false, isDone: true, message: sucess.message));
-        add(const _GetDetails());
       });
     });
 
@@ -163,9 +164,10 @@ class UserBloc extends Bloc<UserEvent, UserState> {
         newPasswordController.clear();
         confirmPasswordController.clear();
         emit(state.copyWith(
-          passwordChanged: true,
-            isloading: false, isDone: true, message: sucess.message));
-        add(const _GetDetails());
+            passwordChanged: true,
+            isloading: false,
+            isDone: true,
+            message: sucess.message));
       });
     });
 

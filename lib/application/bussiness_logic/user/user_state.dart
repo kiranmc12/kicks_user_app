@@ -13,5 +13,5 @@ class UserState with _$UserState {
       List<Address>? address}) = _Initial;
 
   factory UserState.initial() =>  UserState(passwordChanged: false,
-      isloading: true, hasError: false, isDone: false, showList: false);
+      isloading: true, hasError: false, isDone: false, showList: false,);
 }

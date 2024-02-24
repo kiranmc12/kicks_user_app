@@ -34,7 +34,7 @@ class RouteGenerator {
             builder: (ctx) => const ScreenOtpVerification());
              case Routes.aboouAndPolicyScreen:
         return MaterialPageRoute(
-            builder: (ctx) => About());
+            builder: (ctx) => const About());
       case Routes.categoryListScreen:
         return arguments is String
             ? MaterialPageRoute(

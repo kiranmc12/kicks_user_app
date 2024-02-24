@@ -53,7 +53,7 @@ class BottomCheckOutSession extends StatelessWidget {
                                   const Text('Discount'),
                                   const Spacer(),
                                   Text(
-                                    '- ₹ ${state.priceWithoutOffer! - state.bagTotal!}',
+                                    '- ₹ ${state.priceWithoutOffer! - state.bagTotal!.round()}',
                                     style: tektur(),
                                   )
                                 ],
@@ -72,19 +72,18 @@ class BottomCheckOutSession extends StatelessWidget {
                                 children: [
                                   const Text('Coupon used'),
                                   const Spacer(),
-                                   context.read<CartBloc>().usedCouponId !=0?
-                                  InkWell(
-                                    onTap: () {
-                                      context
-                                          .read<CartBloc>()
-                                          .add(const CartEvent.removeCoupon());
-                                    },
-                                   
-                                    child: Text(
-                                      "Remove Coupon",
-                                      style: tektur(color: kRed),
-                                    ),
-                                  ):const Spacer(),
+                                  context.read<CartBloc>().usedCouponId != 0
+                                      ? InkWell(
+                                          onTap: () {
+                                            context.read<CartBloc>().add(
+                                                const CartEvent.removeCoupon());
+                                          },
+                                          child: Text(
+                                            "Remove Coupon",
+                                            style: tektur(color: kRed),
+                                          ),
+                                        )
+                                      : const Spacer(),
                                   const Spacer(),
                                   InkWell(
                                       onTap: () {
@@ -146,7 +145,7 @@ class BottomCheckOutSession extends StatelessWidget {
                             fontSize: sWidth * 0.040,
                             color: kBlack.withOpacity(0.6)),
                       ),
-                      kWidth5,
+                      kWidth10,
                       Text('₹ ${state.amountPayable!.round().toString()}',
                           style: priceStyle)
                     ]),
@@ -154,10 +153,19 @@ class BottomCheckOutSession extends StatelessWidget {
                       onPressed: () {
                         Navigator.pushNamed(context, Routes.checkoutScreen);
                       },
-                      // style: elevatedButtonStyleBlack,
+                      style: ElevatedButton.styleFrom(
+                        shape: const RoundedRectangleBorder(
+                            borderRadius: BorderRadius.all(kRadius5)),
+                        backgroundColor: kBlack,
+                        fixedSize: Size(sWidth * 0.6, sWidth * 0.10),
+                      ),
                       child: Text(
                         'Proceed To Checkout',
-                        style: priceStyle,
+                        style: priceStyle.copyWith(
+                            color: kWhite,
+                            fontSize: 16,
+                            fontFamily: "roboto",
+                            fontWeight: FontWeight.bold),
                       ),
                     ),
                   ),

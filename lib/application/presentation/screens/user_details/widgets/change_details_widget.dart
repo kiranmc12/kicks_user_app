@@ -11,15 +11,14 @@ import 'package:kicks_sneakerapp/domain/models/user_details/edit_details/edit_ph
 import 'package:pinput/pinput.dart';
 
 class ChangeDetailWidget extends StatelessWidget {
-  const ChangeDetailWidget(
-      {super.key,
-      required this.detail,
-      required this.controller,
-      required this.hintValue,
-      this.textInputType = TextInputType.name});
+  const ChangeDetailWidget({
+    Key? key,
+    required this.detail,
+    required this.controller,
+    this.textInputType = TextInputType.name,
+  }) : super(key: key);
 
   final String detail;
-  final String hintValue;
   final TextInputType textInputType;
   final TextEditingController controller;
 
@@ -46,102 +45,64 @@ class ChangeDetailWidget extends StatelessWidget {
             ),
             kWidth10,
             SizedBox(
-              height: sWidth * 0.13,
-              width: sWidth * 0.65,
-              child: BlocConsumer<UserBloc, UserState>(
-                listener: (context, state) {
-                  if (state.isDone && detail == "Name") {
-                    showSnack(
-                        context: context,
-                        message: state.message!,
-                        color: kGreen);
-                  }
-                  if (state.isDone && detail == "Email") {
-                    showSnack(
-                        context: context,
-                        message: state.message!,
-                        color: kGreen);
-                  }
-                  if (state.isDone && detail == "Phone") {
-                    showSnack(
-                        context: context,
-                        message: state.message!,
-                        color: kGreen);
-                  }
-                },
-                builder: (context, state) {
-                  return TextFormField(
-                    autovalidateMode: AutovalidateMode.onUserInteraction,
-                    controller: controller,
-                    keyboardType: textInputType,
-                    decoration: InputDecoration(
-                      fillColor: kGrey,
-                      filled: true,
-                      contentPadding: const EdgeInsets.symmetric(
-                        vertical: 10,
-                        horizontal: 10,
-                      ),
-                      hintText: hintValue,
+                height: sWidth * 0.13,
+                width: sWidth * 0.65,
+                child: TextFormField(
+                  autovalidateMode: AutovalidateMode.onUserInteraction,
+                  controller: controller,
+                  keyboardType: textInputType,
+                  decoration: const InputDecoration(
+                    fillColor: kGrey,
+                    filled: true,
+                    contentPadding: EdgeInsets.symmetric(
+                      vertical: 10,
+                      horizontal: 10,
                     ),
-                    validator: (value) {
-                      if (value!.isEmpty) {
-                        return 'enter $detail';
-                      } else if (controller ==
-                              context.read<UserBloc>().changeEmailController &&
-                          isValidEmail(value)) {
-                        return 'enter valid email';
-                      } else if (controller ==
-                              context.read<UserBloc>().changeNameController &&
-                              context.read<UserBloc>().changeNameController.length<4 ){
-                        return 'enter valid name';
-                      } else if (controller ==
-                              context.read<UserBloc>().changePhoneController &&
-                          isValidPhoneNumber(value)) {
-                        return 'enter valid phone';
-                      } else {
-                        return null;
-                      }
-                    },
-                  );
-                },
-              ),
-            )
+                  ),
+                )),
           ],
         ),
         Align(
-            alignment: Alignment.centerRight,
-            child: ElevatedButton(
-              onPressed: () {
-                if (detail == 'Name') {
-                  context.read<UserBloc>().add(UserEvent.changeName(
-                      changeName: EditName(
-                          name: context
-                              .read<UserBloc>()
-                              .changeNameController
-                              .text
-                              .trim())));
-                } else if (detail == 'Email') {
-                  context.read<UserBloc>().add(UserEvent.changeEmail(
-                      changeEmail: EditEmail(
-                          email: context
-                              .read<UserBloc>()
-                              .changeEmailController
-                              .text
-                              .trim())));
-                } else if (detail == 'Phone') {
-                  context.read<UserBloc>().add(UserEvent.changePhone(
-                      changePhone: EditPhone(
-                          phone: context
-                              .read<UserBloc>()
-                              .changePhoneController
-                              .text
-                              .trim())));
-                }
-              },
-              style: elevatedButtonStyle,
-              child: Text('Change $detail'),
-            )),
-        const Divider()
+          alignment: Alignment.centerRight,
+          child: ElevatedButton(
+            onPressed: () {
+              // Validate the field
+              bool isValid;
+              if (detail == 'Name') {
+                isValid = isAlphabet(controller.text);
+              } else if (detail == 'Email') {
+                isValid = isValidEmail(controller.text);
+              } else if (detail == 'Phone') {
+                isValid = isValidPhoneNumber(controller.text);
+              } else {
+                isValid = false;
+              }
+
+              if (!isValid) {
+                showSnack(
+                  context: context,
+                  message: 'Invalid $detail',
+                  color: kRed,
+                );
+                return;
+              }
+
+              if (detail == 'Name') {
+                context.read<UserBloc>().add(UserEvent.changeName(
+                    changeName: EditName(name: controller.text.trim())));
+              } else if (detail == 'Email') {
+                context.read<UserBloc>().add(UserEvent.changeEmail(
+                    changeEmail: EditEmail(email: controller.text.trim())));
+              } else if (detail == 'Phone') {
+                context.read<UserBloc>().add(UserEvent.changePhone(
+                    changePhone: EditPhone(phone: controller.text.trim())));
+              }
+            },
+            style: elevatedButtonStyle,
+            child: Text('Change $detail'),
+          ),
+        ),
+        const Divider(),
       ],
     );
   }

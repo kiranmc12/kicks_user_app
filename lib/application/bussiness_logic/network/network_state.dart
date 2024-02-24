@@ -1,10 +1,10 @@
-part of 'network_bloc.dart';
+// part of 'network_bloc.dart';
 
-@freezed
-abstract class NetworkState {}
+// @freezed
+// abstract class NetworkState {}
 
-class NetworkInitial extends NetworkState {}
+// class NetworkInitial extends NetworkState {}
 
-class NetworkSuccess extends NetworkState {}
+// class NetworkSuccess extends NetworkState {}
 
-class NetworkFailure extends NetworkState {}
+// class NetworkFailure extends NetworkState {}

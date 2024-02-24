@@ -25,8 +25,8 @@ class ImageShowContainer extends StatelessWidget {
           width: double.infinity,
           child: CachedNetworkImage(
             imageUrl: image,
-            placeholder: (context, url) => LoadingAnimation(width: 0.002),
-            errorWidget: (context, url, error) => Icon(Icons.error),
+            placeholder: (context, url) => const LoadingAnimation(width: 0.002),
+            errorWidget: (context, url, error) => const Icon(Icons.error),
           ),
         ));
   }

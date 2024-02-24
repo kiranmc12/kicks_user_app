@@ -3,16 +3,13 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_floating_bottom_bar/flutter_floating_bottom_bar.dart';
-import 'package:kicks_sneakerapp/application/bussiness_logic/auth/auth_bloc.dart';
 import 'package:kicks_sneakerapp/application/bussiness_logic/user/user_bloc.dart';
-import 'package:kicks_sneakerapp/application/presentation/routes/routes.dart';
 import 'package:kicks_sneakerapp/application/presentation/screens/favorite/favorites.dart';
 import 'package:kicks_sneakerapp/application/presentation/screens/home/home.dart';
 import 'package:kicks_sneakerapp/application/presentation/screens/profile/profile.dart';
 import 'package:kicks_sneakerapp/application/presentation/screens/search/search.dart';
 import 'package:kicks_sneakerapp/application/presentation/utils/colors.dart';
 import 'package:kicks_sneakerapp/application/presentation/utils/constants.dart';
-import 'package:kicks_sneakerapp/application/presentation/utils/snackbar/showSnack.dart';
 import 'package:kicks_sneakerapp/application/presentation/widgets/appbar_widget.dart';
 
 class ScreenBottombar extends StatefulWidget {
@@ -57,7 +54,7 @@ class _ScreenBottombarState extends State<ScreenBottombar>
   @override
   Widget build(BuildContext context) {
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      context.read<UserBloc>().add(UserEvent.getUserDetails());
+      context.read<UserBloc>().add(const UserEvent.getUserDetails());
     });
     return SafeArea(
       child: Scaffold(

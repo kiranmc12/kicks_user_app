@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kicks_sneakerapp/application/bussiness_logic/orders/orders_bloc.dart';
+import 'package:kicks_sneakerapp/application/presentation/utils/colors.dart';
 import 'package:kicks_sneakerapp/application/presentation/utils/constants.dart';
 import 'package:kicks_sneakerapp/application/presentation/utils/loadin_animation/loading_animation.dart';
 
@@ -11,7 +12,7 @@ class ChoosePaymentMethod extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Divider(),
+        const Divider(),
         Text(
           "Payment method",
           style: roboto(fontWeight: FontWeight.w700),
@@ -33,8 +34,10 @@ class ChoosePaymentMethod extends StatelessWidget {
               children: List.generate(
                 paymentMethods!.length, (int index) {
                 return Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 10),
+                  padding: const EdgeInsets.symmetric(horizontal: 10),
                   child: ChoiceChip(
+                    selectedColor: kGrey,
+                    selectedShadowColor: kWhite,
                     label: Text(paymentMethods[index].paymentName!),
                     selected: paymentMethods[index].id != null &&
                         state.selectedPaymentMethod == paymentMethods[index],

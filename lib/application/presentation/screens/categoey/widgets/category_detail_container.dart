@@ -1,9 +1,11 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kicks_sneakerapp/application/bussiness_logic/cart/cart_bloc.dart';
 import 'package:kicks_sneakerapp/application/presentation/routes/routes.dart';
 import 'package:kicks_sneakerapp/application/presentation/utils/colors.dart';
 import 'package:kicks_sneakerapp/application/presentation/utils/constants.dart';
+import 'package:kicks_sneakerapp/application/presentation/utils/loadin_animation/loading_animation.dart';
 import 'package:kicks_sneakerapp/domain/models/cart/add_to_cart_model/add_to_cart_model.dart';
 import 'package:kicks_sneakerapp/domain/models/inventory/get_inventory_response_model/datum.dart';
 
@@ -23,22 +25,28 @@ class CategoryDetailContainer extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             InkWell(
-                onTap: () {},
+                onTap: () {
+                   Navigator.pushNamed(context, Routes.inventoryDetailScreen,
+                    arguments: inventory);
+                },
                 child: Container(
                   height: sWidth * 0.90,
                   decoration: const BoxDecoration(
                       color: kWhite, borderRadius: BorderRadius.all(kRadius10)),
                   child: SizedBox(
                       width: double.infinity,
-                      child: Image.network(
+                      child: CachedNetworkImage(
+                        imageUrl: 
                         inventory.image!,
-                        fit: BoxFit.fill,
+                        placeholder: (context, url) => const LoadingAnimation(width: 0.02),
+                        errorWidget: (context, url, error) => const Icon(Icons.error),
+                        fit: BoxFit.contain,
                       )),
                 )),
             kHeight5,
             Text(
               inventory.productName!,
-              style: tektur(fontSize: 0.04, fontWeight: FontWeight.bold),
+              style: tektur(fontSize: 0.04, fontWeight: FontWeight.w500),
             ),
             Row(
               children: [
@@ -81,9 +89,7 @@ class CategoryDetailContainer extends StatelessWidget {
                           )));
                     }
                   },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.orange,
-                  ),
+                  style: elevatedButtonStyle,
                   child: Text(
                     state.cartItems.containsKey(inventory.id)
                         ? "Go to Cart"

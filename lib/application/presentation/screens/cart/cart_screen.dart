@@ -10,7 +10,7 @@ class ScreenCart extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: appbarWidget(title: 'My Cart'),
-      body: const CartItemsList(),
+      body:  const SafeArea(child: CartItemsList()),
       bottomNavigationBar: const BottomCheckOutSession(),
     );
   }

@@ -26,7 +26,11 @@ class MonthlyOfferBoard extends StatelessWidget {
             blurRadius: 3, blurStyle: BlurStyle.outer, offset: Offset(0, 0.5))
       ], color: kBlack, borderRadius: BorderRadius.all(kRadius20)),
       child: BlocConsumer<HomeBloc, HomeState>(
-        listener: (context, state) {},
+        listener: (context, state) {
+           if(state.expired!=null && state.expired == true){
+            Navigator.pushNamedAndRemoveUntil(context, Routes.signInPage, (route) => false);
+          }
+        },
         builder: (context, state) {
           if (state.isLoading) {
             return const LoadingAnimation(width: 0.20);
@@ -44,19 +48,26 @@ class MonthlyOfferBoard extends StatelessWidget {
                           SizedBox(
                             height: sWidth * 0.30,
                             width: sWidth * 0.25,
-                            child:CachedNetworkImage(imageUrl: state.banners![0].images![0],
-                            errorWidget:(context, object, stackTrace){
-                              return Icon(Icons.error);
-
-                            }),
+                            child: CachedNetworkImage(
+                                imageUrl: state.banners![0].images![0],
+                                placeholder: (context, url) =>
+                                    LoadingAnimation(width: 0.02),
+                                errorWidget: (context, object, stackTrace) {
+                                  return const Icon(Icons.error);
+                                }),
                           ),
                           Positioned(
                             right: 0,
                             child: SizedBox(
                               height: sWidth * 0.30,
                               width: sWidth * 0.25,
-                              child:
-                                  Image.network(state.banners![0].images![1]),
+                              child: CachedNetworkImage(
+                                imageUrl: state.banners![0].images![1],
+                                placeholder: (context, url) =>
+                                    LoadingAnimation(width: 0.20),
+                                errorWidget: (context, url, error) =>
+                                    Icon(Icons.error),
+                              ),
                             ),
                           )
                         ],

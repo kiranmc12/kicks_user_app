@@ -70,6 +70,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
             signUpHasError: true,
             message: failure.message));
       }, (signUpResponse) async {
+        print(signUpResponse);
         emailController.clear();
         passwordSignInController.clear();
         phonecontroller.clear();
@@ -77,6 +78,11 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
           signUpIsLoading: false,
           signUpResponseModel: signUpResponse,
         ));
+        await SharedPref.setToken(
+            tokenModel: TokenModel(
+                accessToken: signUpResponse.data!.token!,
+                userId: signUpResponse.data!.users!.id!));
+        await SharedPref.setLogin();
       });
     });
 

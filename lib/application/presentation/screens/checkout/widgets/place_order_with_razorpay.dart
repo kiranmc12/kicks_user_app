@@ -43,15 +43,22 @@ class _PlaceOrderWithRazorPayState extends State<PlaceOrderWithRazorPay> {
         builder: (context, state) {
           return Row(
             children: [
+              kWidth10,
               BlocBuilder<CartBloc, CartState>(
                 builder: (context, cart) {
-                  return Text(
-                    "₹ ${cart.amountPayable!.round()}",
-                    style: priceStyle,
+                  return Column(
+                    mainAxisSize:MainAxisSize.min,
+                    children: [
+                      Text("Amount Payable",style: tektur(fontSize: 0.03),),
+                      Text(
+                        "₹ ${cart.amountPayable!.round()}",
+                        style: priceStyle,
+                      ),
+                    ],
                   );
                 },
               ),
-              Spacer(),
+              const Spacer(),
               ElevatedButton(
                   style: elevatedButtonStyle,
                   onPressed: () async {
@@ -106,6 +113,7 @@ class _PlaceOrderWithRazorPayState extends State<PlaceOrderWithRazorPay> {
                     "Place Order",
                     style: roboto(fontWeight: FontWeight.w700, color: kWhite),
                   )),
+                  kWidth10
             ],
           );
         },

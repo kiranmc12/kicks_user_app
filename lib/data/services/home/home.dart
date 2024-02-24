@@ -27,6 +27,9 @@ class HomeApi implements HomeRespository {
       if (dioError.response!.statusCode == 500) {
         return Left(Failure(message: dioError.response!.data['message']));
       }
+      if (dioError.response!.statusCode == 401) {
+        return Left(Failure(message: "Token Expired",statuscode: 401));
+      }
       log('dio error => ${dioError.message.toString()}');
       return Left(Failure(message: dioError.response!.data['message']));
     } catch (e) {

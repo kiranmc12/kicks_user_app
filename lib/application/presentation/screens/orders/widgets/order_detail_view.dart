@@ -1,7 +1,5 @@
-import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:injectable/injectable.dart';
 import 'package:kicks_sneakerapp/application/bussiness_logic/orders/orders_bloc.dart';
 import 'package:kicks_sneakerapp/application/presentation/screens/orders/widgets/order_detail_item_tile.dart';
 import 'package:kicks_sneakerapp/application/presentation/screens/orders/widgets/order_tracker.dart';
@@ -54,16 +52,16 @@ class OrderDetailViews extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 OrderTracker(status: data!.orderStatus!),
-                Divider(),
+                const Divider(),
                 data.products != null || data.products!.isNotEmpty
                     ? ListView.separated(
                       shrinkWrap: true,
                         itemBuilder: (context, index) =>
                             OrderDetailItemTile(product: data.products![index]),
-                        separatorBuilder: (context,index)=>Divider(),
+                        separatorBuilder: (context,index)=>const Divider(),
                         itemCount: data.products!.length)
                     : kHeight5,
-                Divider(),
+                const Divider(),
                 Text(
                   "TOTAL AMOUNT : ${data.totalAmount}",
                   style: roboto(fontWeight: FontWeight.w700),

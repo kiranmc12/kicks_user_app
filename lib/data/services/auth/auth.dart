@@ -95,16 +95,17 @@ class AuthApi implements AuthRepository {
       final response =
           await dio.post(Apiendpoints.signUp, data: signUpModel.toJson());
       if (response.statusCode == 200 || response.statusCode == 201) {
-         print(response.data);
+        print(response.data);
         print(SignUpResponseModel.fromJson(response.data));
         return Right(SignUpResponseModel.fromJson(response.data));
       } else {
         return Left(Failure(
-            message: SignInResponseModel.fromJson(response.data).message!));
+            message: SignUpResponseModel.fromJson(response.data).message!));
       }
     } on DioException catch (dioError) {
+      print("signup");
       log('dio error => ${dioError.toString()}');
-      return Left(Failure(message: dioError.response!.data['message']));
+      return Left(Failure(message: errorMsg));
     } catch (e) {
       log('dio error => ${e.toString()}');
       return Left(Failure(message: errorMsg));

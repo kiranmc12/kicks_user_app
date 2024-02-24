@@ -23,7 +23,7 @@ class CartTile extends StatelessWidget {
           alignment: Alignment.bottomCenter,
           child: Container(
             margin: const EdgeInsets.symmetric(horizontal: 20),
-            height: sWidth * 0.33,
+            height: sWidth * 0.40,
             width: sWidth,
             decoration: const BoxDecoration(
               borderRadius: BorderRadius.all(kRadius10),

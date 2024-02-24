@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kicks_sneakerapp/application/bussiness_logic/Inventory/inventory_bloc.dart';
 import 'package:kicks_sneakerapp/application/presentation/screens/home/widgets/popular_grid_view.dart';
+import 'package:kicks_sneakerapp/application/presentation/screens/home/widgets/product_tile.dart';
 import 'package:kicks_sneakerapp/application/presentation/utils/constants.dart';
 import 'package:kicks_sneakerapp/application/presentation/utils/loadin_animation/loading_animation.dart';
 import 'package:kicks_sneakerapp/application/presentation/widgets/custom_search_field_widget.dart';

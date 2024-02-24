@@ -102,7 +102,7 @@ class ScreenCheckout extends StatelessWidget {
                                         '₹ ${data[index].totalPrice!.round()}',
                                         style: priceStyleSmall,
                                       ),
-                                      Spacer(),
+                                      const Spacer(),
                                       Text(
                                         "Qty :${data[index].quantity}",
                                         style:
@@ -124,7 +124,7 @@ class ScreenCheckout extends StatelessWidget {
           ],
         )),
       ),
-      bottomNavigationBar: PlaceOrderWithRazorPay(),
+      bottomNavigationBar: const PlaceOrderWithRazorPay(),
     );
   }
 }

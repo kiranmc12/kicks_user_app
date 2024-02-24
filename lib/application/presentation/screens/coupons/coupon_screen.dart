@@ -28,7 +28,7 @@ class ScreenCoupon extends StatelessWidget {
                   "Apply Coupon",
                   style: priceStyle,
                 ),
-                Icon(Iconsax.tag,color: kBlack,)
+                const Icon(Iconsax.tag,color: kBlack,)
               ],
             ),
             

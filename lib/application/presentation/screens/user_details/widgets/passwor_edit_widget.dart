@@ -60,15 +60,7 @@ class PasswordEditWidget extends StatelessWidget {
               ),
             ),
             autovalidateMode: AutovalidateMode.onUserInteraction,
-            validator: (value) {
-              if (value!.isEmpty) {
-                return 'fill this field';
-              } else if (value.length < 8) {
-                return 'password should contain at least 8 letters';
-              } else {
-                return null;
-              }
-            },
+           
           ),
         )
       ],

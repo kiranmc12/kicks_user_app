@@ -1,13 +1,13 @@
-part of 'network_bloc.dart';
+// part of 'network_bloc.dart';
 
-@freezed
+// @freezed
 
-abstract class NetworkEvent {}
+// abstract class NetworkEvent {}
 
-class NetworkObserve extends NetworkEvent {}
+// class NetworkObserve extends NetworkEvent {}
 
-class NetworkNotify extends NetworkEvent {
-  final bool isConnected;
+// class NetworkNotify extends NetworkEvent {
+//   final bool isConnected;
 
-  NetworkNotify({this.isConnected = false});
-}
+//   NetworkNotify({this.isConnected = false});
+// }
