@@ -6,14 +6,21 @@ import 'package:kicks_sneakerapp/application/presentation/utils/colors.dart';
 import 'package:kicks_sneakerapp/application/presentation/utils/debouncer/debouncer.dart';
 import 'package:kicks_sneakerapp/domain/models/inventory/search_model/search_model.dart';
 
-class CustomSearchFieldWidget extends StatelessWidget {
-  const CustomSearchFieldWidget({
+
+class CustomSearchFieldWidget extends StatefulWidget {
+   const CustomSearchFieldWidget({
     super.key,
   });
 
   @override
+  State<CustomSearchFieldWidget> createState() => _CustomSearchFieldWidgetState();
+}
+
+class _CustomSearchFieldWidgetState extends State<CustomSearchFieldWidget> {
+    final _debouncer = Debouncer(milliseconds: 500);
+
+  @override
   Widget build(BuildContext context) {
-    final debonucer = Debouncer(delay: const Duration(milliseconds: 500));
     return TextField(
       style: const TextStyle(color: kBlack),
       decoration: InputDecoration(
@@ -28,8 +35,10 @@ class CustomSearchFieldWidget extends StatelessWidget {
         ),
       ),
       onChanged: (value) {
-        context.read<InventoryBloc>().add(InventoryEvent.searchInventories(
-            searchModel: SearchModel(searchkey: value)));
+        _debouncer.run(() {
+          context.read<InventoryBloc>().add(InventoryEvent.searchInventories(
+              searchModel: SearchModel(searchkey: value)));
+        });
       },
     );
   }

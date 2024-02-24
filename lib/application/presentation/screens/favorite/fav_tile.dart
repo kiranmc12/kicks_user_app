@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kicks_sneakerapp/application/bussiness_logic/cart/cart_bloc.dart';
 import 'package:kicks_sneakerapp/application/presentation/routes/routes.dart';
-import 'package:kicks_sneakerapp/application/presentation/screens/home/widgets/popular_grid_view.dart';
 import 'package:kicks_sneakerapp/application/presentation/screens/home/widgets/product_tile.dart';
 import 'package:kicks_sneakerapp/application/presentation/utils/constants.dart';
 import 'package:kicks_sneakerapp/domain/models/cart/add_to_cart_model/add_to_cart_model.dart';

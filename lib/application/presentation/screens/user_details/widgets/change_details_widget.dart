@@ -8,15 +8,14 @@ import 'package:kicks_sneakerapp/application/presentation/utils/validator_functi
 import 'package:kicks_sneakerapp/domain/models/user_details/edit_details/edit_email/edit_email.dart';
 import 'package:kicks_sneakerapp/domain/models/user_details/edit_details/edit_name/edit_name.dart';
 import 'package:kicks_sneakerapp/domain/models/user_details/edit_details/edit_phone/edit_phone.dart';
-import 'package:pinput/pinput.dart';
 
 class ChangeDetailWidget extends StatelessWidget {
   const ChangeDetailWidget({
-    Key? key,
+    super.key,
     required this.detail,
     required this.controller,
     this.textInputType = TextInputType.name,
-  }) : super(key: key);
+  });
 
   final String detail;
   final TextInputType textInputType;

@@ -55,16 +55,16 @@ class OrderDetailViews extends StatelessWidget {
                 const Divider(),
                 data.products != null || data.products!.isNotEmpty
                     ? ListView.separated(
-                      shrinkWrap: true,
+                        shrinkWrap: true,
                         itemBuilder: (context, index) =>
                             OrderDetailItemTile(product: data.products![index]),
-                        separatorBuilder: (context,index)=>const Divider(),
+                        separatorBuilder: (context, index) => const Divider(),
                         itemCount: data.products!.length)
                     : kHeight5,
                 const Divider(),
                 Text(
-                  "TOTAL AMOUNT : ${data.totalAmount}",
-                  style: roboto(fontWeight: FontWeight.w700),
+                  "TOTAL AMOUNT : ₹ ${data.totalAmount!.round()}",
+                  style: tektur(fontWeight: FontWeight.w500),
                 ),
                 kHeight10,
                 Text(
@@ -74,35 +74,38 @@ class OrderDetailViews extends StatelessWidget {
                 kHeight10,
                 Text(
                   data.address!,
-                  style: roboto(fontWeight: FontWeight.w700),
+                  style: tektur(),
                 ),
                 kHeight10,
                 Row(children: [
-                  const Text('phone : '),
+                   Text('phone : ',style: tektur(),),
                   Text(
                     data.phone!,
                     style: const TextStyle(fontWeight: FontWeight.w600),
                   ),
                 ]),
-                TextButton(
-                    onPressed: () {
-                      data.orderStatus == 'PENDING'
-                          ? context
-                              .read<OrdersBloc>()
-                              .add(OrdersEvent.cancelOrder(orderId: orderId))
-                          : data.orderStatus! == "DELIVERED"
-                              ? context.read<OrdersBloc>().add(
-                                  OrdersEvent.returnOrder(orderId: orderId))
-                              : '';
-                    },
-                    child: Text(
-                      data.orderStatus! == 'PENDING'
-                          ? 'Cancel Order'
-                          : data.orderStatus! == "DELIVERED"
-                              ? 'Return Order'
-                              : '',
-                      style: roboto (color: kRed),
-                    ))
+                Align(
+                  alignment: Alignment.centerRight,
+                  child: TextButton(
+                      onPressed: () {
+                        data.orderStatus == 'PENDING'
+                            ? context
+                                .read<OrdersBloc>()
+                                .add(OrdersEvent.cancelOrder(orderId: orderId))
+                            : data.orderStatus! == "DELIVERED"
+                                ? context.read<OrdersBloc>().add(
+                                    OrdersEvent.returnOrder(orderId: orderId))
+                                : '';
+                      },
+                      child: Text(
+                        data.orderStatus! == 'PENDING'
+                            ? 'Cancel Order'
+                            : data.orderStatus! == "DELIVERED"
+                                ? 'Return Order'
+                                : '',
+                        style: roboto(color: kRed),
+                      )),
+                )
               ],
             );
           },

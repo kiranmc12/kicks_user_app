@@ -150,8 +150,6 @@ class UserProfile implements UserRepository {
       final response = await apiServices.get(Apiendpoints.userAddress,
           queryParameters: idQurrey.toJson());
       if (response.statusCode == 200) {
-        print("service");
-        print(GetAddressResponseModel.fromJson(response.data).address);
         return Right(GetAddressResponseModel.fromJson(response.data));
       } else {
         return Left(Failure(

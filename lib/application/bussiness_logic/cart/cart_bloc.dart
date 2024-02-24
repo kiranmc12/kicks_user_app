@@ -86,7 +86,6 @@ class CartBloc extends Bloc<CartEvent, CartState> {
     on<_RemoveFromCart>((event, emit) async {
       emit(state.copyWith(
           isDone: false, hasError: false, quantityIndicator: false));
-      final tokenModel = await SharedPref.getToken();
       final result = await cartRepository.removeFromCart(
           removeFromCartQuery: RemoveFromCartQuery(
               cartId: cartId, inventoryId: event.productId));
@@ -106,8 +105,6 @@ class CartBloc extends Bloc<CartEvent, CartState> {
       final result = await cartRepository.updateQuantityPlus(
           updateCartQuery:
               UpdateCartQuery(cartId: cartId, inventoryId: event.productId));
-      print(cartId);
-      print(event.productId);
       result.fold((failure) => null, (cartResponseModel) {
         Map<int, int> map = Map.from(state.cartItems);
         map[event.productId] = map[event.productId]! + 1;

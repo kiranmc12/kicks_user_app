@@ -1,13 +1,10 @@
-import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kicks_sneakerapp/application/bussiness_logic/auth/auth_bloc.dart';
-import 'package:kicks_sneakerapp/application/bussiness_logic/home/home_bloc.dart';
 import 'package:kicks_sneakerapp/application/presentation/routes/routes.dart';
 import 'package:kicks_sneakerapp/application/presentation/utils/colors.dart';
 import 'package:kicks_sneakerapp/application/presentation/utils/constants.dart';
-import 'package:kicks_sneakerapp/application/presentation/utils/snackbar/showSnack.dart';
 
 class ScreenSplash extends StatelessWidget {
   const ScreenSplash({super.key});

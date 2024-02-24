@@ -23,7 +23,6 @@ class AuthApi implements AuthRepository {
   Future<Either<Failure, PhoneNumberOtpResponseModel>> otpLogin(
       {required PhoneNumberModel phoneNumberModel}) async {
     try {
-      print(phoneNumberModel.toJson());
       final response = await dio.post(Apiendpoints.loginOtp,
           data: phoneNumberModel.toJson());
       if (response.statusCode == 200 || response.statusCode == 201) {
@@ -67,12 +66,9 @@ class AuthApi implements AuthRepository {
   Future<Either<Failure, SignInResponseModel>> signIn(
       {required SignInModel signInModel}) async {
     try {
-      print(signInModel.toJson());
       final response =
           await dio.post(Apiendpoints.login, data: signInModel.toJson());
-      print(response.statusCode);
       if (response.statusCode == 200 || response.statusCode == 201) {
-        print(SignInResponseModel.fromJson(response.data));
         return Right(SignInResponseModel.fromJson(response.data));
       } else {
         return Left(Failure(
@@ -103,7 +99,6 @@ class AuthApi implements AuthRepository {
             message: SignUpResponseModel.fromJson(response.data).message!));
       }
     } on DioException catch (dioError) {
-      print("signup");
       log('dio error => ${dioError.toString()}');
       return Left(Failure(message: errorMsg));
     } catch (e) {

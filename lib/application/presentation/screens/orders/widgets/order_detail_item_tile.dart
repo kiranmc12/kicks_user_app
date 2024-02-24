@@ -43,17 +43,17 @@ class OrderDetailItemTile extends StatelessWidget {
                 product.productName!,
                 overflow: TextOverflow.ellipsis,
                 style:
-                    const TextStyle(fontWeight: FontWeight.w400, fontSize: 18),
+                    const TextStyle(fontWeight: FontWeight.w400, fontSize: 14),
               ),
             ),
             kHeight10,
-            Text('Quantity - ${product.quantity}'),
+            Text('Quantity - ${product.quantity}',style: tektur(),),
             Row(
               children: [
-                const Text('Amount : '),
+                 Text('Amount : ',style: tektur(),),
                 Text(
                   '₹ ${product.amount}',
-                  style: const TextStyle(fontWeight: FontWeight.w500, fontSize: 18),
+                  style:  const TextStyle(fontWeight: FontWeight.w500, fontSize: 14),
                 )
               ],
             ),

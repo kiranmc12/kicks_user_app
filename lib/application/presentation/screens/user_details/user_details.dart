@@ -11,11 +11,11 @@ import 'package:kicks_sneakerapp/application/presentation/widgets/appbar_widget.
 import 'package:kicks_sneakerapp/domain/models/user_details/security/change_password_model/change_password_model.dart';
 
 class ScreenUserDetails extends StatelessWidget {
-  const ScreenUserDetails({Key? key}) : super(key: key);
+  const ScreenUserDetails({super.key});
 
   @override
   Widget build(BuildContext context) {
-    WidgetsBinding.instance?.addPostFrameCallback((_) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
       context.read<UserBloc>().add(const UserEvent.getUserDetails());
     });
 

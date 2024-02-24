@@ -1,3 +1,4 @@
+
 import 'package:dio/dio.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:kicks_sneakerapp/application/presentation/utils/colors.dart';
@@ -78,7 +79,6 @@ class ApiServices {
     dynamic data,
   }) async {
     try {
-      print(queryParameters);
       final accessToken =
           await SharedPref.getToken().then((token) => token.accessToken);
       dio.options.headers.addAll(

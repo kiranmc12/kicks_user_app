@@ -51,7 +51,7 @@ class MonthlyOfferBoard extends StatelessWidget {
                             child: CachedNetworkImage(
                                 imageUrl: state.banners![0].images![0],
                                 placeholder: (context, url) =>
-                                    LoadingAnimation(width: 0.02),
+                                    const LoadingAnimation(width: 0.02),
                                 errorWidget: (context, object, stackTrace) {
                                   return const Icon(Icons.error);
                                 }),
@@ -64,9 +64,9 @@ class MonthlyOfferBoard extends StatelessWidget {
                               child: CachedNetworkImage(
                                 imageUrl: state.banners![0].images![1],
                                 placeholder: (context, url) =>
-                                    LoadingAnimation(width: 0.20),
+                                    const LoadingAnimation(width: 0.20),
                                 errorWidget: (context, url, error) =>
-                                    Icon(Icons.error),
+                                    const Icon(Icons.error),
                               ),
                             ),
                           )
