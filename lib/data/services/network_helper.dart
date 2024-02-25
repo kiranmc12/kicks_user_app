@@ -1,7 +1,4 @@
 
-import 'package:connectivity_plus/connectivity_plus.dart';
-import 'package:kicks_sneakerapp/application/bussiness_logic/network/network_bloc.dart';
-
 // class NetworkHelper {
 
 //   static void observeNetwork() {

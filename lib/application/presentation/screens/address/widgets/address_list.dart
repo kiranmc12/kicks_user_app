@@ -50,7 +50,6 @@ class AddressList extends StatelessWidget {
                     height: sHeight * 0.08,
                   );
                 }
-                print(state.address);
                 final address = state.address![index];
 
                 return ListTile(

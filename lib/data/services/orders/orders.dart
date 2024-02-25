@@ -145,7 +145,7 @@ class Orderapi implements OrderRepository {
   Future<Either<Failure, SucessModel>> returnOrder(
       {required IdQuery idQuery}) async {
     try {
-      final response = await apiServices.post(Apiendpoints.returnOrder,
+      final response = await apiServices.put(Apiendpoints.returnOrder,
           queryParameters: idQuery.toJson());
       if (response.statusCode == 200) {
         return Right(SucessModel.fromJson(response.data));

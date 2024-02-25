@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:kicks_sneakerapp/application/presentation/utils/colors.dart';
 
-double sHeight = 850;
-double sWidth = 350;
+double sHeight = 892;
+double sWidth = 412;
 
 const String errorMsg = 'Something went wrong, please try againn';
 
