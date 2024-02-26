@@ -65,7 +65,7 @@ class _ScreenBottombarState extends State<ScreenBottombar>
               padding: const EdgeInsets.fromLTRB(20, 5, 20, 0),
               child: TabBarView(
                   controller: tabController,
-                  dragStartBehavior: DragStartBehavior.down,
+                  dragStartBehavior: DragStartBehavior.start,
                   physics: const BouncingScrollPhysics(),
                   children: const [
                     ScreenHome(),

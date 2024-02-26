@@ -53,7 +53,12 @@ class ScreenOtpVerification extends StatelessWidget {
                 listener: (context, state) {
                   if (state.verifyOtpHasError) {
                     showSnack(context: context, message: state.message!);
-                  } else if (state.verifyOtpResponseModel != null) {
+                  } else if (state.verifyOtpResponseModel != null &&
+                      state.message != null) {
+                    showSnack(
+                        context: context,
+                        message: state.message!,
+                        color: kGreen);
                     Navigator.pushNamedAndRemoveUntil(
                         context, Routes.bottomNav, (route) => false);
                   }

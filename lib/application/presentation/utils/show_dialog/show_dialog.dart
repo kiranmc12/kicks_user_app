@@ -7,6 +7,7 @@ Future<dynamic> customShowDialoge(
   return showDialog(
       context: context,
       builder: (context) => AlertDialog(
+        backgroundColor: kWhite,
             actions: [
               ElevatedButton(
                 onPressed: () {

@@ -96,6 +96,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       result.fold((failure) {
         emit(state.copyWith(message: failure.message, otpIsLoading: false));
       }, (PhoneNumberOtpResponse) async {
+        print(PhoneNumberOtpResponse.data);
         emit(state.copyWith(
             otpIsLoading: false,
             phoneNumberOtpResponseModel: PhoneNumberOtpResponse));
@@ -114,6 +115,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       }, (otpVerifyResponse) async {
         emit(state.copyWith(
             verifyOtpIsLoading: false,
+            message: otpVerifyResponse.message,
             verifyOtpResponseModel: otpVerifyResponse));
         await SharedPref.setToken(
             tokenModel: TokenModel(
