@@ -1,3 +1,4 @@
+import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -11,28 +12,28 @@ class ScreenSplash extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    sizeFinder(context);
+     sizeFinder(context);
 
     WidgetsBinding.instance.addPostFrameCallback((_) {
       context.read<AuthBloc>().add(AuthEvent.loggedIn());
     });
+
     return Scaffold(
         backgroundColor: kBlack,
         body: BlocListener<AuthBloc, AuthState>(
           listener: (context, state) {
-            if (state.isLoggedIn) {
-              Navigator.popAndPushNamed(context, Routes.bottomNav);
-            } else {
-              Navigator.popAndPushNamed(context, Routes.signInPage);
-            }
+            Timer(const Duration(seconds: 2), () {
+              if (state.isLoggedIn) {
+                Navigator.popAndPushNamed(context, Routes.bottomNav);
+              } else {
+                Navigator.popAndPushNamed(context, Routes.signInPage);
+              }
+            });
           },
-          child:  Center(
+          child: Center(
             child: Text(
               "Kicks",
-              style: tektur(
-                color: kWhite,
-                fontSize: 35.0,
-              ),
+              style: TextStyle(color: kWhite,fontSize: sWidth*0.08)
             ),
           ),
         ));

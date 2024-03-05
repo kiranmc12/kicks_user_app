@@ -32,9 +32,7 @@ class CartApi implements CartRepository {
             message: CartResponseModel.fromJson(response.data).message!));
       }
     } on DioException catch (dioError) {
-      if (dioError.response!.statusCode == 500) {
-        return Left(Failure(message: dioError.response!.data['message']));
-      }
+     
       log('dio error => ${dioError.message.toString()}');
       return Left(Failure(message: dioError.response!.data['message']));
     } catch (e) {
@@ -56,11 +54,9 @@ class CartApi implements CartRepository {
             message: CartResponseModel.fromJson(response.data).message!));
       }
     } on DioException catch (dioError) {
-      if (dioError.response!.statusCode == 500) {
-        return Left(Failure(message: dioError.response!.data['message']));
-      }
+    
       log('dio error => ${dioError.message.toString()}');
-      return Left(Failure(message: dioError.response!.data['message']));
+      return Left(Failure(message: dioError.response?.data['message']?? "Something went wrong"));
     } catch (e) {
       log('error => ${e.toString()}');
       return Left(Failure(message: e.toString()));
@@ -79,10 +75,10 @@ class CartApi implements CartRepository {
       }
     } on DioException catch (dioError) {
       if (dioError.response!.statusCode == 500) {
-        return Left(Failure(message: dioError.response!.data['message']));
+        return Left(Failure(message: dioError.response?.data['message']?? "Something went wrong"));
       }
       log('dio error => ${dioError.message.toString()}');
-      return Left(Failure(message: dioError.response!.data['message']));
+      return Left(Failure(message: dioError.response?.data['message']?? "Something went wrong"));
     } catch (e) {
       log('error => ${e.toString()}');
       return Left(Failure(message: e.toString()));

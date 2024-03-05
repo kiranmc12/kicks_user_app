@@ -41,7 +41,7 @@ class AddressList extends StatelessWidget {
           return const Text('Plese add the address first');
         }
         return SizedBox(
-          height: sHeight * 0.45,
+          height: sHeight *0.70,
           child: ListView.separated(
               shrinkWrap: true,
               itemBuilder: (context, index) {

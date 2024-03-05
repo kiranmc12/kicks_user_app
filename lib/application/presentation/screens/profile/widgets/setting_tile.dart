@@ -67,7 +67,7 @@ class SettingTiles extends StatelessWidget {
             ),
             onTap: () async {
               final Uri url = Uri.parse(
-                  'https://www.privacypolicies.com/live/381f2dcb-89c2-4bad-8291-1f9381b65693');
+                  'https://www.freeprivacypolicy.com/live/29fa5b5e-a590-4172-9ca4-86a74e427496');
               if (!await launchUrl(url)) {
                 Fluttertoast.showToast(msg: 'cannot open url');
               }

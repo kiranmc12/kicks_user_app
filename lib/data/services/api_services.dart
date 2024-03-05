@@ -2,7 +2,6 @@
 import 'package:dio/dio.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:kicks_sneakerapp/application/presentation/utils/colors.dart';
-import 'package:kicks_sneakerapp/data/services/dierror.dart';
 
 import 'package:kicks_sneakerapp/data/shared_preferences/shared_preferences.dart';
 
@@ -32,9 +31,9 @@ class ApiServices {
 
       return response;
     } on DioException catch (exception) {
-      final errorMessage = handleError(exception);
+      // final errorMessage = handleError(exception);
 
-      Fluttertoast.showToast(msg: errorMessage, backgroundColor: kRed);
+      // Fluttertoast.showToast(msg: errorMessage, backgroundColor: kRed);
       rethrow;
     } catch (e) {
       rethrow;
@@ -63,9 +62,9 @@ class ApiServices {
       );
       return response;
     } on DioException catch (exception) {
-      final errorMessage = handleError(exception);
+      // final errorMessage = handleError(exception);
 
-      Fluttertoast.showToast(msg: errorMessage, backgroundColor: kRed);
+      // Fluttertoast.showToast(msg: errorMessage, backgroundColor: kRed);
       rethrow;
     } catch (e) {
       rethrow;
@@ -92,9 +91,9 @@ class ApiServices {
           queryParameters: queryParameters);
       return response;
     } on DioException catch (exception) {
-      final errorMessage = handleError(exception);
+      // final errorMessage = handleError(exception);
 
-      Fluttertoast.showToast(msg: errorMessage, backgroundColor: kRed);
+      // Fluttertoast.showToast(msg: errorMessage, backgroundColor: kRed);
       rethrow;
     } catch (e) {
       rethrow;
@@ -120,9 +119,9 @@ class ApiServices {
           await dio.delete(url, data: data, queryParameters: queryParameters);
       return response;
     } on DioException catch (exception) {
-      final errorMessage = handleError(exception);
+      // final errorMessage = handleError(exception);
 
-      Fluttertoast.showToast(msg: errorMessage, backgroundColor: kRed);
+      // Fluttertoast.showToast(msg: errorMessage, backgroundColor: kRed);
       rethrow;
     } catch (e) {
       rethrow;
